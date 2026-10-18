@@ -8,11 +8,57 @@
         content="Masaż sportowy, klasyczny, kinesiotaping w Warszawie (Mokotów, ul. Kazimierzowska 69). Doświadczony masażysta Dzmitry (5+ lat praktyki).">
     <meta name="keywords"
         content="masaż warszawa mokotów, masaż sportowy warszawa, kinesiotaping warszawa, teypowanie warszawa, masaż estetyczny, masaż dla dzieci, масаж варшава мокотув">
+    
+    <!-- Open Graph / Мессенджеры -->
     <meta property="og:title" content="Dmitry — Masażysta Warszawa Mokotów | Kazimierzowska 69">
     <meta property="og:description"
         content="Masaż sportowy, klasyczny, kinesiotaping, masaż estetyczny i dziecięcy w Warszawie (Mokotów). Ponad 5 lat doświadczenia.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/img/workplace.jpg">
+
+    <!-- Favicon (SVG без внешних файлов) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💆‍♂️</text></svg>">
+
     <title>Dmitry | Masaż & Kinesiotaping Warszawa Mokotów</title>
+
+    <!-- Schema.org JSON-LD для Google (Local SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthAndBeautyBusiness",
+      "name": "Dmitry — Masaż & Kinesiotaping Warszawa Mokotów",
+      "image": "assets/img/workplace.jpg",
+      "telephone": "+48731532331",
+      "url": "https://massage-ww.github.io",
+      "priceRange": "150 - 220 PLN",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Kazimierzowska 69",
+        "addressLocality": "Warszawa",
+        "postalCode": "02-518",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.2008,
+        "longitude": 21.0084
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -35,32 +81,21 @@
             }
         }
     </script>
-    <style>
-        .glow-cyan {
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
-        }
 
-        .glow-purple {
-            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
-        }
-        
-        .lang-btn.active {
-            background-color: #06b6d4;
-            color: #020617;
-            font-weight: 700;
-        }
-    </style>
+    <!-- Внешние кастомные стили -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
 
-    <!-- Nawigacja -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <!-- Навигация -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <a href="#" class="text-lg sm:text-xl font-bold tracking-wider bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 DMITRY • MASAŻ
             </a>
 
+            <!-- Десктоп-меню -->
             <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
                 <a href="#about" data-i18n="nav_about" class="hover:text-cyan-400 transition">O mnie</a>
                 <a href="#services" data-i18n="nav_services" class="hover:text-cyan-400 transition">Usługi</a>
@@ -69,16 +104,37 @@
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Przełącznik języków: PL | UA | RU | EN -->
+                <!-- Переключатель языков -->
                 <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-0.5 sm:p-1 text-xs">
-                    <button onclick="changeLanguageManually('pl')" id="btn-pl" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">PL</button>
-                    <button onclick="changeLanguageManually('ua')" id="btn-ua" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">UA</button>
-                    <button onclick="changeLanguageManually('ru')" id="btn-ru" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">RU</button>
-                    <button onclick="changeLanguageManually('en')" id="btn-en" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">EN</button>
+                    <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">PL</button>
+                    <button onclick="changeLanguageManually('ua')" id="btn-ua" aria-label="Українська мова" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">UA</button>
+                    <button onclick="changeLanguageManually('ru')" id="btn-ru" aria-label="Русский язык" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">RU</button>
+                    <button onclick="changeLanguageManually('en')" id="btn-en" aria-label="English language" class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">EN</button>
                 </div>
 
-                <a href="https://wa.me/48731532331" target="_blank"
-                    class="flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm transition transform hover:scale-105">
+                <!-- Быстрая кнопка записи в шапке -->
+                <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                    class="wa-link hidden sm:flex items-center gap-1.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm transition transform hover:scale-105">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span data-i18n="btn_book">Zapisz się</span>
+                </a>
+
+                <!-- Кнопка бургер-меню для мобилок -->
+                <button id="mobile-menu-btn" aria-label="Otwórz menu" class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-slate-900 border border-slate-800">
+                    <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Выпадающее меню для мобильных -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-5 space-y-3">
+            <a href="#about" data-i18n="nav_about" class="block text-slate-300 hover:text-cyan-400 font-medium py-1">O mnie</a>
+            <a href="#services" data-i18n="nav_services" class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Usługi</a>
+            <a href="#pricing" data-i18n="nav_pricing" class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Cennik</a>
+            <a href="#contacts" data-i18n="nav_contacts" class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Lokalizacja</a>
+            <div class="pt-2">
+                <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                    class="wa-link flex items-center justify-center gap-2 bg-cyan-500 text-slate-950 font-bold py-2.5 rounded-xl text-sm">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span data-i18n="btn_book">Zapisz się</span>
                 </a>
@@ -86,7 +142,7 @@
         </div>
     </header>
 
-    <!-- Sekcja Hero -->
+    <!-- Секция Hero -->
     <section class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -106,8 +162,8 @@
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://wa.me/48731532331" target="_blank"
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg glow-cyan flex items-center justify-center gap-2">
+                <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                    class="wa-link w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg glow-cyan flex items-center justify-center gap-2">
                     <i data-lucide="calendar" class="w-5 h-5"></i>
                     <span data-i18n="btn_cta">Umów wizytę (+48 731 532 331)</span>
                 </a>
@@ -118,7 +174,7 @@
                 </a>
             </div>
 
-            <!-- Karty z faktami (Rozdzielone) -->
+            <!-- Факты -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto text-left">
                 <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
                     <div class="text-2xl font-bold text-cyan-400" data-i18n="stat_exp_val">5+ lat</div>
@@ -140,13 +196,13 @@
         </div>
     </section>
 
-    <!-- O mnie z foto gabinetu -->
+    <!-- О мастере и фото кабинета -->
     <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/60">
         <div class="max-w-5xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div>
-                    <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2" data-i18n="about_tag">O MNIE</h2>
-                    <h3 class="text-3xl font-extrabold text-white mb-6" data-i18n="about_title">Masażysta z pasją i doświadczeniem</h3>
+                    <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2" data-i18n="about_tag">O MNIE</span>
+                    <h2 class="text-3xl font-extrabold text-white mb-6" data-i18n="about_title">Masażysta z pasją i doświadczeniem</h2>
                     <div class="space-y-4 text-slate-300 leading-relaxed" data-i18n="about_text">
                         <p>Nazywam się Dzmitry. Jestem certyfikowanym masażystą z ponad 5-letnim doświadczeniem zawodowym. Mój gabinet znajduje się w Warszawie na Mokotowie.</p>
                         <p>W swojej pracy kładę nacisk na anatomiczną precyzję, zrozumienie mechaniki ciała i realną pomoc przy przeciążeniach po treningu lub pracy siedzącej.</p>
@@ -154,7 +210,7 @@
                     </div>
                 </div>
 
-                <!-- Zdjęcie gabinetu -->
+                <!-- Фото кабинета -->
                 <div class="space-y-4">
                     <div class="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
                         <img src="assets/img/workplace.jpg" alt="Gabinet masażu Warszawa Kazimierzowska 69" class="w-full h-80 object-cover object-center transition duration-500 group-hover:scale-105">
@@ -179,12 +235,12 @@
         </div>
     </section>
 
-    <!-- Usługi (Rozdzielone na 5 czystych kierunków) -->
+    <!-- Услуги (5 направлений) -->
     <section id="services" class="py-20">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-16">
-                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2" data-i18n="serv_tag">Specjalizacja</h2>
-                <h3 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="serv_title">W czym mogę Ci pomóc</h3>
+                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2" data-i18n="serv_tag">Specjalizacja</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="serv_title">W czym mogę Ci pomóc</h2>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -195,7 +251,7 @@
                         <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5">
                             <i data-lucide="flame" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2" data-i18n="s1_title">Masaż Sportowy</h4>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s1_title">Masaż Sportowy</h3>
                         <p class="text-slate-400 text-sm mb-5" data-i18n="s1_desc">Dedykowany osobom aktywnym i sportowcom. Przygotowanie do startów, zapobieganie urazom i przyspieszenie regeneracji powysiłkowej.</p>
                         <div class="space-y-2 mb-6 text-xs text-slate-300">
                             <div class="flex items-center gap-2"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-cyan-400"></i> <span data-i18n="s1_f1">Rozbicie zakwasów i punktów spustowych</span></div>
@@ -204,17 +260,17 @@
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <a href="https://wa.me/48731532331" class="text-cyan-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link text-cyan-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
                     </div>
                 </div>
 
-                <!-- 2. Kinesiotaping (Samodzielna usługa) -->
+                <!-- 2. Kinesiotaping -->
                 <div class="p-7 rounded-2xl border border-emerald-500/40 bg-slate-900/70 hover:border-emerald-400 transition duration-300 flex flex-col justify-between glow-cyan">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
                             <i data-lucide="layers" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2" data-i18n="s2_title">Kinesiotaping</h4>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s2_title">Kinesiotaping</h3>
                         <p class="text-slate-400 text-sm mb-5" data-i18n="s2_desc">Plastrowanie dynamiczne jako samodzielny zabieg lub uzupełnienie terapii. Stabilizuje stawy, odciąża bolące mięśnie i redukuje obrzęki.</p>
                         <div class="space-y-2 mb-6 text-xs text-slate-300">
                             <div class="flex items-center gap-2"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-emerald-400"></i> <span data-i18n="s2_f1">Aplikacje na kolana, barki, odcinek lędźwiowy</span></div>
@@ -223,7 +279,7 @@
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-400" data-i18n="time_tape">Zabieg celowany</span>
-                        <a href="https://wa.me/48731532331" class="text-emerald-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link text-emerald-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
                     </div>
                 </div>
 
@@ -233,7 +289,7 @@
                         <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5">
                             <i data-lucide="activity" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2" data-i18n="s3_title">Masaż Klasyczny</h4>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s3_title">Masaż Klasyczny</h3>
                         <p class="text-slate-400 text-sm mb-5" data-i18n="s3_desc">Podstawa walki z bólem pleców, poprawy krążenia i usunięcia przewlekłego napięcia mięśniowego.</p>
                         <div class="space-y-2 mb-6 text-xs text-slate-300">
                             <div class="flex items-center gap-2"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-purple-400"></i> <span data-i18n="s3_f1">Odcinek szyjny, grzbiet i lędźwie</span></div>
@@ -242,7 +298,7 @@
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <a href="https://wa.me/48731532331" class="text-purple-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link text-purple-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
                     </div>
                 </div>
 
@@ -252,7 +308,7 @@
                         <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-5">
                             <i data-lucide="sparkles" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2" data-i18n="s4_title">Masaż Estetyczny</h4>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s4_title">Masaż Estetyczny</h3>
                         <p class="text-slate-400 text-sm mb-5" data-i18n="s4_desc">Masaż modelujący i ujędrniający sylwetkę. Poprawia mikrokrążenie, redukuje zastoje limfatyczne i cellulit.</p>
                         <div class="space-y-2 mb-6 text-xs text-slate-300">
                             <div class="flex items-center gap-2"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-pink-400"></i> <span data-i18n="s4_f1">Drenaż limfatyczny i likwidacja obrzęków</span></div>
@@ -261,7 +317,7 @@
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <a href="https://wa.me/48731532331" class="text-pink-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link text-pink-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
                     </div>
                 </div>
 
@@ -271,7 +327,7 @@
                         <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-5">
                             <i data-lucide="smile" class="w-6 h-6"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2" data-i18n="s5_title">Masaż dla Dzieci</h4>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s5_title">Masaż dla Dzieci</h3>
                         <p class="text-slate-400 text-sm mb-5" data-i18n="s5_desc">Delikatny, bezpieczny masaż wspierający prawidłowy rozwój układu ruchu. Pomaga przy wadach postawy i napięciach u dzieci i młodzieży.</p>
                         <div class="space-y-2 mb-6 text-xs text-slate-300">
                             <div class="flex items-center gap-2"><i data-lucide="circle-dot" class="w-3.5 h-3.5 text-blue-400"></i> <span data-i18n="s5_f1">Korekcja wad postawy i skolioz</span></div>
@@ -280,7 +336,7 @@
                     </div>
                     <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <span class="text-xs text-slate-400" data-i18n="time_opt">40–50 min</span>
-                        <a href="https://wa.me/48731532331" class="text-blue-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link text-blue-400 font-semibold text-sm hover:underline flex items-center gap-1"><span data-i18n="btn_book_sm">Zapisz się</span> &rarr;</a>
                     </div>
                 </div>
 
@@ -292,16 +348,16 @@
     <section id="pricing" class="py-20 bg-slate-900/40">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-16">
-                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2" data-i18n="price_tag">Cennik</h2>
-                <h3 class="text-3xl font-extrabold text-white" data-i18n="price_title">Przejrzyste ceny w Warszawie</h3>
-                <p class="text-slate-400 text-xs mt-2" data-i18n="price_note">Płatność gotówką lub BLIK na miejscu</p>
+                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2" data-i18n="price_tag">Cennik</span>
+                <h2 class="text-3xl font-extrabold text-white" data-i18n="price_title">Przejrzyste ceny w Warszawie</h2>
+                <p class="text-slate-400 text-xs mt-2" data-i18n="price_note">Płatność gotówką lub BLIK na miejscu. Ceny pozostałych usług do uzgodnienia.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Pakiet 1 -->
+                <!-- Пакет 1 -->
                 <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
                     <div>
-                        <h4 class="text-lg font-bold text-white mb-1" data-i18n="p1_name">Klasyczny / Plecy</h4>
+                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p1_name">Klasyczny / Plecy</h3>
                         <p class="text-xs text-slate-400 mb-4" data-i18n="p1_sub">Rozluźnienie i profilaktyka</p>
                         <div class="text-3xl font-extrabold text-cyan-400 mb-6">150 PLN <span class="text-xs text-slate-400 font-normal">/ sesja</span></div>
                         <ul class="space-y-2 text-xs text-slate-300 mb-6">
@@ -309,16 +365,16 @@
                             <li>✓ <span data-i18n="p1_f2">Zdjęcie napięć mięśniowych</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/48731532331" class="block w-full py-2.5 rounded-lg border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-300 text-center font-medium text-sm transition" data-i18n="btn_pick">Wybierz</a>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link block w-full py-2.5 rounded-lg border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-300 text-center font-medium text-sm transition" data-i18n="btn_pick">Wybierz</a>
                 </div>
 
-                <!-- Pakiet 2 -->
+                <!-- Пакет 2 -->
                 <div class="p-6 rounded-2xl border border-emerald-500/40 bg-slate-950 relative flex flex-col justify-between glow-cyan">
                     <div class="absolute -top-3 right-4 px-2.5 py-0.5 bg-emerald-500 text-slate-950 font-bold rounded-full text-[10px] uppercase tracking-wider" data-i18n="badge_pop">
                         Polecany
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-white mb-1" data-i18n="p2_name">Masaż Sportowy</h4>
+                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p2_name">Masaż Sportowy</h3>
                         <p class="text-xs text-slate-400 mb-4" data-i18n="p2_sub">Głęboka regeneracja po wysiłku</p>
                         <div class="text-3xl font-extrabold text-emerald-400 mb-6">180 PLN <span class="text-xs text-slate-400 font-normal">/ 60 min</span></div>
                         <ul class="space-y-2 text-xs text-slate-300 mb-6">
@@ -326,13 +382,13 @@
                             <li>✓ <span data-i18n="p2_f2">Przywrócenie pełnej sprawności</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/48731532331" class="block w-full py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-center font-bold text-sm transition" data-i18n="btn_pick">Wybierz</a>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link block w-full py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-center font-bold text-sm transition" data-i18n="btn_pick">Wybierz</a>
                 </div>
 
-                <!-- Pakiet 3 -->
+                <!-- Пакет 3 -->
                 <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
                     <div>
-                        <h4 class="text-lg font-bold text-white mb-1" data-i18n="p3_name">Masaż + Taping</h4>
+                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p3_name">Masaż + Taping</h3>
                         <p class="text-xs text-slate-400 mb-4" data-i18n="p3_sub">Kompleksowa pomoc w kontuzjach</p>
                         <div class="text-3xl font-extrabold text-purple-400 mb-6">220 PLN <span class="text-xs text-slate-400 font-normal">/ pakiet</span></div>
                         <ul class="space-y-2 text-xs text-slate-300 mb-6">
@@ -340,23 +396,23 @@
                             <li>✓ <span data-i18n="p3_f2">Długotrwała ulga i stabilizacja</span></li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/48731532331" class="block w-full py-2.5 rounded-lg border border-purple-500/50 hover:bg-purple-500/10 text-purple-300 text-center font-medium text-sm transition" data-i18n="btn_pick">Wybierz</a>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" class="wa-link block w-full py-2.5 rounded-lg border border-purple-500/50 hover:bg-purple-500/10 text-purple-300 text-center font-medium text-sm transition" data-i18n="btn_pick">Wybierz</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lokalizacja i Kontakt -->
+    <!-- Локация и Контакты -->
     <section id="contacts" class="py-20 bg-slate-900/60 border-t border-slate-800">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-14">
-                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2" data-i18n="loc_tag">Kontakt & Lokalizacja</h2>
-                <h3 class="text-3xl font-extrabold text-white" data-i18n="loc_title">Zapraszam do gabinetu</h3>
+                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2" data-i18n="loc_tag">Kontakt & Lokalizacja</span>
+                <h2 class="text-3xl font-extrabold text-white" data-i18n="loc_title">Zapraszam do gabinetu</h2>
                 <p class="text-slate-400 text-sm mt-2" data-i18n="loc_sub">Warszawa, Mokotów • ul. Kazimierzowska 69</p>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-8 items-start">
-                <!-- Info i przyciski -->
+                <!-- Инфо и кнопки -->
                 <div class="lg:col-span-5 space-y-6">
                     <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950/80 backdrop-blur space-y-5">
                         <div class="flex items-start gap-4">
@@ -364,7 +420,7 @@
                                 <i data-lucide="map-pin" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base" data-i18n="loc_address">Adres gabinetu</h4>
+                                <h3 class="text-white font-semibold text-base" data-i18n="loc_address">Adres gabinetu</h3>
                                 <p class="text-slate-200 text-sm font-medium mt-1">ul. Kazimierzowska 69</p>
                                 <p class="text-xs text-slate-400 mt-0.5" data-i18n="loc_details">Warszawa, Mokotów (Centrum Masażu)</p>
                             </div>
@@ -375,20 +431,20 @@
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <h4 class="text-white font-semibold text-base" data-i18n="loc_phone">Rezerwacje & Kontakt</h4>
+                                <h3 class="text-white font-semibold text-base" data-i18n="loc_phone">Rezerwacje & Kontakt</h3>
                                 <p class="text-slate-200 font-bold text-lg mt-0.5">+48 731 532 331</p>
                             </div>
                         </div>
 
-                        <!-- Przyciski kontaktu -->
+                        <!-- Кнопки мессенджеров -->
                         <div class="pt-2 flex flex-col gap-2.5">
-                            <a href="https://wa.me/48731532331" target="_blank"
-                                class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
+                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                                class="wa-link w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
                                 <span data-i18n="btn_wa">Napisz na WhatsApp (Szybka rezerwacja)</span>
                             </a>
 
-                            <a href="https://t.me/Massage_ww" target="_blank"
+                            <a href="https://t.me/Massage_ww" target="_blank" rel="noopener noreferrer"
                                 class="w-full py-3 rounded-xl bg-sky-500/15 hover:bg-sky-500/25 text-sky-300 font-semibold text-sm flex items-center justify-center gap-2 transition border border-sky-500/40">
                                 <i data-lucide="send" class="w-4 h-4"></i>
                                 <span data-i18n="btn_tg">Kanał Telegram @Massage_ww (Terminy & Zapis)</span>
@@ -403,11 +459,12 @@
                     </div>
                 </div>
 
-                <!-- Prawa kolumna: Mapa + Wejście -->
+                <!-- Карта + Фото входа -->
                 <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-                    <!-- Mapa Google -->
+                    <!-- Google Maps iframe -->
                     <div class="relative h-[340px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl">
                         <iframe
+                            title="Google Maps Kazimierzowska 69 Warszawa"
                             src="https://maps.google.com/maps?q=Kazimierzowska+69,+Warszawa&hl=pl&z=15&output=embed"
                             class="w-full h-full border-0" allowfullscreen="" loading="lazy">
                         </iframe>
@@ -417,9 +474,9 @@
                         </div>
                     </div>
 
-                    <!-- Zdjęcie wejścia -->
+                    <!-- Фото фасада / входа -->
                     <div class="relative h-[340px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl group">
-                        <img src="assets/img/entrance.jpg" alt="Wejście Kazimierzowska 69 Warszawa" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105">
+                        <img src="assets/img/entrance.jpg" alt="Wejście do gabinetu Kazimierzowska 69 Warszawa" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105">
                         <div class="absolute bottom-3 left-3 bg-slate-950/85 backdrop-blur border border-slate-800 px-2.5 py-1 rounded-lg text-xs text-slate-200 flex items-center gap-1.5">
                             <i data-lucide="door-open" class="w-3.5 h-3.5 text-cyan-400"></i>
                             <span data-i18n="badge_entrance">Wejście od ulicy</span>
@@ -430,12 +487,12 @@
         </div>
     </section>
 
-    <!-- Stopka -->
+    <!-- Подвал -->
     <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>© 2026 Dmitry Masaż • Warszawa Mokotów, ul. Kazimierzowska 69</p>
             <div class="flex items-center gap-4">
-                <a href="https://t.me/Massage_ww" target="_blank" class="hover:text-cyan-400 transition flex items-center gap-1">
+                <a href="https://t.me/Massage_ww" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition flex items-center gap-1">
                     <i data-lucide="send" class="w-3.5 h-3.5"></i> Telegram: @Massage_ww
                 </a>
                 <a href="tel:+48731532331" class="hover:text-cyan-400 transition">
@@ -445,185 +502,9 @@
         </div>
     </footer>
 
-    <!-- Skrypt tłumaczeń (PL, UA, RU, EN) -->
-    <script>
-        const i18n = {
-            pl: {
-                page_title: "Dmitry | Masaż & Kinesiotaping Warszawa Mokotów",
-                nav_about: "O mnie", nav_services: "Usługi", nav_pricing: "Cennik", nav_contacts: "Lokalizacja",
-                btn_book: "Zapisz się", btn_cta: "Umów wizytę (+48 731 532 331)", btn_services: "Oferta i cennik", btn_book_sm: "Zapisz się", btn_pick: "Wybierz",
-                btn_wa: "Napisz na WhatsApp (Szybka rezerwacja)",
-                btn_tg: "Kanał Telegram @Massage_ww (Terminy & Zapis)",
-                btn_call: "Zadzwoń bezpośrednio: +48 731 532 331",
-                hero_badge: "Warszawa, Mokotów • ul. Kazimierzowska 69",
-                hero_title: 'Masaż sportowy & regeneracja <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Twojego ciała</span>.',
-                hero_desc: "Cześć, mam na imię Dzmitry. Specjalizuję się w regeneracji po treningach, usuwaniu przeciążeń, kinesiotapingu oraz masażu klasycznym.",
-                stat_exp_val: "5+ lat", stat_exp: "Praktyki zawodowej", stat_loc: "Kazimierzowska 69", stat_taping_sub: "Samodzielnie i w terapii", stat_appr: "Indywidualne podejście",
-                about_tag: "O MNIE", about_title: "Masażysta z pasją i doświadczeniem",
-                about_text: "<p>Nazywam się Dzmitry. Jestem certyfikowanym masażystą z ponad 5-letnim doświadczeniem zawodowym. Mój gabinet znajduje się w Warszawie na Mokotowie.</p><p>W swojej pracy kładę nacisk na anatomiczną precyzję, zrozumienie mechaniki ciała i realną pomoc przy przeciążeniach po treningu lub pracy siedzącej.</p><p class='text-slate-400 text-sm italic'>«Gwarantuję indywidualne podejście do każdego problemu, komfortowe warunki i profesjonalną atmosferę».</p>",
-                badge_cabinet: "Gabinet • ul. Kazimierzowska 69",
-                f_1: "Szybka ulga w spiętych mięśniach i zakwasach", f_2: "Aplikacje plastrów (kinesiotaping) na stawy i mięśnie",
-                serv_tag: "Specjalizacja", serv_title: "W czym mogę Ci pomóc",
-                s1_title: "Masaż Sportowy", s1_desc: "Dedykowany osobom aktywnym i sportowcom. Przygotowanie do startów, zapobieganie urazom i przyspieszenie regeneracji powysiłkowej.", s1_f1: "Rozbicie zakwasów i punktów spustowych", s1_f2: "Zwiększenie elastyczności mięśni i więzadeł",
-                s2_title: "Kinesiotaping", s2_desc: "Plastrowanie dynamiczne jako samodzielny zabieg lub uzupełnienie terapii. Stabilizuje stawy, odciąża bolące mięśnie i redukuje obrzęki.", s2_f1: "Aplikacje na kolana, barki, odcinek lędźwiowy", s2_f2: "Działa 24/7 przez kilka dni po nałożeniu",
-                s3_title: "Masaż Klasyczny", s3_desc: "Podstawa walki z bólem pleców, poprawy krążenia i usunięcia przewlekłego napięcia mięśniowego.", s3_f1: "Odcinek szyjny, grzbiet i lędźwie", s3_f2: "Ulga po wielogodzinnym siedzeniu",
-                s4_title: "Masaż Estetyczny", s4_desc: "Masaż modelujący i ujędrniający sylwetkę. Poprawia mikrokrążenie, redukuje zastoje limfatyczne i cellulit.", s4_f1: "Drenaż limfatyczny i likwidacja obrzęków", s4_f2: "Ujędrnienie i modelowanie sylwetki",
-                s5_title: "Masaż dla Dzieci", s5_desc: "Delikatny, bezpieczny masaż wspierający prawidłowy rozwój układu ruchu. Pomaga przy wadach postawy i napięciach u dzieci i młodzieży.", s5_f1: "Korekcja wad postawy i skolioz", s5_f2: "Bezpieczne techniki dla młodych sportowców",
-                time_60: "60 min", time_tape: "Zabieg celowany", time_opt: "40–50 min",
-                price_tag: "Cennik", price_title: "Przejrzyste ceny w Warszawie", price_note: "Płatność gotówką lub BLIK na miejscu", badge_pop: "Polecany",
-                p1_name: "Klasyczny / Plecy", p1_sub: "Rozluźnienie i profilaktyka", p1_f1: "Dokładne opracowanie pleców i karku", p1_f2: "Zdjęcie napięć mięśniowych",
-                p2_name: "Masaż Sportowy", p2_sub: "Głęboka regeneracja po wysiłku", p2_f1: "Intensywna praca z powięziami i mięśniami", p2_f2: "Przywrócenie pełnej sprawności",
-                p3_name: "Masaż + Taping", p3_sub: "Kompleksowa pomoc w kontuzjach", p3_f1: "Masaż celowany + oklejenie taśmami", p3_f2: "Długotrwała ulga i stabilizacja",
-                loc_tag: "Kontakt & Lokalizacja", loc_title: "Zapraszam do gabinetu", loc_sub: "Warszawa, Mokotów • ul. Kazimierzowska 69",
-                loc_address: "Adres gabinetu", loc_details: "Warszawa, Mokotów (Centrum Masażu)", loc_phone: "Rezerwacje & Kontakt",
-                badge_map: "Mokotów, Kazimierzowska 69",
-                badge_entrance: "Wejście od ulicy",
-                stat_taping_val: "Kinesiotaping",
-            },
-            ua: {
-                page_title: "Дмитро | Спортивний масаж і тейпування Варшава Мокотув",
-                nav_about: "Про мене", nav_services: "Послуги", nav_pricing: "Ціни", nav_contacts: "Локація",
-                btn_book: "Записатися", btn_cta: "Записатися (+48 731 532 331)", btn_services: "Послуги та ціни", btn_book_sm: "Записатися", btn_pick: "Обрати",
-                btn_wa: "Написати у WhatsApp (Швидкий запис)",
-                btn_tg: "Канал Telegram @Massage_ww (Віконця та запис)",
-                btn_call: "Прямий дзвінок: +48 731 532 331",
-                hero_badge: "Варшава, Мокотув • вул. Kazimierzowska 69",
-                hero_title: 'Спортивний масаж & перезавантаження <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">вашого тіла</span>.',
-                hero_desc: "Мене звати Дмитро. Я спеціалізуюся на відновленні після тренувань, усуненні перенапруження, кінезіотейпуванні та класичному масажі.",
-                stat_exp_val: "5+ років", stat_exp: "Років практики", stat_loc: "Kazimierzowska 69", stat_taping_sub: "Окремо або в терапії", stat_appr: "Індивідуальний підхід",
-                about_tag: "ПРО МЕНЕ", about_title: "Професійний підхід до вашого здоров'я",
-                about_text: "<p>Мене звати Дмитро. Я сертифікований масажист із досвідом роботи понад 5 років. Мій кабінет розташований у Варшаві на Мокотові.</p><p>У роботі роблю акцент на анатомічну точність, зняття гіпертонусу та відновлення рухливості після важких тренувань чи сидячої роботи.</p><p class='text-slate-400 text-sm italic'>«Індивідуальний підхід, комфортна атмосфера та помітний результат уже після першого сеансу».</p>",
-                badge_cabinet: "Кабінет • вул. Kazimierzowska 69",
-                f_1: "Швидке зняття спазмів і кріпатури", f_2: "Тейпування зв'язок, суглобів і м'язів",
-                serv_tag: "Спеціалізація", serv_title: "Чим я можу вам допомогти",
-                s1_title: "Спортивний масаж", s1_desc: "Для спортсменів і активних людей. Підготовка до змагань, профілактика травм і прискорення відновлення.", s1_f1: "Опрацювання тригерів і м'язових затисків", s1_f2: "Підвищення еластичності м'язів і зв'язок",
-                s2_title: "Кінезіотейпування", s2_desc: "Динамічне тейпування як окрема процедура або частина терапії. Надійно стабілізує суглоби, знімає набряки та розвантажує м'язи.", s2_f1: "Аплікації на коліна, плечі, поперек", s2_f2: "Працює 24/7 протягом кількох днів",
-                s3_title: "Класичний масаж", s3_desc: "Основа боротьби з болем у спині, покращення кровообігу та усунення хронічного м'язового напруження.", s3_f1: "Шийно-комірцева зона та спина", s3_f2: "Полегшення після сидячої роботи",
-                s4_title: "Естетичний масаж", s4_desc: "Моделюючий масаж для тонусу та пружності шкіри. Покращує мікроциркуляцію, усуває лімфатичні застої та целюліт.", s4_f1: "Лімфодренаж і зняття набряків", s4_f2: "Підтяжка та моделювання контурів",
-                s5_title: "Масаж для Дітей", s5_desc: "Делікатний, безпечний масаж для підтримки правильного розвитку постави. Допомагає при сколіозах і навантаженнях у школярів.", s5_f1: "Корекція постави та зміцнення спини", s5_f2: "Безпечні м'які техніки для дітей",
-                time_60: "60 хв", time_tape: "Цільова процедура", time_opt: "40–50 хв",
-                price_tag: "Ціни", price_title: "Прозорий прайс у Варшаві", price_note: "Оплата готівкою або BLIK на місці", badge_pop: "Популярний",
-                p1_name: "Класичний / Спина", p1_sub: "Розслаблення та профілактика", p1_f1: "Ретельне опрацювання спини та шиї", p1_f2: "Зняття м'язових затисків",
-                p2_name: "Спортивний масаж", p2_sub: "Глибоке відновлення після залу", p2_f1: "Інтенсивна робота з фасціями та м'язами", p2_f2: "Повернення повної працездатності",
-                p3_name: "Масаж + Тейпування", p3_sub: "Комплексна допомога при травмах", p3_f1: "Цільовий масаж + накладання тейпів", p3_f2: "Тривала фіксація та полегшення",
-                loc_tag: "Контакти & Локація", loc_title: "Запрошую до кабінету", loc_sub: "Варшава, Мокотув • вул. Kazimierzowska 69",
-                loc_address: "Адреса кабінету", loc_details: "Варшава, Мокотув (Центр Масажу)", loc_phone: "Запис & Контакти",
-                badge_map: "Мокотув, Kazimierzowska 69",
-                badge_entrance: "Вхід з вулиці",
-                stat_taping_val: "Тейпування",
-            },
-            ru: {
-                page_title: "Дмитрий | Спортивный массаж и тейпирование Варшава Мокотув",
-                nav_about: "Обо мне", nav_services: "Услуги", nav_pricing: "Цены", nav_contacts: "Локация",
-                btn_book: "Записаться", btn_cta: "Записаться (+48 731 532 331)", btn_services: "Услуги и цены", btn_book_sm: "Записаться", btn_pick: "Выбрать",
-                btn_wa: "Написать в WhatsApp (Быстрая запись)",
-                btn_tg: "Канал Telegram @Massage_ww (Окошки и запись)",
-                btn_call: "Прямой звонок: +48 731 532 331",
-                hero_badge: "Варшава, Мокотув • ул. Kazimierzowska 69",
-                hero_title: 'Спортивный массаж & перезагрузка <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">вашего тела</span>.',
-                hero_desc: "Меня зовут Дмитрий. Я специализируюсь на восстановлении после нагрузок, кинезиотейпировании, классическом и восстановительном массаже.",
-                stat_exp_val: "5+ лет", stat_exp: "Лет опыта работы", stat_loc: "Kazimierzowska 69", stat_taping_sub: "Отдельно или в терапии", stat_appr: "Индивидуальный подход",
-                about_tag: "ОБО МНЕ", about_title: "Профессиональный подход к вашему здоровью",
-                about_text: "<p>Меня зовут Дмитрий. Я сертифицированный массажист с опытом работы более 5 лет. Мой кабинет находится в Варшаве на Мокотове.</p><p>В работе делаю акцент на анатомическую точность, снятие гипертонуса и восстановление подвижности после тяжелых тренировок или сидячей работы.</p><p class='text-slate-400 text-sm italic'>«Индивидуальный подход, комфортная атмосфера и реальный результат уже после первого сеанса».</p>",
-                badge_cabinet: "Кабинет • ул. Kazimierzowska 69",
-                f_1: "Снятие забитости мышц и крепатуры", f_2: "Тейпирование связок, суставов и мышц",
-                serv_tag: "Специализация", serv_title: "Мои основные направления",
-                s1_title: "Спортивный массаж", s1_desc: "Для спортсменов и активных людей. Подготовка к нагрузкам, профилактика травм и глубокое восстановление мышц.", s1_f1: "Разбивка триггеров и спазмов", s1_f2: "Повышение эластичности связок",
-                s2_title: "Тейпирование", s2_desc: "Кинезиотейпирование как самостоятельная процедура или дополнение к массажу. Снимает отек, фиксирует суставы и разгружает связки.", s2_f1: "Аппликации на колени, плечи, поясницу", s2_f2: "Работает 24/7 в течение нескольких дней",
-                s3_title: "Классический массаж", s3_desc: "Базовая основа: снятие болей в спине, нормализация кровотока и избавление от скопившегося стресса.", s3_f1: "Шейно-воротниковая зона и спина", s3_f2: "Облегчение после долгого сидения за ПК",
-                s4_title: "Эстетический массаж", s4_desc: "Моделирующий массаж для тонуса кожи и контуров тела. Улучшает микроциркуляцию, выводит лишнюю жидкость и борется с застоями.", s4_f1: "Лимфодренаж и снятие отечности", s4_f2: "Упругость кожи и моделирование фигуры",
-                s5_title: "Детский массаж", s5_desc: "Мягкий и безопасный массаж для правильного формирования осанки. Помогает при сколиозах, гипертонусе и школьных нагрузках.", s5_f1: "Коррекция осанки и укрепление спины", s5_f2: "Безопасные техники для детей и подростков",
-                time_60: "60 мин", time_tape: "Целевой сеанс", time_opt: "40–50 мин",
-                price_tag: "Цены", price_title: "Честный прайс в Варшаве", price_note: "Оплата наличными или BLIK на месте", badge_pop: "Популярный",
-                p1_name: "Классика / Спина", p1_sub: "Снятие напряжения и блоков", p1_f1: "Проработка всей спины и шеи", p1_f2: "Легкость во всем теле",
-                p2_name: "Спортивный массаж", p2_sub: "Глубокая проработка после зала", p2_f1: "Интенсивная работа с мышцами", p2_f2: "Быстрое восстановление сил",
-                p3_name: "Массаж + Тейпирование", p3_sub: "Комплекс при травмах и болях", p3_f1: "Массаж зоны + наложение тейпов", p3_f2: "Длительная фиксация и облегчение",
-                loc_tag: "Контакты & Локация", loc_title: "Запись на сеанс", loc_sub: "Варшава, Мокотув • ул. Kazimierzowska 69",
-                loc_address: "Адрес кабинета", loc_details: "Варшава, Мокотув (Центр Массажа)", loc_phone: "Телефон и запись",
-                badge_map: "Мокотув, Kazimierzowska 69",
-                badge_entrance: "Вход с улицы",
-                stat_taping_val: "Тейпирование",
-            },
-            en: {
-                page_title: "Dmitry | Sports Massage & Taping Warsaw Mokotów",
-                nav_about: "About", nav_services: "Services", nav_pricing: "Pricing", nav_contacts: "Location",
-                btn_book: "Book Visit", btn_cta: "Book Appointment (+48 731 532 331)", btn_services: "Offers & Rates", btn_book_sm: "Book Now", btn_pick: "Choose",
-                btn_wa: "Chat on WhatsApp (Fast Booking)",
-                btn_tg: "Telegram Channel @Massage_ww (Slots & Booking)",
-                btn_call: "Direct Call: +48 731 532 331",
-                hero_badge: "Warsaw, Mokotów • ul. Kazimierzowska 69",
-                hero_title: 'Sports massage & recovery <span class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">for your body</span>.',
-                hero_desc: "Hi, my name is Dmitry. I specialize in post-workout recovery, relieving muscular strain, kinesiology taping, and classic massage.",
-                stat_exp_val: "5+ years", stat_exp: "Years of experience", stat_loc: "Kazimierzowska 69", stat_taping_sub: "Standalone or with therapy", stat_appr: "Personalized approach",
-                about_tag: "ABOUT ME", about_title: "Experienced and passionate therapist",
-                about_text: "<p>My name is Dmitry. I am a certified massage therapist with over 5 years of practical experience. My studio is located in Warsaw (Mokotów).</p><p>My focus is anatomical precision, understanding movement mechanics, and delivering real relief from intense workouts or prolonged desk work.</p><p class='text-slate-400 text-sm italic'>«I provide an individual approach to every client in a calm, welcoming atmosphere».</p>",
-                badge_cabinet: "Studio • Kazimierzowska 69",
-                f_1: "Fast relief from muscle soreness and spasms", f_2: "Kinesiology taping for joints and muscles",
-                serv_tag: "Specialization", serv_title: "How I can help you",
-                s1_title: "Sports Massage", s1_desc: "Dedicated to athletes and active people. Pre-workout prep, injury prevention, and accelerated post-workout recovery.", s1_f1: "Breaks down muscle tightness and knots", s1_f2: "Improves flexibility of muscles & tendons",
-                s2_title: "Kinesiology Taping", s2_desc: "Dynamic taping as a standalone session or combined with massage. Stabilizes joints, reduces swelling, and offloads painful muscles.", s2_f1: "Knees, shoulders, lower back applications", s2_f2: "Works continuously 24/7 for several days",
-                s3_title: "Classic Massage", s3_desc: "A proven foundation to relieve back pain, enhance blood flow, and clear accumulated muscular stress.", s3_f1: "Cervical spine, upper back & limbs", s3_f2: "Relief after hours of sitting",
-                s4_title: "Aesthetic Massage", s4_desc: "Body sculpting and skin firming massage. Stimulates microcirculation, reduces lymphatic stagnation, and improves tone.", s4_f1: "Lymphatic drainage & edema reduction", s4_f2: "Skin firming and contour sculpting",
-                s5_title: "Kids & Youth Massage", s5_desc: "Gentle and safe massage supporting healthy musculoskeletal development. Helps correct posture and ease school stress.", s5_f1: "Posture correction & spine strengthening", s5_f2: "Safe gentle methods for kids",
-                time_60: "60 min", time_tape: "Targeted session", time_opt: "40–50 min",
-                price_tag: "Pricing", price_title: "Transparent rates in Warsaw", price_note: "Cash or BLIK on site", badge_pop: "Recommended",
-                p1_name: "Classic / Back", p1_sub: "Relief and prevention", p1_f1: "Thorough work on back & neck", p1_f2: "Muscular tension decompression",
-                p2_name: "Sports Massage", p2_sub: "Deep workout recovery", p2_f1: "Intensive fascia and muscle work", p2_f2: "Restores peak mobility",
-                p3_name: "Massage + Taping", p3_sub: "Comprehensive injury relief", p3_f1: "Targeted massage + tape application", p3_f2: "Long-lasting stabilization",
-                loc_tag: "Contact & Location", loc_title: "Studio Location", loc_sub: "Warsaw, Mokotów • ul. Kazimierzowska 69",
-                loc_address: "Studio Address", loc_details: "Warsaw, Mokotów (Massage Center)", loc_phone: "Bookings & Contact",
-                badge_map: "Mokotów, Kazimierzowska 69",
-                badge_entrance: "Street entrance",
-                stat_taping_val: "Kinesiotaping",
-            }
-        };
-
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (i18n[lang] && i18n[lang][key]) {
-                    el.innerHTML = i18n[lang][key];
-                }
-            });
-
-            if (i18n[lang] && i18n[lang].page_title) {
-                document.title = i18n[lang].page_title;
-            }
-
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById('btn-' + lang);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
-        }
-
-        function changeLanguageManually(lang) {
-            localStorage.setItem('preferred_lang', lang);
-            setLanguage(lang);
-        }
-
-        function detectDefaultLanguage() {
-            const savedLang = localStorage.getItem('preferred_lang');
-            if (savedLang && ['pl', 'ua', 'ru', 'en'].includes(savedLang)) {
-                return savedLang;
-            }
-
-            const browserLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
-            for (const raw of browserLangs) {
-                if (!raw) continue;
-                const l = raw.toLowerCase();
-                if (l.startsWith('pl')) return 'pl';
-                if (l.startsWith('uk')) return 'ua';
-                if (l.startsWith('ru') || l.startsWith('be')) return 'ru';
-                if (l.startsWith('en')) return 'en';
-            }
-
-            return 'pl';
-        }
-
-        setLanguage(detectDefaultLanguage());
-        lucide.createIcons();
-    </script>
+    <!-- Подключение скриптов приложения -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
