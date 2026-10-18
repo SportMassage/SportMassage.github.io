@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="L5e-12rFSnAOW8-9fFPV-HP1PnH-Rhssf7CrWBeEMuI" />
+    <meta name="description"
+        content="Услуги оздоровительного массажа в Познани (Poznań). Индивидуальные уроки шахмат, коучинг и разбор реплеев Dota 2 и тактика в Broken Arrow.">
+    <meta name="keywords"
+        content="массаж познань, masaż poznań, репетитор шахматы, коуч dota 2, broken arrow coach, массажист">
+    <meta property="og:title" content="MIND & BODY — Массаж и Тактический Коучинг">
+    <meta property="og:description"
+        content="Оздоровительный массаж в Познани и онлайн-тренировки по Шахматам, Dota 2 и Broken Arrow.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nester77722.github.io/tehb-reklama/">
+    <title>Твой Ментор & Массажист | Тело и Стратегия</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Навигация -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#"
+                class="text-xl font-bold tracking-wider bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                MIND & BODY
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-cyan-400 transition">Обо мне</a>
+                <a href="#services" class="hover:text-cyan-400 transition">Услуги</a>
+                <a href="#pricing" class="hover:text-cyan-400 transition">Цены</a>
+                <a href="#faq" class="hover:text-cyan-400 transition">FAQ</a>
+            </nav>
+            <a href="https://t.me/your_username" target="_blank"
+                class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold px-4 py-2 rounded-xl text-sm transition transform hover:scale-105">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Связаться</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero) -->
+    <section class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
+        <!-- Фоновые градиентные пятна -->
+        <div
+            class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none">
+        </div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none">
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700 bg-slate-900/60 text-xs text-cyan-300 mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Открыт к новым клиентам и ученикам
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                Прокачай <span
+                    class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">интеллект &
+                    тактику</span>,<br>
+                перезагрузи <span
+                    class="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">свое
+                    тело</span>.
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
+                Персональный наставник по тактическим дисциплинам (Шахматы, Dota 2, Broken Arrow) и мастер
+                восстановительного массажа для снятия стресса и зажимов.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#services"
+                    class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition shadow-lg glow-cyan flex items-center justify-center gap-2">
+                    <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                    Выбрать направление
+                </a>
+                <a href="#about"
+                    class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-medium transition">
+                    Почему такое комбо?
+                </a>
+            </div>
+
+            <!-- Плашки с фактами -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto text-left">
+                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
+                    <div class="text-2xl font-bold text-cyan-400">100%</div>
+                    <div class="text-xs text-slate-400 mt-1">Индивидуальный подход</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
+                    <div class="text-2xl font-bold text-purple-400">High ELO</div>
+                    <div class="text-xs text-slate-400 mt-1">Dota 2 & Шахматы</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
+                    <div class="text-2xl font-bold text-emerald-400">RTS Pro</div>
+                    <div class="text-xs text-slate-400 mt-1">Тактика Broken Arrow</div>
+                </div>
+                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
+                    <div class="text-2xl font-bold text-pink-400">Total Relax</div>
+                    <div class="text-xs text-slate-400 mt-1">Снятие зажимов после ПК</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/60">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">Философия</h2>
+                    <h3 class="text-3xl font-extrabold text-white mb-6">Тело должно отдыхать, а разум — побеждать</h3>
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <p>
+                            Многие часы за компьютером или напряженная умственная работа перегружают нервную систему и
+                            забивают мышцы шеи, спины и плеч. В результате падают концентрация, реакция и общее
+                            самочувствие.
+                        </p>
+                        <p>
+                            Я объединил две стихии: <strong>интеллектуально-тактическую</strong> (глубокий анализ,
+                            тайминги, позиционка) и <strong>физическую</strong> (снятие триггерных точек, расслабление
+                            мышц).
+                        </p>
+                        <p class="text-slate-400 text-sm italic">
+                            «Геймер или стратег с зажатой шеей и туннельным синдромом никогда не покажет свой максимум.
+                            Здоровое тело — это фундамент высокого винрейта».
+                        </p>
+                    </div>
+                </div>
+                <!-- Карточка-бейдж -->
+                <div
+                    class="p-8 rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 glow-purple space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-16 h-16 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl font-bold">
+                            <i data-lucide="user-check" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Твой Инструктор</h4>
+                            <p class="text-sm text-slate-400">Массажист & Киберспортивный ментор</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Разбор ваших ошибок без токсичности и воды</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Анатомический подход к массажу (акцент на сидячий образ жизни)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            Понятные методики и домашние задания</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">Направления</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Выберите свою дисциплину</h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <!-- 1. Массаж -->
+                <div
+                    class="p-8 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-emerald-500/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
+                            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Оздоровительный & Релакс Массаж</h4>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Идеально для тех, кто проводит дни за монитором. Снятие гипертонуса мышц шеи, поясницы,
+                            трапеций и кистей рук.
+                        </p>
+                        <div class="space-y-2 mb-6 text-sm text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-emerald-400"></i> Массаж шейно-воротниковой зоны и спины
+                            </div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-emerald-400"></i> Проработка триггерных точек и зажимов
+                            </div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-emerald-400"></i> Общий расслабляющий массаж</div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Формат: Офлайн сессии</span>
+                        <a href="https://t.me/your_username"
+                            class="text-emerald-400 font-semibold text-sm hover:underline flex items-center gap-1">Записаться
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 2. Шахматы -->
+                <div
+                    class="p-8 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6">
+                            <i data-lucide="crown" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Репетитор по Шахматам</h4>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Для новичков и продолжающих. Учимся мыслить планами, а не случайными ходами. От дебютного
+                            репертуара до эндшпиля.
+                        </p>
+                        <div class="space-y-2 mb-6 text-sm text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-cyan-400"></i> Постановка надежного дебютного репертуара
+                            </div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-cyan-400"></i> Тактическое зрение, расчет вариантов</div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-cyan-400"></i> Разбор ваших партий на Lichess / Chess.com
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Формат: Discord / Очно</span>
+                        <a href="https://t.me/your_username"
+                            class="text-cyan-400 font-semibold text-sm hover:underline flex items-center gap-1">Записаться
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 3. Dota 2 -->
+                <div
+                    class="p-8 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-purple-500/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-6">
+                            <i data-lucide="swords" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Коучинг по Dota 2</h4>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Хватит буксовать на одном ранге. Анализируем макро-игру, позиционирование, пулы героев и
+                            тайминги артефактов.
+                        </p>
+                        <div class="space-y-2 mb-6 text-sm text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-purple-400"></i> Разбор реплеев (Replay Analysis)</div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-purple-400"></i> Лайв-коучинг через Discord в реальном
+                                времени</div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-purple-400"></i> Оптимизация макро-решений и психология
+                                ранкеда</div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Формат: Онлайн (Discord)</span>
+                        <a href="https://t.me/your_username"
+                            class="text-purple-400 font-semibold text-sm hover:underline flex items-center gap-1">Записаться
+                            &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- 4. Broken Arrow -->
+                <div
+                    class="p-8 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-amber-500/50 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6">
+                            <i data-lucide="crosshair" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2">Коуч по Broken Arrow</h4>
+                        <p class="text-slate-400 text-sm mb-6">
+                            Освой современную тактическую войну. Билды дек, микроконтроль техники, координация авиации,
+                            ПВО и артиллерии.
+                        </p>
+                        <div class="space-y-2 mb-6 text-sm text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-amber-400"></i> Составление метовых специализированных колод
+                            </div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-amber-400"></i> Управление ресурсами, тайминги подкреплений
+                            </div>
+                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
+                                    class="w-3.5 h-3.5 text-amber-400"></i> Тактика городских боев и контроль зон</div>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Формат: Онлайн (Discord)</span>
+                        <a href="https://t.me/your_username"
+                            class="text-amber-400 font-semibold text-sm hover:underline flex items-center gap-1">Записаться
+                            &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Прайс-лист -->
+    <section id="pricing" class="py-20 bg-slate-900/40">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">Прайс</h2>
+                <h3 class="text-3xl font-extrabold text-white">Прозрачные тарифы</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Тариф 1: Игры & Тактика -->
+                <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Игровой / Шахматный час</h4>
+                        <p class="text-xs text-slate-400 mb-4">Dota 2, Broken Arrow или Шахматы</p>
+                        <div class="text-3xl font-extrabold text-cyan-400 mb-6">1 500 ₽ <span
+                                class="text-xs text-slate-400 font-normal">/ 60 мин</span></div>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li>✓ Разбор 1-2 реплеев или игра с комментированием</li>
+                            <li>✓ Текстовый конспект ключевых ошибок</li>
+                            <li>✓ Ответы на вопросы после урока</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/your_username"
+                        class="block w-full py-2.5 rounded-lg border border-cyan-500/50 hover:bg-cyan-500/10 text-cyan-300 text-center font-medium text-sm transition">Забронировать</a>
+                </div>
+
+                <!-- Тариф 2: Массаж -->
+                <div
+                    class="p-6 rounded-2xl border border-emerald-500/40 bg-slate-950 relative flex flex-col justify-between glow-cyan">
+                    <div
+                        class="absolute -top-3 right-4 px-2.5 py-0.5 bg-emerald-500 text-slate-950 font-bold rounded-full text-[10px] uppercase tracking-wider">
+                        Тело
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Сеанс Массажа</h4>
+                        <p class="text-xs text-slate-400 mb-4">Оздоровление и снятие блоков</p>
+                        <div class="text-3xl font-extrabold text-emerald-400 mb-6">2 500 ₽ <span
+                                class="text-xs text-slate-400 font-normal">/ сеанс (60 мин)</span></div>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li>✓ Акцент на спину, шею и плечи</li>
+                            <li>✓ Проработка мышечных спазмов</li>
+                            <li>✓ Рекомендации по эргономике рабочего места</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/your_username"
+                        class="block w-full py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-center font-bold text-sm transition">Записаться
+                        на сеанс</a>
+                </div>
+
+                <!-- Тариф 3: Комбо -->
+                <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-lg font-bold text-white mb-1">Gamer / Pro Combo</h4>
+                        <p class="text-xs text-slate-400 mb-4">Полная перезагрузка: тело + разум</p>
+                        <div class="text-3xl font-extrabold text-purple-400 mb-6">3 500 ₽ <span
+                                class="text-xs text-slate-400 font-normal">/ 2 часа</span></div>
+                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                            <li>✓ 60 минут глубокого массажа спины</li>
+                            <li>✓ 60 минут коучинга (Шахматы/Dota/BA)</li>
+                            <li>✓ Максимальный буст фокуса и самочувствия</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/your_username"
+                        class="block w-full py-2.5 rounded-lg border border-purple-500/50 hover:bg-purple-500/10 text-purple-300 text-center font-medium text-sm transition">Взять
+                        комбо</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (Частые вопросы) -->
+    <section id="faq" class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">Вопросы и ответы</h2>
+                <h3 class="text-3xl font-extrabold text-white">Все, что нужно знать</h3>
+            </div>
+
+            <div class="space-y-4">
+                <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50">
+                    <h5 class="font-bold text-white mb-2">Как проходят игровые тренировки (Dota 2 / Broken Arrow /
+                        Шахматы)?</h5>
+                    <p class="text-slate-400 text-sm">Мы созваниваемся в Discord. В зависимости от цели: разбираем
+                        запись вашей игры с паузами и заметками, играем тренировочную дуэль или я смотрю вашу игру в
+                        реальном времени и подсказываю макро-решения.</p>
+                </div>
+                <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50">
+                    <h5 class="font-bold text-white mb-2">Где проходит массаж?</h5>
+                    <p class="text-slate-400 text-sm">Офлайн: в оборудованном кабинете / с выездом со своим массажным
+                        столом (уточняйте локацию в личных сообщениях в Telegram).</p>
+                </div>
+                <div class="p-5 rounded-xl border border-slate-800 bg-slate-900/50">
+                    <h5 class="font-bold text-white mb-2">Какой нужен уровень для занятий шахматами?</h5>
+                    <p class="text-slate-400 text-sm">Любой — от нуля (знакомство с фигурами и базовыми матами) до
+                        рейтинга 1800+ на Lichess/Chess.com.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Локация и Контакты -->
+    <section id="contacts" class="py-20 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <h2 class="text-xs uppercase tracking-widest text-cyan-400 font-bold mb-2">Локация</h2>
+                <h3 class="text-3xl font-extrabold text-white">Где проходят сеансы</h3>
+                <p class="text-slate-400 text-sm mt-2">Офлайн-массаж и живые тренировки в Познани, а также онлайн по
+                    всему миру</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+
+                <!-- Левая колонка: Информация -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950/80 backdrop-blur space-y-5">
+
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base">Локация кабинета</h4>
+                                <p class="text-slate-400 text-sm mt-1">г. Познань (Poznań), Польша</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Точный адрес и ориентиры высылаются при
+                                    подтверждении записи</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 border-t border-slate-800/80 pt-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base">График работы</h4>
+                                <p class="text-slate-400 text-sm mt-1">Пн — Вс: по предварительной записи</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Онлайн-коучинг доступен в удобные вечерние
+                                    слоты</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 border-t border-slate-800/80 pt-4">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-base">Выезд на дом</h4>
+                                <p class="text-slate-400 text-sm mt-1">Возможен выезд со своим столом по городу (по
+                                    договоренности)</p>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="https://t.me/your_username" target="_blank"
+                                class="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg glow-cyan">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Забронировать время в Telegram
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Правая колонка: Карта -->
+                <div class="lg:col-span-7">
+                    <div
+                        class="relative w-full h-[420px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl group">
+                        <!-- Сама карта -->
+                        <iframe
+                            src="https://maps.google.com/maps?q=52.39215152693006,16.958339379493463&hl=ru&z=17&output=embed"
+                            class="w-full h-full border-0" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+
+                        <!-- Подсказка поверх карты -->
+                        <div
+                            class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-800 px-3 py-1.5 rounded-lg text-xs text-slate-300 pointer-events-none flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                            Poznań, Rataje / Łacina
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал / CTA -->
+    <footer class="border-t border-slate-800 bg-slate-950 py-12">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold text-white mb-3">Готовы начать?</h3>
+            <p class="text-slate-400 text-sm mb-6">Напишите мне в Telegram напрямую — обсудим ваши цели, подберем время
+                и удобный формат.</p>
+
+            <div class="inline-flex flex-wrap justify-center gap-4 mb-10">
+                <a href="https://t.me/your_username" target="_blank"
+                    class="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm flex items-center gap-2 transition">
+                    <i data-lucide="send" class="w-4 h-4"></i> Написать в Telegram
+                </a>
+                <a href="https://discord.com" target="_blank"
+                    class="px-6 py-3 rounded-xl border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-200 font-medium text-sm flex items-center gap-2 transition">
+                    <i data-lucide="disc" class="w-4 h-4"></i> Discord
+                </a>
+            </div>
+
+            <p class="text-xs text-slate-600">
+                © 2026 Mind & Body Portfolio. Hosted on GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Скрипт рендера иконок Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
