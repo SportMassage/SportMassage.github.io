@@ -12,14 +12,6 @@ function setLanguage(lang) {
         document.title = i18n[lang].page_title;
     }
 
-    // Обновляем текст в WhatsApp
-    if (i18n[lang] && i18n[lang].wa_msg) {
-        const encodedMsg = encodeURIComponent(i18n[lang].wa_msg);
-        document.querySelectorAll('.wa-link').forEach(link => {
-            link.href = `https://wa.me/48731532331?text=${encodedMsg}`;
-        });
-    }
-
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
     const activeBtn = document.getElementById('btn-' + lang);
     if (activeBtn) activeBtn.classList.add('active');
@@ -51,7 +43,7 @@ function detectDefaultLanguage() {
     return 'pl';
 }
 
-// Мобильное меню
+// Мобильное меню и инициализация
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
