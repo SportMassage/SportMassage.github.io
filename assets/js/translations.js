@@ -43,6 +43,8 @@ const i18n = {
         final_desc: "Napisz do mnie — odpowiem na pytania i pomogę wybrać odpowiedni seans.",
         final_btn: "Zapisz się",
         about_quote: "«Indywidualne podejście, spokojna atmosfera i zauważalna ulga już po pierwszej wizycie».",
+        p2_time: "60 min + aplikacja taśm",
+        p3_time: "15–20 minut",
     },
     ua: {
         page_title: "Дмитро | Спортивний масаж і тейпування Варшава Мокотув",
@@ -88,6 +90,8 @@ const i18n = {
         final_desc: "Напишіть мені — відповім на запитання та допоможу обрати сеанс.",
         final_btn: "Записатися",
         about_quote: "«Індивідуальний підхід, спокійна атмосфера та помітне полегшення вже після першого візиту».",
+        p2_time: "60 хв + накладання тейпів",
+        p3_time: "15–20 хвилин",
     },
     ru: {
         page_title: "Дмитрий | Спортивный массаж и тейпирование Варшава Мокотув",
@@ -133,6 +137,8 @@ const i18n = {
         final_desc: "Напишите мне — отвечу на вопросы и помогу выбрать сеанс.",
         final_btn: "Записаться",
         about_quote: "«Индивидуальный подход, спокойная атмосфера и заметное облегчение уже после первого сеанса».",
+        p2_time: "60 мин + наложение тейпов",
+        p3_time: "15–20 минут",
     },
     en: {
         page_title: "Dmitry | Sports Massage & Taping Warsaw Mokotów",
@@ -178,5 +184,7 @@ const i18n = {
         final_desc: "Message me — I'll answer your questions and help you choose a session.",
         final_btn: "Book Appointment",
         about_quote: "«Individual approach, calm atmosphere, and noticeable relief right after the first session».",
+        p2_time: "60 min + tape application",
+        p3_time: "15–20 minutes",
     }
 };
