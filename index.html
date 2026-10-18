@@ -5,24 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Masaż sportowy, klasyczny, kinesiotaping w Warszawie (Mokotów, ul. Kazimierzowska 69). Doświadczony masażysta Dzmitry (5+ lat praktyki).">
+        content="Masaż sportowy, klasyczny, kinesiotaping w Warszawie (Mokotów, ul. Kazimierzowska 69). Certyfikowany masażysta Dzmitry.">
     <meta name="keywords"
-        content="masaż warszawa mokotów, masaż sportowy warszawa, kinesiotaping warszawa, teypowanie warszawa, masaż estetyczny, masaż dla dzieci, масаж варшава мокотув">
+        content="masaż warszawa mokotów, masaż sportowy warszawa, kinesiotaping warszawa, teypowanie warszawa, masaż estetyczny, masaż dla dzieci">
 
-    <!-- Open Graph / Мессенджеры -->
-    <meta property="og:title" content="Dmitry — Masażysta Warszawa Mokotów | Kazimierzowska 69">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
     <meta property="og:description"
-        content="Masaż sportowy, klasyczny, kinesiotaping, masaż estetyczny i dziecięcy w Warszawie (Mokotów). Ponad 5 lat doświadczenia.">
+        content="Regeneracja sportowa, likwidacja bólu pleców, kinesiotaping. Mokotów, Kazimierzowska 69.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/img/workplace.jpg">
 
-    <!-- Favicon (SVG) -->
+    <!-- Favicon -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💆‍♂️</text></svg>">
 
     <title>Dmitry | Masaż & Kinesiotaping Warszawa Mokotów</title>
 
-    <!-- Schema.org JSON-LD для Google (Local SEO) -->
+    <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -30,8 +30,7 @@
       "name": "Dmitry — Masaż & Kinesiotaping Warszawa Mokotów",
       "image": "assets/img/workplace.jpg",
       "telephone": "+48731532331",
-      "url": "https://massage-ww.github.io",
-      "priceRange": "100 - 250 PLN",
+      "priceRange": "100 - 250 zł",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ul. Kazimierzowska 69",
@@ -43,19 +42,6 @@
         "@type": "GeoCoordinates",
         "latitude": 52.2008,
         "longitude": 21.0084
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "21:00"
       }
     }
     </script>
@@ -70,12 +56,15 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            cyan: '#06b6d4',
-                            purple: '#8b5cf6',
-                            emerald: '#10b981',
-                            dark: '#0f172a',
-                            card: '#1e293b'
+                        theme: {
+                            base: '#08111F',
+                            surface: '#0D1929',
+                            card: '#111F31',
+                            border: '#203047',
+                            teal: '#22C7B8',
+                            sky: '#38BDF8',
+                            sand: '#D6B98C',
+                            muted: '#94A3B8'
                         }
                     }
                 }
@@ -83,83 +72,88 @@
         }
     </script>
 
-    <!-- Внешние кастомные стили -->
+    <!-- Кастомные стили -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-black">
+<body class="bg-[#08111F] text-[#F4F7FA] font-sans antialiased selection:bg-[#22C7B8] selection:text-[#08111F]">
 
     <!-- Навигация -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#08111F]/90 backdrop-blur-md border-b border-[#203047]">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="#"
-                class="text-lg sm:text-xl font-bold tracking-wider bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                DMITRY • MASAŻ
+            <a href="#" class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#22C7B8]"></span>
+                <span>DZMITRY <span class="text-[#94A3B8] font-normal">• MASAŻ</span></span>
             </a>
 
             <!-- Десктоп-меню -->
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-300">
-                <a href="#about" data-i18n="nav_about" class="hover:text-cyan-400 transition">O mnie</a>
-                <a href="#services" data-i18n="nav_services" class="hover:text-cyan-400 transition">Usługi</a>
-                <a href="#pricing" data-i18n="nav_pricing" class="hover:text-cyan-400 transition">Cennik</a>
-                <a href="#contacts" data-i18n="nav_contacts" class="hover:text-cyan-400 transition">Lokalizacja</a>
+            <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-[#94A3B8]">
+                <a href="#about" data-i18n="nav_about" class="hover:text-white transition">O mnie</a>
+                <a href="#services" data-i18n="nav_services" class="hover:text-white transition">Usługi</a>
+                <a href="#process" data-i18n="nav_process" class="hover:text-white transition">Jak wygląda wizyta</a>
+                <a href="#pricing" data-i18n="nav_pricing" class="hover:text-white transition">Cennik</a>
+                <a href="#contacts" data-i18n="nav_contacts" class="hover:text-white transition">Kontakt</a>
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Переключатель языков -->
-                <div class="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-0.5 sm:p-1 text-xs">
+                <!-- Языки -->
+                <div class="flex items-center bg-[#0D1929] border border-[#203047] rounded-xl p-0.5 text-xs">
                     <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski"
-                        class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">PL</button>
+                        class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">PL</button>
                     <button onclick="changeLanguageManually('ua')" id="btn-ua" aria-label="Українська мова"
-                        class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">UA</button>
+                        class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">UA</button>
                     <button onclick="changeLanguageManually('ru')" id="btn-ru" aria-label="Русский язык"
-                        class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">RU</button>
+                        class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">RU</button>
                     <button onclick="changeLanguageManually('en')" id="btn-en" aria-label="English language"
-                        class="lang-btn px-2 py-1 rounded-lg text-slate-400 hover:text-white transition">EN</button>
+                        class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">EN</button>
                 </div>
 
-                <!-- Быстрые иконки записи в шапке (WhatsApp + Telegram) -->
+                <!-- Быстрая запись: WhatsApp + Telegram (Личка) -->
                 <div class="hidden sm:flex items-center gap-1.5">
-                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer" title="WhatsApp"
-                        class="flex items-center gap-1 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 border border-emerald-500/40 px-3 py-1.5 rounded-xl text-xs font-semibold transition">
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                        title="Napisz na WhatsApp"
+                        class="inline-flex items-center gap-1.5 bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] font-bold px-3 py-1.5 rounded-xl text-xs transition">
                         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                         <span>WhatsApp</span>
                     </a>
-                    <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer" title="Telegram"
-                        class="flex items-center gap-1 bg-sky-500/20 hover:bg-sky-500 text-sky-300 hover:text-slate-950 border border-sky-500/40 px-3 py-1.5 rounded-xl text-xs font-semibold transition">
+
+                    <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
+                        title="Napisz w Telegram (@Dmitry_waw)"
+                        class="inline-flex items-center gap-1.5 bg-[#111F31] border border-[#203047] hover:border-[#38BDF8] text-[#38BDF8] hover:text-white font-semibold px-3 py-1.5 rounded-xl text-xs transition">
                         <i data-lucide="send" class="w-3.5 h-3.5"></i>
                         <span>Telegram</span>
                     </a>
                 </div>
 
-                <!-- Бургер-меню для мобилок -->
-                <button id="mobile-menu-btn" aria-label="Otwórz menu"
-                    class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg bg-slate-900 border border-slate-800">
-                    <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+                <!-- Бургер-меню -->
+                <button id="mobile-menu-btn" aria-label="Menu"
+                    class="md:hidden p-2 text-[#94A3B8] hover:text-white rounded-lg bg-[#0D1929] border border-[#203047]">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Выпадающее мобильное меню -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-4 pt-3 pb-5 space-y-3">
-            <a href="#about" data-i18n="nav_about" class="block text-slate-300 hover:text-cyan-400 font-medium py-1">O
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0D1929] border-b border-[#203047] px-4 pt-3 pb-5 space-y-3">
+            <a href="#about" data-i18n="nav_about" class="block text-[#94A3B8] hover:text-white font-medium py-1">O
                 mnie</a>
             <a href="#services" data-i18n="nav_services"
-                class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Usługi</a>
+                class="block text-[#94A3B8] hover:text-white font-medium py-1">Usługi</a>
+            <a href="#process" data-i18n="nav_process"
+                class="block text-[#94A3B8] hover:text-white font-medium py-1">Jak wygląda wizyta</a>
             <a href="#pricing" data-i18n="nav_pricing"
-                class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Cennik</a>
+                class="block text-[#94A3B8] hover:text-white font-medium py-1">Cennik</a>
             <a href="#contacts" data-i18n="nav_contacts"
-                class="block text-slate-300 hover:text-cyan-400 font-medium py-1">Lokalizacja</a>
+                class="block text-[#94A3B8] hover:text-white font-medium py-1">Kontakt</a>
 
-            <div class="pt-3 grid grid-cols-2 gap-2 border-t border-slate-800">
+            <div class="pt-3 border-t border-[#203047] grid grid-cols-2 gap-2">
                 <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center justify-center gap-1.5 bg-emerald-500 text-slate-950 font-bold py-2 rounded-xl text-xs">
+                    class="flex items-center justify-center gap-1.5 bg-[#22C7B8] text-[#08111F] font-bold py-2.5 rounded-xl text-xs">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
                     <span>WhatsApp</span>
                 </a>
                 <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                    class="flex items-center justify-center gap-1.5 bg-sky-500 text-slate-950 font-bold py-2 rounded-xl text-xs">
+                    class="flex items-center justify-center gap-1.5 bg-[#111F31] border border-[#203047] text-white font-bold py-2.5 rounded-xl text-xs">
                     <i data-lucide="send" class="w-4 h-4"></i>
                     <span>Telegram</span>
                 </a>
@@ -167,306 +161,241 @@
         </div>
     </header>
 
-    <!-- Секция Hero -->
-    <section class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden">
-        <div
-            class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none">
-        </div>
-        <div class="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none">
-        </div>
+    <!-- Секция Hero (Композиция 55 / 45) -->
+    <section
+        class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden bg-gradient-to-b from-[#08111F] via-[#08111F] to-[#0D1929]">
+        <div class="max-w-6xl mx-auto px-4 w-full">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
-            <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-700 bg-slate-900/60 text-xs text-cyan-300 mb-6">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                <span data-i18n="hero_badge">Warszawa, Mokotów • ul. Kazimierzowska 69</span>
-            </div>
+                <!-- Левая колонка (55%) -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#203047] bg-[#0D1929] text-xs text-[#22C7B8]">
+                        <span class="w-2 h-2 rounded-full bg-[#22C7B8]"></span>
+                        <span data-i18n="hero_badge">Warszawa, Mokotów • ul. Kazimierzowska 69</span>
+                    </div>
 
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6" data-i18n="hero_title">
-                Masaż sportowy & regeneracja Twojego ciała.
-            </h1>
+                    <h1 class="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white"
+                        data-i18n="hero_title">
+                        Masaż sportowy & regeneracja Twojego ciała.
+                    </h1>
 
-            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10" data-i18n="hero_desc">
-                Cześć, mam na imię Dzmitry. Specjalizuję się w regeneracji po treningach, usuwaniu przeciążeń,
-                kinesiotapingu oraz masażu klasycznym.
-            </p>
+                    <p class="text-base sm:text-lg text-[#94A3B8] max-w-xl leading-relaxed" data-i18n="hero_desc">
+                        Głęboka praca z powięzią, likwidacja bólu pleców i karku oraz regeneracja po treningach i pracy
+                        siedzącej. Precyzyjne techniki dopasowane do Twojego ciała.
+                    </p>
 
-            <!-- Кнопки выбора записи (WhatsApp / Telegram / Цены) -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition shadow-lg glow-cyan flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    <span data-i18n="btn_hero_wa">Zapis przez WhatsApp</span>
-                </a>
+                    <!-- Только 2 главные кнопки действия -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="px-6 py-3.5 rounded-xl bg-[#22C7B8] text-[#08111F] font-bold hover:bg-[#1eb3a5] transition soft-shadow flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span data-i18n="btn_hero_primary">Zapisz się na masaż</span>
+                        </a>
 
-                <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-sky-500 text-slate-950 font-bold hover:bg-sky-400 transition shadow-lg glow-purple flex items-center justify-center gap-2">
-                    <i data-lucide="send" class="w-5 h-5"></i>
-                    <span data-i18n="btn_hero_tg">Zapis przez Telegram</span>
-                </a>
-
-                <a href="#services"
-                    class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-900/60 hover:bg-slate-800 text-slate-300 font-medium transition"
-                    data-i18n="btn_services">
-                    Oferta i cennik
-                </a>
-            </div>
-
-            <!-- Факты -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto text-left">
-                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
-                    <div class="text-2xl font-bold text-cyan-400" data-i18n="stat_exp_val">5+ lat</div>
-                    <div class="text-xs text-slate-400 mt-1" data-i18n="stat_exp">Praktyki zawodowej</div>
-                </div>
-                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
-                    <div class="text-2xl font-bold text-purple-400">Mokotów</div>
-                    <div class="text-xs text-slate-400 mt-1" data-i18n="stat_loc">Kazimierzowska 69</div>
-                </div>
-                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
-                    <div class="text-2xl font-bold text-emerald-400" data-i18n="stat_taping_val">Kinesiotaping</div>
-                    <div class="text-xs text-slate-400 mt-1" data-i18n="stat_taping_sub">Samodzielnie i w terapii</div>
-                </div>
-                <div class="p-4 rounded-xl border border-slate-800/80 bg-slate-900/40 backdrop-blur">
-                    <div class="text-2xl font-bold text-pink-400">100%</div>
-                    <div class="text-xs text-slate-400 mt-1" data-i18n="stat_appr">Indywidualne podejście</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- О мастере и фото кабинета -->
-    <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/60">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div>
-                    <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2"
-                        data-i18n="about_tag">O MNIE</span>
-                    <h2 class="text-3xl font-extrabold text-white mb-6" data-i18n="about_title">Masażysta z pasją i
-                        doświadczeniem</h2>
-                    <div class="space-y-4 text-slate-300 leading-relaxed" data-i18n="about_text">
-                        <p>Nazywam się Dzmitry. Jestem certyfikowanym masażystą z ponad 5-letnim doświadczeniem
-                            zawodowym. Mój gabinet znajduje się w Warszawie na Mokotowie.</p>
-                        <p>W swojej pracy kładę nacisk na anatomiczną precyzję, zrozumienie mechaniki ciała i realną
-                            pomoc przy przeciążeniach po treningu lub pracy siedzącej.</p>
-                        <p class="text-slate-400 text-sm italic">«Gwarantuję indywidualne podejście do każdego problemu,
-                            komfortowe warunki i profesjonalną atmosferę».</p>
+                        <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
+                            class="px-5 py-3.5 rounded-xl border border-[#203047] bg-[#111F31] hover:bg-[#16273e] text-white font-semibold transition flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="send" class="w-4 h-4 text-[#38BDF8]"></i>
+                            <span data-i18n="btn_hero_tg">Napisz w Telegram</span>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Фото кабинета -->
-                <div class="space-y-4">
-                    <div class="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
+                <!-- Правая колонка (45%): Фото кабинета -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31] soft-shadow">
                         <img src="assets/img/workplace.jpg" alt="Gabinet masażu Warszawa Kazimierzowska 69"
-                            class="w-full h-80 object-cover object-center transition duration-500 group-hover:scale-105">
-                        <div
-                            class="absolute bottom-3 left-3 bg-slate-950/85 backdrop-blur border border-slate-800 px-3 py-1.5 rounded-lg text-xs text-slate-200 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                            <span data-i18n="badge_cabinet">Gabinet • ul. Kazimierzowska 69</span>
+                            class="w-full h-80 sm:h-96 object-cover object-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#08111F]/90 via-transparent to-transparent">
+                        </div>
+
+                        <div class="absolute bottom-4 left-4">
+                            <div
+                                class="bg-[#08111F]/90 backdrop-blur border border-[#203047] px-3 py-1.5 rounded-lg text-white font-medium flex items-center gap-2 text-xs">
+                                <span class="w-2 h-2 rounded-full bg-[#22C7B8]"></span>
+                                <span>Centrum Masażu • Mokotów</span>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <ul class="grid grid-cols-1 gap-2.5 text-xs text-slate-300">
-                        <li class="flex items-center gap-2.5 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                            <span data-i18n="f_1">Szybka ulga w spiętych mięśniach i zakwasach</span>
-                        </li>
-                        <li class="flex items-center gap-2.5 bg-slate-900/60 p-3 rounded-xl border border-slate-800">
-                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                            <span data-i18n="f_2">Aplikacje plastrów (kinesiotaping) na stawy i mięśnie</span>
-                        </li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- О мастере -->
+    <section id="about" class="py-20 bg-[#0D1929] border-y border-[#203047]">
+        <div class="max-w-4xl mx-auto px-4 text-left">
+            <span class="text-xs uppercase tracking-wider text-[#22C7B8] font-bold block mb-2" data-i18n="about_tag">O
+                MNIE</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-6" data-i18n="about_title">Masażysta z pasją i
+                doświadczeniem</h2>
+
+            <div class="space-y-4 text-[#94A3B8] leading-relaxed text-sm sm:text-base">
+                <p data-i18n="about_p1">
+                    Nazywam się Dzmitry. Jestem certyfikowanym masażystą z ponad 5-letnim doświadczeniem zawodowym. Mój
+                    gabinet znajduje się w Warszawie na Mokotowie (ul. Kazimierzowska 69).
+                </p>
+                <p data-i18n="about_p2">
+                    W swojej pracy kładę nacisk na anatomiczną precyzję, zrozumienie biomechaniki i realną pomoc przy
+                    przeciążeniach potreningowych oraz bólach wynikających z pracy siedzącej.
+                </p>
+                <div class="p-4 rounded-xl border border-[#203047] bg-[#111F31] text-[#D6B98C] text-sm italic"
+                    data-i18n="about_quote">
+                    «Indywidualne podejście, spokojna atmosfera i zauważalna ulga już po pierwszej wizycie».
+                </div>
+            </div>
+
+            <!-- 4 коротких преимущества -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
+                <div class="p-3 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-sm font-bold text-white" data-i18n="adv_1_t">Certyfikaty</div>
+                    <div class="text-xs text-[#94A3B8] mt-0.5" data-i18n="adv_1_d">Oficjalne kwalifikacje</div>
+                </div>
+                <div class="p-3 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-sm font-bold text-white" data-i18n="adv_2_t">5+ lat praktyki</div>
+                    <div class="text-xs text-[#94A3B8] mt-0.5" data-i18n="adv_2_d">Setki zadowolonych osób</div>
+                </div>
+                <div class="p-3 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-sm font-bold text-white" data-i18n="adv_3_t">Kinesiotaping</div>
+                    <div class="text-xs text-[#94A3B8] mt-0.5" data-i18n="adv_3_d">Plastrowanie dynamiczne</div>
+                </div>
+                <div class="p-3 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-sm font-bold text-white" data-i18n="adv_4_t">Dla każdego</div>
+                    <div class="text-xs text-[#94A3B8] mt-0.5" data-i18n="adv_4_d">Dorośli, sportowcy, dzieci</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Услуги (5 направлений) -->
-    <section id="services" class="py-20">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center max-w-xl mx-auto mb-16">
-                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2"
+    <!-- Услуги (Сетка 1 широкая + 4 в формате 2х2 — без пустой ячейки!) -->
+    <section id="services" class="py-20 bg-[#08111F]">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-xs uppercase tracking-wider text-[#22C7B8] font-bold block mb-2"
                     data-i18n="serv_tag">Specjalizacja</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="serv_title">W czym mogę Ci pomóc
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="serv_title">W czym mogę Ci pomóc
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 gap-5">
 
-                <!-- 1. Masaż Sportowy -->
+                <!-- 1. Флагманская услуга: Спортивный массаж (во всю ширину на 2 колонки) -->
                 <div
-                    class="p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-cyan-500/50 transition duration-300 flex flex-col justify-between">
-                    <div>
+                    class="md:col-span-2 p-6 sm:p-8 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="space-y-3 max-w-2xl text-left">
                         <div
-                            class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-5">
-                            <i data-lucide="flame" class="w-6 h-6"></i>
+                            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#22C7B8]/10 text-[#22C7B8] text-xs font-semibold">
+                            <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                            <span data-i18n="s1_badge">Główna specjalizacja</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s1_title">Masaż Sportowy</h3>
-                        <p class="text-slate-400 text-sm mb-5" data-i18n="s1_desc">Dedykowany osobom aktywnym i
-                            sportowcom. Przygotowanie do startów, zapobieganie urazom i przyspieszenie regeneracji
-                            powysiłkowej.</p>
-                        <div class="space-y-2 mb-6 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-cyan-400"></i> <span data-i18n="s1_f1">Rozbicie zakwasów i
-                                    punktów spustowych</span></div>
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-cyan-400"></i> <span data-i18n="s1_f2">Zwiększenie
-                                    elastyczności mięśni i więzadeł</span></div>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="s1_title">Masaż Sportowy</h3>
+                        <p class="text-sm text-[#94A3B8] leading-relaxed" data-i18n="s1_desc">
+                            Dedykowany osobom aktywnym i trenującym. Przygotowanie do startów, zapobieganie kontuzjom,
+                            rozbicie punktów spustowych i przyspieszenie regeneracji powysiłkowej.
+                        </p>
+                        <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-white pt-1">
+                            <span class="flex items-center gap-1">✓ <span data-i18n="s1_f1">Rozbicie zakwasów i punktów
+                                    spustowych</span></span>
+                            <span class="flex items-center gap-1">✓ <span data-i18n="s1_f2">Zwiększenie elastyczności
+                                    mięśni</span></span>
                         </div>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <div class="flex items-center gap-3">
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="text-emerald-400 hover:text-emerald-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WA
-                            </a>
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-400 hover:text-sky-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i> TG
-                            </a>
-                        </div>
+                    <div
+                        class="shrink-0 flex md:flex-col items-center justify-between md:justify-center gap-3 pt-3 md:pt-0 border-t md:border-t-0 border-[#203047]">
+                        <span class="text-xs text-[#94A3B8]">60 min • 200 zł</span>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="px-4 py-2.5 rounded-xl bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] text-xs font-bold transition flex items-center gap-1.5">
+                            <span data-i18n="btn_book_sm">Zapisz się</span> &rarr;
+                        </a>
                     </div>
                 </div>
 
                 <!-- 2. Kinesiotaping -->
                 <div
-                    class="p-7 rounded-2xl border border-emerald-500/40 bg-slate-900/70 hover:border-emerald-400 transition duration-300 flex flex-col justify-between glow-cyan">
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
                         <div
-                            class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-                            <i data-lucide="layers" class="w-6 h-6"></i>
+                            class="w-10 h-10 rounded-xl bg-[#0D1929] border border-[#203047] text-[#22C7B8] flex items-center justify-center mb-4">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s2_title">Kinesiotaping</h3>
-                        <p class="text-slate-400 text-sm mb-5" data-i18n="s2_desc">Plastrowanie dynamiczne jako
-                            samodzielny zabieg lub uzupełnienie terapii. Stabilizuje stawy, odciąża bolące mięśnie i
-                            redukuje obrzęki.</p>
-                        <div class="space-y-2 mb-6 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-emerald-400"></i> <span data-i18n="s2_f1">Aplikacje na
-                                    kolana, barki, odcinek lędźwiowy</span></div>
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-emerald-400"></i> <span data-i18n="s2_f2">Działa 24/7 przez
-                                    kilka dni po nałożeniu</span></div>
-                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="s2_title">Kinesiotaping</h3>
+                        <p class="text-xs text-[#94A3B8] leading-relaxed mb-4" data-i18n="s2_desc">
+                            Plastrowanie dynamiczne jako samodzielny zabieg lub uzupełnienie masażu. Stabilizuje stawy,
+                            odciąża bolące mięśnie i redukuje obrzęki.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400" data-i18n="time_tape">Zabieg celowany</span>
-                        <div class="flex items-center gap-3">
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="text-emerald-400 hover:text-emerald-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WA
-                            </a>
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-400 hover:text-sky-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i> TG
-                            </a>
-                        </div>
+                    <div class="pt-3 border-t border-[#203047] flex items-center justify-between">
+                        <span class="text-xs text-[#94A3B8]" data-i18n="s2_time">Aplikacja • 100 zł</span>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-[#22C7B8] font-semibold hover:underline" data-i18n="btn_book_sm">Zapisz
+                            się &rarr;</a>
                     </div>
                 </div>
 
                 <!-- 3. Masaż Klasyczny -->
                 <div
-                    class="p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-purple-500/50 transition duration-300 flex flex-col justify-between">
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
                         <div
-                            class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-5">
-                            <i data-lucide="activity" class="w-6 h-6"></i>
+                            class="w-10 h-10 rounded-xl bg-[#0D1929] border border-[#203047] text-[#38BDF8] flex items-center justify-center mb-4">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s3_title">Masaż Klasyczny</h3>
-                        <p class="text-slate-400 text-sm mb-5" data-i18n="s3_desc">Podstawa walki z bólem pleców,
-                            poprawy krążenia i usunięcia przewlekłego napięcia mięśniowego.</p>
-                        <div class="space-y-2 mb-6 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-purple-400"></i> <span data-i18n="s3_f1">Odcinek szyjny,
-                                    grzbiet i lędźwie</span></div>
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-purple-400"></i> <span data-i18n="s3_f2">Ulga po
-                                    wielogodzinnym siedzeniu</span></div>
-                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="s3_title">Masaż Klasyczny</h3>
+                        <p class="text-xs text-[#94A3B8] leading-relaxed mb-4" data-i18n="s3_desc">
+                            Podstawa walki z bólem pleców, poprawy krążenia i usunięcia przewlekłego napięcia
+                            mięśniowego po wielogodzinnej pracy przy biurku.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <div class="flex items-center gap-3">
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="text-emerald-400 hover:text-emerald-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WA
-                            </a>
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-400 hover:text-sky-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i> TG
-                            </a>
-                        </div>
+                    <div class="pt-3 border-t border-[#203047] flex items-center justify-between">
+                        <span class="text-xs text-[#94A3B8]">60 min • 200 zł</span>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-[#38BDF8] font-semibold hover:underline" data-i18n="btn_book_sm">Zapisz
+                            się &rarr;</a>
                     </div>
                 </div>
 
                 <!-- 4. Masaż Estetyczny / Modelujący -->
                 <div
-                    class="p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-pink-500/50 transition duration-300 flex flex-col justify-between">
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
                         <div
-                            class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center mb-5">
-                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            class="w-10 h-10 rounded-xl bg-[#0D1929] border border-[#203047] text-[#D6B98C] flex items-center justify-center mb-4">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s4_title">Masaż Estetyczny</h3>
-                        <p class="text-slate-400 text-sm mb-5" data-i18n="s4_desc">Masaż modelujący i ujędrniający
-                            sylwetkę. Poprawia mikrokrążenie, redukuje zastoje limfatyczne i cellulit.</p>
-                        <div class="space-y-2 mb-6 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-pink-400"></i> <span data-i18n="s4_f1">Drenaż limfatyczny i
-                                    likwidacja obrzęków</span></div>
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-pink-400"></i> <span data-i18n="s4_f2">Ujędrnienie i
-                                    modelowanie sylwetki</span></div>
-                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="s4_title">Masaż Estetyczny</h3>
+                        <p class="text-xs text-[#94A3B8] leading-relaxed mb-4" data-i18n="s4_desc">
+                            Drenaż limfatyczny i masaż modelujący sylwetkę. Poprawia mikrokrążenie, usuwa zastoje wody i
+                            ujędrnia skórę.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400" data-i18n="time_60">60 min</span>
-                        <div class="flex items-center gap-3">
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="text-emerald-400 hover:text-emerald-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WA
-                            </a>
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-400 hover:text-sky-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i> TG
-                            </a>
-                        </div>
+                    <div class="pt-3 border-t border-[#203047] flex items-center justify-between">
+                        <span class="text-xs text-[#94A3B8]">60 min • 200 zł</span>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-[#D6B98C] font-semibold hover:underline" data-i18n="btn_book_sm">Zapisz
+                            się &rarr;</a>
                     </div>
                 </div>
 
                 <!-- 5. Masaż dla Dzieci i Młodzieży -->
                 <div
-                    class="p-7 rounded-2xl border border-slate-800 bg-slate-900/60 hover:border-blue-500/50 transition duration-300 flex flex-col justify-between">
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
                         <div
-                            class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-5">
-                            <i data-lucide="smile" class="w-6 h-6"></i>
+                            class="w-10 h-10 rounded-xl bg-[#0D1929] border border-[#203047] text-[#94A3B8] flex items-center justify-center mb-4">
+                            <i data-lucide="smile" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="s5_title">Masaż dla Dzieci</h3>
-                        <p class="text-slate-400 text-sm mb-5" data-i18n="s5_desc">Delikatny, bezpieczny masaż
-                            wspierający prawidłowy rozwój układu ruchu. Pomaga przy wadach postawy i napięciach u dzieci
-                            i młodzieży.</p>
-                        <div class="space-y-2 mb-6 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-blue-400"></i> <span data-i18n="s5_f1">Korekcja wad postawy
-                                    i skolioz</span></div>
-                            <div class="flex items-center gap-2"><i data-lucide="circle-dot"
-                                    class="w-3.5 h-3.5 text-blue-400"></i> <span data-i18n="s5_f2">Bezpieczne techniki
-                                    dla młodych sportowców</span></div>
-                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2" data-i18n="s5_title">Masaż dla Dzieci</h3>
+                        <p class="text-xs text-[#94A3B8] leading-relaxed mb-4" data-i18n="s5_desc">
+                            Delikatne i bezpieczne techniki wspierające prawidłowy rozwój postawy. Pomoc przy skoliozie
+                            i przeciążeniach u młodych sportowców.
+                        </p>
                     </div>
-                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
-                        <span class="text-xs text-slate-400" data-i18n="time_opt">40–50 min</span>
-                        <div class="flex items-center gap-3">
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="text-emerald-400 hover:text-emerald-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WA
-                            </a>
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="text-sky-400 hover:text-sky-300 font-semibold text-xs flex items-center gap-1">
-                                <i data-lucide="send" class="w-3.5 h-3.5"></i> TG
-                            </a>
-                        </div>
+                    <div class="pt-3 border-t border-[#203047] flex items-center justify-between">
+                        <span class="text-xs text-[#94A3B8]">45 min • 200 zł</span>
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="text-xs text-[#94A3B8] font-semibold hover:underline" data-i18n="btn_book_sm">Zapisz
+                            się &rarr;</a>
                     </div>
                 </div>
 
@@ -474,216 +403,237 @@
         </div>
     </section>
 
-    <!-- Cennik -->
-    <section id="pricing" class="py-20 bg-slate-900/40">
+    <!-- НОВЫЙ БЛОК: Как проходит визит (Снимает тревожность) -->
+    <section id="process" class="py-16 bg-[#0D1929] border-y border-[#203047]">
         <div class="max-w-5xl mx-auto px-4">
-            <div class="text-center max-w-xl mx-auto mb-16">
-                <h2 class="text-3xl font-extrabold text-white" data-i18n="price_title">Cennik usług</h2>
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-xs uppercase tracking-wider text-[#22C7B8] font-bold block mb-2"
+                    data-i18n="proc_tag">Przebieg wizyty</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="proc_title">Czego możesz się
+                    spodziewać</h2>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Пакет 1: Любой массаж -->
-                <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                <div class="p-5 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-xs font-bold text-[#22C7B8] mb-2">01</div>
+                    <h4 class="text-sm font-bold text-white mb-1" data-i18n="step_1_t">Konsultacja</h4>
+                    <p class="text-xs text-[#94A3B8] leading-relaxed" data-i18n="step_1_d">Rozmawiamy o Twoich
+                        dolegliwościach, trybie życia i celu wizyty.</p>
+                </div>
+                <div class="p-5 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-xs font-bold text-[#22C7B8] mb-2">02</div>
+                    <h4 class="text-sm font-bold text-white mb-1" data-i18n="step_2_t">Dobór techniki</h4>
+                    <p class="text-xs text-[#94A3B8] leading-relaxed" data-i18n="step_2_d">Dopasowuję intensywność i
+                        techniki masażu pod konkretny problem.</p>
+                </div>
+                <div class="p-5 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-xs font-bold text-[#22C7B8] mb-2">03</div>
+                    <h4 class="text-sm font-bold text-white mb-1" data-i18n="step_3_t">Zabieg i terapia</h4>
+                    <p class="text-xs text-[#94A3B8] leading-relaxed" data-i18n="step_3_d">Precyzyjna praca z powięzią,
+                        mięśniami i punktami spustowymi.</p>
+                </div>
+                <div class="p-5 rounded-xl border border-[#203047] bg-[#111F31]">
+                    <div class="text-xs font-bold text-[#22C7B8] mb-2">04</div>
+                    <h4 class="text-sm font-bold text-white mb-1" data-i18n="step_4_t">Zalecenia</h4>
+                    <p class="text-xs text-[#94A3B8] leading-relaxed" data-i18n="step_4_d">Wskazówki domowe lub
+                        aplikacja taśm kinezjo dla utrwalenia efektu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cennik (zł, длительность, выделение центральной карточки масштабом и бирюзой) -->
+    <section id="pricing" class="py-20 bg-[#08111F]">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="price_title">Cennik usług</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 items-center">
+
+                <!-- Пакет 1: Массаж на выбор -->
+                <div
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] flex flex-col justify-between text-left">
                     <div>
-                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p1_name">Dowolny masaż</h3>
-                        <p class="text-xs text-slate-400 mb-4" data-i18n="p1_sub">Sportowy, klasyczny, estetyczny lub
-                            dla dzieci</p>
-                        <div class="text-3xl font-extrabold text-cyan-400 mb-6">200 PLN <span
-                                class="text-xs text-slate-400 font-normal">/ sesja</span></div>
-                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                            <li>✓ <span data-i18n="p1_f1">Dobór techniki pod Twój cel (60 min)</span></li>
-                            <li>✓ <span data-i18n="p1_f2">Głęboka ulga i regeneracja mięśni</span></li>
+                        <h3 class="text-base font-bold text-white mb-1" data-i18n="p1_name">Masaż do wyboru</h3>
+                        <p class="text-xs text-[#94A3B8] mb-4" data-i18n="p1_sub">Sportowy, klasyczny, estetyczny lub
+                            dziecięcy</p>
+                        <div class="text-3xl font-extrabold text-white mb-1">200 zł</div>
+                        <div class="text-xs text-[#22C7B8] font-medium mb-5" data-i18n="time_60">60 minut</div>
+                        <ul class="space-y-2 text-xs text-[#94A3B8] mb-6">
+                            <li>✓ <span data-i18n="p1_f1">Dobór techniki pod Twój cel</span></li>
+                            <li>✓ <span data-i18n="p1_f2">Głęboka ulga i regeneracja</span></li>
                         </ul>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 text-center font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg border border-sky-500/40 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 text-center font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="send" class="w-3.5 h-3.5"></i> Telegram
-                        </a>
-                    </div>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                        class="w-full py-2.5 rounded-xl border border-[#203047] hover:border-[#22C7B8] bg-[#0D1929] text-white text-center font-semibold text-xs transition"
+                        data-i18n="btn_book_sm">
+                        Zapisz się
+                    </a>
                 </div>
 
-                <!-- Пакет 2: Массаж + Тейпирование (Хит) -->
+                <!-- Пакет 2: Массаж + Тейпирование (Выделен масштабом и верхней бирюзовой линией) -->
                 <div
-                    class="p-6 rounded-2xl border border-emerald-500/40 bg-slate-950 relative flex flex-col justify-between glow-cyan">
-                    <div class="absolute -top-3 right-4 px-2.5 py-0.5 bg-emerald-500 text-slate-950 font-bold rounded-full text-[10px] uppercase tracking-wider"
+                    class="p-6 rounded-2xl border-2 border-[#22C7B8] bg-[#111F31] relative flex flex-col justify-between text-left md:scale-105 soft-shadow">
+                    <div class="absolute -top-3 right-4 px-2.5 py-0.5 bg-[#D6B98C] text-[#08111F] font-bold rounded-full text-[10px] uppercase tracking-wider"
                         data-i18n="badge_pop">
                         Polecany
                     </div>
                     <div>
-                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p2_name">Masaż + Kinesiotaping</h3>
-                        <p class="text-xs text-slate-400 mb-4" data-i18n="p2_sub">Kompleksowa regeneracja i stabilizacja
-                        </p>
-                        <div class="text-3xl font-extrabold text-emerald-400 mb-6">250 PLN <span
-                                class="text-xs text-slate-400 font-normal">/ pakiet</span></div>
-                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                            <li>✓ <span data-i18n="p2_f1">Pełny masaż celowany + oklejenie taśmami</span></li>
-                            <li>✓ <span data-i18n="p2_f2">Długotrwałe odciążenie stawów i powięzi</span></li>
+                        <h3 class="text-base font-bold text-white mb-1" data-i18n="p2_name">Masaż + Kinesiotaping</h3>
+                        <p class="text-xs text-[#94A3B8] mb-4" data-i18n="p2_sub">Kompleksowa ulga i zabezpieczenie</p>
+                        <div class="text-3xl font-extrabold text-[#22C7B8] mb-1">250 zł</div>
+                        <div class="text-xs text-[#22C7B8] font-medium mb-5">60 min + aplikacja taśm</div>
+                        <ul class="space-y-2 text-xs text-white mb-6">
+                            <li>✓ <span data-i18n="p2_f1">Pełny masaż + oklejenie taśmami</span></li>
+                            <li>✓ <span data-i18n="p2_f2">Długotrwałe odciążenie powięzi</span></li>
                         </ul>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-center font-bold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 text-center font-bold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="send" class="w-3.5 h-3.5"></i> Telegram
-                        </a>
-                    </div>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                        class="w-full py-2.5 rounded-xl bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] text-center font-bold text-xs transition"
+                        data-i18n="btn_book_sm">
+                        Zapisz się
+                    </a>
                 </div>
 
                 <!-- Пакет 3: Тейпирование соло -->
-                <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950 flex flex-col justify-between">
+                <div
+                    class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] flex flex-col justify-between text-left">
                     <div>
-                        <h3 class="text-lg font-bold text-white mb-1" data-i18n="p3_name">Kinesiotaping</h3>
-                        <p class="text-xs text-slate-400 mb-4" data-i18n="p3_sub">Samodzielna aplikacja plastrów</p>
-                        <div class="text-3xl font-extrabold text-purple-400 mb-6">100 PLN <span
-                                class="text-xs text-slate-400 font-normal">/ aplikacja</span></div>
-                        <ul class="space-y-2 text-xs text-slate-300 mb-6">
-                            <li>✓ <span data-i18n="p3_f1">Aplikacja na strefę: kolano, bark, plecy itp.</span></li>
-                            <li>✓ <span data-i18n="p3_f2">Wsparcie mięśni i drenaż 24/7</span></li>
+                        <h3 class="text-base font-bold text-white mb-1" data-i18n="p3_name">Kinesiotaping</h3>
+                        <p class="text-xs text-[#94A3B8] mb-4" data-i18n="p3_sub">Samodzielna aplikacja plastrów</p>
+                        <div class="text-3xl font-extrabold text-white mb-1">100 zł</div>
+                        <div class="text-xs text-[#22C7B8] font-medium mb-5">15–20 minut</div>
+                        <ul class="space-y-2 text-xs text-[#94A3B8] mb-6">
+                            <li>✓ <span data-i18n="p3_f1">Aplikacja na wybraną strefę</span></li>
+                            <li>✓ <span data-i18n="p3_f2">Wsparcie stawów i drenaż 24/7</span></li>
                         </ul>
                     </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 text-center font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                            class="py-2.5 rounded-lg border border-sky-500/40 bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 text-center font-semibold text-xs flex items-center justify-center gap-1 transition">
-                            <i data-lucide="send" class="w-3.5 h-3.5"></i> Telegram
-                        </a>
-                    </div>
+                    <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                        class="w-full py-2.5 rounded-xl border border-[#203047] hover:border-[#22C7B8] bg-[#0D1929] text-white text-center font-semibold text-xs transition"
+                        data-i18n="btn_book_sm">
+                        Zapisz się
+                    </a>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Локация и Контакты -->
-    <section id="contacts" class="py-20 bg-slate-900/60 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
+    <!-- Локация и Контакты (Разделены по приоритету) -->
+    <section id="contacts" class="py-20 bg-[#0D1929] border-t border-[#203047]">
+        <div class="max-w-5xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-14">
-                <span class="text-xs uppercase tracking-widest text-cyan-400 font-bold block mb-2"
+                <span class="text-xs uppercase tracking-wider text-[#22C7B8] font-bold block mb-2"
                     data-i18n="loc_tag">Kontakt & Lokalizacja</span>
-                <h2 class="text-3xl font-extrabold text-white" data-i18n="loc_title">Zapraszam do gabinetu</h2>
-                <p class="text-slate-400 text-sm mt-2" data-i18n="loc_sub">Warszawa, Mokotów • ul. Kazimierzowska 69</p>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="loc_title">Zapraszam do gabinetu
+                </h2>
+                <p class="text-[#94A3B8] text-sm mt-1" data-i18n="loc_sub">Warszawa, Mokotów • ul. Kazimierzowska 69</p>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-8 items-start">
-                <!-- Инфо и кнопки -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="p-6 rounded-2xl border border-slate-800 bg-slate-950/80 backdrop-blur space-y-5">
-                        <div class="flex items-start gap-4">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 mt-1">
-                                <i data-lucide="map-pin" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-white font-semibold text-base" data-i18n="loc_address">Adres gabinetu
-                                </h3>
-                                <p class="text-slate-200 text-sm font-medium mt-1">ul. Kazimierzowska 69</p>
-                                <p class="text-xs text-slate-400 mt-0.5" data-i18n="loc_details">Warszawa, Mokotów
-                                    (Centrum Masażu)</p>
-                            </div>
+
+                <!-- Левая колонка: Приоритет действий -->
+                <div class="lg:col-span-5 space-y-5 text-left">
+                    <div class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] space-y-5">
+
+                        <div>
+                            <span class="text-xs text-[#94A3B8] block mb-1" data-i18n="loc_address_h">Adres
+                                gabinetu:</span>
+                            <p class="text-white font-bold text-base">ul. Kazimierzowska 69, Warszawa</p>
+                            <p class="text-xs text-[#94A3B8] mt-0.5">Centrum Masażu (Mokotów) • Metro Racławicka</p>
                         </div>
 
-                        <div class="flex items-start gap-4 border-t border-slate-800/80 pt-4">
-                            <div
-                                class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-1">
-                                <i data-lucide="phone" class="w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-white font-semibold text-base" data-i18n="loc_phone">Rezerwacje &
-                                    Kontakt</h3>
-                                <p class="text-slate-200 font-bold text-lg mt-0.5">+48 731 532 331</p>
-                            </div>
+                        <!-- 1. Главная кнопка: WhatsApp -->
+                        <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                            class="w-full py-3.5 rounded-xl bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] font-bold text-sm flex items-center justify-center gap-2 transition soft-shadow">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span data-i18n="btn_wa">Napisz na WhatsApp (Szybki zapis)</span>
+                        </a>
+
+                        <!-- 2. Вторичная кнопка: Telegram -->
+                        <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
+                            class="w-full py-3 rounded-xl border border-[#203047] hover:border-[#38BDF8] bg-[#0D1929] text-white font-semibold text-xs flex items-center justify-center gap-2 transition">
+                            <i data-lucide="send" class="w-4 h-4 text-[#38BDF8]"></i>
+                            <span data-i18n="btn_tg_dm">Napisz w Telegram (@Dmitry_waw)</span>
+                        </a>
+
+                        <!-- 3. Телефон строкой -->
+                        <div class="pt-2 border-t border-[#203047] flex items-center justify-between text-xs">
+                            <span class="text-[#94A3B8]" data-i18n="loc_tel">Telefon bezpośredni:</span>
+                            <a href="tel:+48731532331" class="text-white font-bold hover:text-[#22C7B8] transition">+48
+                                731 532 331</a>
                         </div>
 
-                        <!-- 3 кнопки записи и связи -->
-                        <div class="pt-2 flex flex-col gap-2.5">
-                            <!-- 1. Запись через WhatsApp -->
-                            <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                                class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                <span data-i18n="btn_wa">Zapisz się przez WhatsApp</span>
-                            </a>
-
-                            <!-- 2. Запись через личку в Telegram -->
-                            <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                                class="w-full py-3.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm flex items-center justify-center gap-2 transition shadow-lg">
-                                <i data-lucide="send" class="w-4 h-4"></i>
-                                <span data-i18n="btn_tg_dm">Napisz w Telegram (@Dmitry_waw)</span>
-                            </a>
-
-                            <!-- 3. Канал / группа Telegram -->
+                        <!-- 4. Ненавязчивая строка Telegram-канала -->
+                        <div
+                            class="pt-2 border-t border-[#203047] text-xs text-[#94A3B8] flex items-center justify-between">
+                            <span data-i18n="loc_channel_label">Wolne terminy w kanale:</span>
                             <a href="https://t.me/Massage_ww" target="_blank" rel="noopener noreferrer"
-                                class="w-full py-2.5 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 font-medium text-xs flex items-center justify-center gap-2 transition border border-sky-500/30">
-                                <i data-lucide="users" class="w-3.5 h-3.5"></i>
-                                <span data-i18n="btn_tg_channel">Kanał Telegram @Massage_ww (Wolne terminy &
-                                    info)</span>
-                            </a>
-
-                            <!-- 4. Прямой звонок -->
-                            <a href="tel:+48731532331"
-                                class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium text-xs flex items-center justify-center gap-2 transition border border-slate-800">
-                                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
-                                <span data-i18n="btn_call">Zadzwoń bezpośrednio: +48 731 532 331</span>
+                                class="text-[#38BDF8] hover:underline flex items-center gap-1">
+                                @Massage_ww &rarr;
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Карта + Фото входа -->
+                <!-- Правая колонка: Карта и Фото входа -->
                 <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
-                    <!-- Google Maps iframe -->
-                    <div
-                        class="relative h-[340px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl">
+                    <!-- Google Maps -->
+                    <div class="relative h-[290px] rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31]">
                         <iframe title="Google Maps Kazimierzowska 69 Warszawa"
                             src="https://maps.google.com/maps?q=Kazimierzowska+69,+Warszawa&hl=pl&z=15&output=embed"
                             class="w-full h-full border-0" allowfullscreen="" loading="lazy">
                         </iframe>
-                        <div
-                            class="absolute bottom-3 left-3 bg-slate-950/85 backdrop-blur border border-slate-800 px-2.5 py-1 rounded-lg text-xs text-slate-300 flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                            <span data-i18n="badge_map">Mokotów, Kazimierzowska 69</span>
-                        </div>
                     </div>
 
-                    <!-- Фото фасада -->
+                    <!-- Фото входа с практичной подписью -->
                     <div
-                        class="relative h-[340px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950 shadow-2xl group">
-                        <img src="assets/img/entrance.jpg" alt="Wejście do gabinetu Kazimierzowska 69 Warszawa"
+                        class="relative h-[290px] rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31] group">
+                        <img src="assets/img/entrance.jpg" alt="Wejście od ulicy Kazimierzowskiej"
                             class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105">
                         <div
-                            class="absolute bottom-3 left-3 bg-slate-950/85 backdrop-blur border border-slate-800 px-2.5 py-1 rounded-lg text-xs text-slate-200 flex items-center gap-1.5">
-                            <i data-lucide="door-open" class="w-3.5 h-3.5 text-cyan-400"></i>
-                            <span data-i18n="badge_entrance">Wejście od ulicy</span>
+                            class="absolute bottom-3 left-3 bg-[#08111F]/90 backdrop-blur border border-[#203047] px-2.5 py-1 rounded-lg text-xs text-white flex items-center gap-1.5">
+                            <i data-lucide="door-open" class="w-3.5 h-3.5 text-[#22C7B8]"></i>
+                            <span data-i18n="badge_entrance">Wejście bezpośrednio od ulicy</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Подвал -->
-    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <!-- Финальный CTA-блок перед футером -->
+    <section class="py-20 bg-[#08111F] px-4">
+        <div
+            class="max-w-3xl mx-auto p-10 sm:p-14 rounded-3xl border border-[#203047] bg-[#0D1929] text-center soft-shadow">
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white mb-4 leading-tight" data-i18n="final_title">
+                Chcesz zadbać o swoje ciało?
+            </h2>
+            <p class="text-xs sm:text-sm text-[#94A3B8] max-w-lg mx-auto mb-8" data-i18n="final_desc">
+                Napisz do mnie — odpowiem na pytania i pomogę wybrać odpowiedni seans.
+            </p>
+            <div>
+                <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] font-bold text-sm transition shadow-[0_10px_25px_-5px_rgba(34,199,184,0.35)] transform hover:-translate-y-0.5">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span data-i18n="final_btn">Записаться</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="border-t border-[#203047] bg-[#08111F] py-8 text-center text-xs text-[#94A3B8]">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>© 2026 Dmitry Masaż • Warszawa Mokotów, ul. Kazimierzowska 69</p>
             <div class="flex items-center gap-4">
                 <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-cyan-400 transition flex items-center gap-1">
-                    <i data-lucide="send" class="w-3.5 h-3.5"></i> @Dmitry_waw
+                    class="hover:text-white transition">
+                    Telegram: @Dmitry_waw
                 </a>
-                <a href="https://t.me/Massage_ww" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-cyan-400 transition flex items-center gap-1">
-                    <i data-lucide="users" class="w-3.5 h-3.5"></i> @Massage_ww
-                </a>
-                <a href="tel:+48731532331" class="hover:text-cyan-400 transition">
+                <a href="tel:+48731532331" class="hover:text-white transition">
                     +48 731 532 331
                 </a>
             </div>
