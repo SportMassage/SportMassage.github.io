@@ -46,34 +46,18 @@
     }
     </script>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Готовый оптимизированный CSS (всего ~15-20 КБ вместо 350 КБ CDN) -->
+    <link rel="stylesheet" href="assets/css/tailwind.min.css?v=1.0">
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        theme: {
-                            base: '#08111F',
-                            surface: '#0D1929',
-                            card: '#111F31',
-                            border: '#203047',
-                            teal: '#22C7B8',
-                            sky: '#38BDF8',
-                            sand: '#D6B98C',
-                            muted: '#94A3B8'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+
 
     <!-- Кастомные стили -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-[#08111F] text-[#F4F7FA] font-sans antialiased selection:bg-[#22C7B8] selection:text-[#08111F]">
