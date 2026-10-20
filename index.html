@@ -46,14 +46,10 @@
     }
     </script>
 
-    <!-- Готовый оптимизированный CSS (всего ~15-20 КБ вместо 350 КБ CDN) -->
     <link rel="stylesheet" href="assets/css/tailwind.min.css?v=1.0">
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-
-    <!-- Кастомные стили -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
@@ -62,7 +58,6 @@
 
 <body class="bg-[#08111F] text-[#F4F7FA] font-sans antialiased selection:bg-[#22C7B8] selection:text-[#08111F]">
 
-    <!-- Навигация -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#08111F]/90 backdrop-blur-md border-b border-[#203047]">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="#" class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
@@ -70,7 +65,6 @@
                 <span>DZMITRY <span class="text-[#94A3B8] font-normal">• MASAŻ</span></span>
             </a>
 
-            <!-- Десктоп-меню -->
             <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-[#94A3B8]">
                 <a href="#about" data-i18n="nav_about" class="hover:text-white transition">O mnie</a>
                 <a href="#services" data-i18n="nav_services" class="hover:text-white transition">Usługi</a>
@@ -80,7 +74,6 @@
             </nav>
 
             <div class="flex items-center gap-2 sm:gap-3">
-                <!-- Языки -->
                 <div class="flex items-center bg-[#0D1929] border border-[#203047] rounded-xl p-0.5 text-xs">
                     <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski"
                         class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">PL</button>
@@ -92,7 +85,6 @@
                         class="lang-btn px-2 py-1 rounded-lg text-[#94A3B8] hover:text-white transition">EN</button>
                 </div>
 
-                <!-- Быстрая запись: WhatsApp + Telegram (Личка) -->
                 <div class="hidden sm:flex items-center gap-1.5">
                     <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                         title="Napisz na WhatsApp"
@@ -109,7 +101,6 @@
                     </a>
                 </div>
 
-                <!-- Бургер-меню -->
                 <button id="mobile-menu-btn" aria-label="Menu"
                     class="md:hidden p-2 text-[#94A3B8] hover:text-white rounded-lg bg-[#0D1929] border border-[#203047]">
                     <i data-lucide="menu" class="w-5 h-5"></i>
@@ -117,7 +108,6 @@
             </div>
         </div>
 
-        <!-- Мобильное меню -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#0D1929] border-b border-[#203047] px-4 pt-3 pb-5 space-y-3">
             <a href="#about" data-i18n="nav_about" class="block text-[#94A3B8] hover:text-white font-medium py-1">O
                 mnie</a>
@@ -145,13 +135,11 @@
         </div>
     </header>
 
-    <!-- Секция Hero (Композиция 55 / 45) -->
     <section
         class="min-h-screen pt-28 pb-16 flex items-center relative overflow-hidden bg-gradient-to-b from-[#08111F] via-[#08111F] to-[#0D1929]">
         <div class="max-w-6xl mx-auto px-4 w-full">
             <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-                <!-- Левая колонка (55%) -->
                 <div class="lg:col-span-7 space-y-6 text-left">
                     <div
                         class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#203047] bg-[#0D1929] text-xs text-[#22C7B8]">
@@ -169,7 +157,6 @@
                         siedzącej. Precyzyjne techniki dopasowane do Twojego ciała.
                     </p>
 
-                    <!-- Только 2 главные кнопки действия -->
                     <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                             class="px-6 py-3.5 rounded-xl bg-[#22C7B8] text-[#08111F] font-bold hover:bg-[#1eb3a5] transition soft-shadow flex items-center justify-center gap-2 text-sm">
@@ -185,7 +172,6 @@
                     </div>
                 </div>
 
-                <!-- Правая колонка (45%): Фото кабинета -->
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31] soft-shadow">
                         <img src="assets/img/workplace.jpg" alt="Gabinet masażu Warszawa Kazimierzowska 69"
@@ -207,7 +193,6 @@
         </div>
     </section>
 
-    <!-- О мастере -->
     <section id="about" class="py-20 bg-[#0D1929] border-y border-[#203047]">
         <div class="max-w-4xl mx-auto px-4 text-left">
             <span class="text-xs uppercase tracking-wider text-[#22C7B8] font-bold block mb-2" data-i18n="about_tag">O
@@ -230,7 +215,6 @@
                 </div>
             </div>
 
-            <!-- 4 коротких преимущества -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
                 <div class="p-3 rounded-xl border border-[#203047] bg-[#111F31]">
                     <div class="text-sm font-bold text-white" data-i18n="adv_1_t">Certyfikaty</div>
@@ -252,7 +236,6 @@
         </div>
     </section>
 
-    <!-- Услуги (Сетка 1 широкая + 4 в формате 2х2 — без пустой ячейки!) -->
     <section id="services" class="py-20 bg-[#08111F]">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-14">
@@ -264,7 +247,6 @@
 
             <div class="grid md:grid-cols-2 gap-5">
 
-                <!-- 1. Флагманская услуга: Спортивный массаж (во всю ширину на 2 колонки) -->
                 <div
                     class="md:col-span-2 p-6 sm:p-8 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col md:flex-row md:items-center justify-between gap-6 relative overflow-hidden">
                     <div class="space-y-3 max-w-2xl text-left">
@@ -295,7 +277,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Kinesiotaping -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
@@ -317,7 +298,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Masaż Klasyczny -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
@@ -339,7 +319,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Masaż Estetyczny / Modelujący -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
@@ -361,7 +340,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Masaż dla Dzieci i Młodzieży -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] card-hover flex flex-col justify-between text-left">
                     <div>
@@ -387,7 +365,6 @@
         </div>
     </section>
 
-    <!-- НОВЫЙ БЛОК: Как проходит визит (Снимает тревожность) -->
     <section id="process" class="py-16 bg-[#0D1929] border-y border-[#203047]">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-12">
@@ -426,7 +403,6 @@
         </div>
     </section>
 
-    <!-- Cennik (zł, длительность, выделение центральной карточки масштабом и бирюзой) -->
     <section id="pricing" class="py-20 bg-[#08111F]">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-14">
@@ -435,7 +411,6 @@
 
             <div class="grid md:grid-cols-3 gap-5 items-center">
 
-                <!-- Пакет 1: Массаж на выбор -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] flex flex-col justify-between text-left">
                     <div>
@@ -456,7 +431,6 @@
                     </a>
                 </div>
 
-                <!-- Пакет 2: Массаж + Тейпирование (Выделен масштабом и верхней бирюзовой линией) -->
                 <div
                     class="p-6 rounded-2xl border-2 border-[#22C7B8] bg-[#111F31] relative flex flex-col justify-between text-left md:scale-105 soft-shadow">
                     <div class="absolute -top-3 right-4 px-2.5 py-0.5 bg-[#D6B98C] text-[#08111F] font-bold rounded-full text-[10px] uppercase tracking-wider"
@@ -482,7 +456,6 @@
                     </a>
                 </div>
 
-                <!-- Пакет 3: Тейпирование соло -->
                 <div
                     class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] flex flex-col justify-between text-left">
                     <div>
@@ -508,7 +481,6 @@
         </div>
     </section>
 
-    <!-- Локация и Контакты (Разделены по приоритету) -->
     <section id="contacts" class="py-20 bg-[#0D1929] border-t border-[#203047]">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center max-w-xl mx-auto mb-14">
@@ -521,7 +493,6 @@
 
             <div class="grid lg:grid-cols-12 gap-8 items-start">
 
-                <!-- Левая колонка: Приоритет действий -->
                 <div class="lg:col-span-5 space-y-5 text-left">
                     <div class="p-6 rounded-2xl border border-[#203047] bg-[#111F31] space-y-5">
 
@@ -532,28 +503,24 @@
                             <p class="text-xs text-[#94A3B8] mt-0.5">Centrum Masażu (Mokotów) • Metro Racławicka</p>
                         </div>
 
-                        <!-- 1. Главная кнопка: WhatsApp -->
                         <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                             class="w-full py-3.5 rounded-xl bg-[#22C7B8] hover:bg-[#1eb3a5] text-[#08111F] font-bold text-sm flex items-center justify-center gap-2 transition soft-shadow">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             <span data-i18n="btn_wa">Napisz na WhatsApp (Szybki zapis)</span>
                         </a>
 
-                        <!-- 2. Вторичная кнопка: Telegram -->
                         <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                             class="w-full py-3 rounded-xl border border-[#203047] hover:border-[#38BDF8] bg-[#0D1929] text-white font-semibold text-xs flex items-center justify-center gap-2 transition">
                             <i data-lucide="send" class="w-4 h-4 text-[#38BDF8]"></i>
                             <span data-i18n="btn_tg_dm">Napisz w Telegram (@Dmitry_waw)</span>
                         </a>
 
-                        <!-- 3. Телефон строкой -->
                         <div class="pt-2 border-t border-[#203047] flex items-center justify-between text-xs">
                             <span class="text-[#94A3B8]" data-i18n="loc_tel">Telefon bezpośredni:</span>
                             <a href="tel:+48731532331" class="text-white font-bold hover:text-[#22C7B8] transition">+48
                                 731 532 331</a>
                         </div>
 
-                        <!-- 4. Ненавязчивая строка Telegram-канала -->
                         <div
                             class="pt-2 border-t border-[#203047] text-xs text-[#94A3B8] flex items-center justify-between">
                             <span data-i18n="loc_channel_label">Wolne terminy w kanale:</span>
@@ -565,7 +532,6 @@
                     </div>
                 </div>
 
-                <!-- Правая колонка: Карта и Фото входа -->
                 <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
                     <!-- Google Maps -->
                     <div class="relative h-[290px] rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31]">
@@ -575,7 +541,6 @@
                         </iframe>
                     </div>
 
-                    <!-- Фото входа с практичной подписью -->
                     <div
                         class="relative h-[290px] rounded-2xl overflow-hidden border border-[#203047] bg-[#111F31] group">
                         <img src="assets/img/entrance.jpg" alt="Wejście od ulicy Kazimierzowskiej"
@@ -592,7 +557,6 @@
         </div>
     </section>
 
-    <!-- Финальный CTA-блок перед футером -->
     <section class="py-20 bg-[#08111F] px-4">
         <div
             class="max-w-3xl mx-auto p-10 sm:p-14 rounded-3xl border border-[#203047] bg-[#0D1929] text-center soft-shadow">
@@ -612,7 +576,6 @@
         </div>
     </section>
 
-    <!-- Футер -->
     <footer class="border-t border-[#203047] bg-[#08111F] py-8 text-center text-xs text-[#94A3B8]">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>© 2026 Dmitry Masaż • Warszawa Mokotów, ul. Kazimierzowska 69</p>
@@ -628,7 +591,6 @@
         </div>
     </footer>
 
-    <!-- Скрипты приложения -->
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
