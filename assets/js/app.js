@@ -1,3 +1,18 @@
+function trackEvent(eventName, params = {}) {
+    if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params);
+        console.log(`[GA4 Event]: ${eventName}`, params);
+    }
+}
+
+function getElementLocation(element) {
+    const section = element.closest('section');
+    if (section && section.id) return section.id;
+    if (element.closest('header')) return 'header';
+    if (element.closest('footer')) return 'footer';
+    return 'page';
+}
+
 function setLanguage(lang) {
     if (typeof i18n === 'undefined') return;
 
@@ -22,6 +37,10 @@ function setLanguage(lang) {
 function changeLanguageManually(lang) {
     localStorage.setItem('preferred_lang', lang);
     setLanguage(lang);
+    
+    trackEvent('change_language', {
+        selected_language: lang
+    });
 }
 
 function detectDefaultLanguage() {
@@ -43,7 +62,6 @@ function detectDefaultLanguage() {
     return 'pl';
 }
 
-// Мобильное меню и инициализация
 document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -60,7 +78,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Первичный запуск
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+        const location = getElementLocation(link);
+
+        if (href.includes('wa.me')) {
+            trackEvent('click_whatsapp', {
+                location: location
+            });
+        }
+
+        else if (href.includes('t.me/Dmitry_waw')) {
+            trackEvent('click_telegram_dm', {
+                location: location
+            });
+        }
+
+        else if (href.includes('t.me/Massage_ww')) {
+            trackEvent('click_telegram_channel', {
+                location: location
+            });
+        }
+
+        else if (href.startsWith('tel:')) {
+            trackEvent('click_phone', {
+                location: location
+            });
+        }
+    });
+
     setLanguage(detectDefaultLanguage());
     if (window.lucide) {
         lucide.createIcons();
