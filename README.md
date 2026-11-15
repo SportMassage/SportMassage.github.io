@@ -27,7 +27,7 @@ Lucide icons, Google Fonts and the map load from the internet, so you need a con
 
 ## Deploy
 
-Pushing to `main` runs `.github/workflows/deploy.yml`. It runs `npm ci` and `npm run build`, then publishes `index.html`, `assets/`, `robots.txt`, `sitemap.xml` and `CNAME` to GitHub Pages.
+Deploys are **manual**; pushing to `main` does not publish anything. To publish: open the repository on GitHub, go to **Actions → Deploy to GitHub Pages → Run workflow**, and pick `main`. The workflow (`.github/workflows/deploy.yml`) runs `npm ci` and `npm run build`, then publishes `index.html`, `assets/`, `robots.txt`, `sitemap.xml` and `CNAME` to GitHub Pages.
 
 One-time setup: in the repository go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**. Do this *before* merging the workflow into `main`. The old "Deploy from a branch" mode would serve the site without CSS, because the CSS is no longer in git.
 
