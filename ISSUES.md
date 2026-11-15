@@ -16,6 +16,7 @@ Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = 
 - [x] `console.log` removed from `trackEvent`
 - [x] Manual-only Pages deploy workflow, README, `.gitignore` updated
 - [x] P0 #1 domain mismatch: canonical, `robots.txt` sitemap URL, `sitemap.xml` `<loc>`, `og:image` and JSON-LD `image` now use `https://sportmassage.pl/…` (absolute); added `og:url`, `og:locale`, Twitter card and JSON-LD `url`. Still to do by hand: confirm "Enforce HTTPS" is on in Settings → Pages.
+- [x] P0 #3 missing `proc_title`: added to `pl`, `ua`, `ru` and `en` in `translations.js`
 
 ---
 
@@ -29,10 +30,8 @@ Fixed in code, see "Done since the first review". Remaining manual step: check t
 
 **Change:** explain it on the page ("Gabinet w Centrum Masażu i Refleksologii, szyld: …") or retake or crop the photo. Make sure the number you want customers to use is the one on the site.
 
-### 3. Missing translation key `proc_title`
-The heading "Czego możesz się spodziewać" (`index.html`, `#process`) has no entry in any locale. It stays in Polish for UA, RU and EN visitors.
-
-**Change:** add `proc_title` to `pl`, `ua`, `ru` and `en` in `assets/js/translations.js`.
+### 3. ~~Missing translation key `proc_title`~~ (fixed)
+Fixed in `assets/js/translations.js`, see "Done since the first review". The `#process` heading now translates for all four locales (EN: "What to expect", UA: "Чого очікувати", RU: "Чего ожидать").
 
 ### 4. Analytics and third-party requests without consent (Poland/EU)
 GA4 (`G-BDQZKYTE33`) loads immediately. Google Fonts, the Google Maps iframe and `unpkg.com` also send visitor IPs to third parties on load. There is no consent banner and no privacy policy.
