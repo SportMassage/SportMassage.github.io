@@ -607,7 +607,7 @@
             <div class="flex flex-wrap items-center justify-center gap-x-4">
                 <a href="privacy.html" class="hover:text-white transition inline-flex items-center min-h-11"
                     data-i18n="privacy_link">Polityka prywatności</a>
-                <button type="button" id="cookie-settings-btn"
+                <button type="button" id="analytics-settings-btn"
                     class="hover:text-white transition inline-flex items-center min-h-11"
                     data-i18n="cookie_settings">Ustawienia cookies</button>
                 <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
@@ -621,28 +621,28 @@
         </div>
     </footer>
 
-    <div id="consent-banner" role="dialog" aria-labelledby="consent-title" hidden
+    <div id="analytics-notice" role="dialog" aria-labelledby="analytics-notice-title" hidden
         class="fixed inset-x-0 bottom-0 z-[60] p-4">
         <div
             class="max-w-3xl mx-auto p-5 rounded-2xl border border-theme-border bg-theme-surface soft-shadow flex flex-col sm:flex-row sm:items-center gap-4">
             <div class="flex-1 text-sm text-theme-muted">
-                <p id="consent-title" class="font-bold text-white mb-1" data-i18n="consent_title">Pliki cookies i statystyki</p>
+                <p id="analytics-notice-title" class="font-bold text-white mb-1" data-i18n="consent_title">Pliki cookies i statystyki</p>
                 <p><span data-i18n="consent_text">Za Twoją zgodą używam Google Analytics do statystyk odwiedzin. Bez zgody nic nie jest wysyłane do Google.</span>
                     <a href="privacy.html" class="text-theme-sky hover:underline" data-i18n="privacy_link">Polityka prywatności</a></p>
             </div>
             <div class="flex gap-2 shrink-0">
-                <button type="button" id="consent-reject"
+                <button type="button" id="analytics-reject"
                     class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl border border-theme-border bg-theme-card hover:border-theme-teal text-white font-semibold text-sm transition"
                     data-i18n="consent_reject">Odrzucam</button>
-                <button type="button" id="consent-accept"
+                <button type="button" id="analytics-accept"
                     class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"
                     data-i18n="consent_accept">Akceptuję</button>
             </div>
         </div>
     </div>
 
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="assets/js/translations.js?v=2"></script>
+    <script src="assets/js/app.js?v=2"></script>
 </body>
 
 </html>
