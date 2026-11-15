@@ -1,5 +1,92 @@
+const GA_ID = 'G-BDQZKYTE33';
+const CONSENT_KEY = 'analytics_consent';
+let analyticsLoaded = false;
+
+function readConsent() {
+    try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+}
+
+function storeConsent(value) {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch (e) { /* storage blocked: the choice lasts for this page view only */ }
+}
+
+// GA4 is loaded only after the visitor accepts (Consent Mode v2).
+function loadAnalytics() {
+    if (analyticsLoaded) return;
+    analyticsLoaded = true;
+    window['ga-disable-' + GA_ID] = false;
+    gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+    });
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(script);
+}
+
+function clearAnalyticsCookies() {
+    const host = location.hostname;
+    const domains = ['', host, '.' + host, '.' + host.split('.').slice(-2).join('.')];
+    document.cookie.split(';').forEach(c => {
+        const name = c.split('=')[0].trim();
+        if (name !== '_ga' && !name.startsWith('_ga_')) return;
+        domains.forEach(d => {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+        });
+    });
+}
+
+function setConsent(value) {
+    storeConsent(value);
+    document.getElementById('consent-banner').hidden = true;
+    if (value === 'granted') {
+        loadAnalytics();
+        return;
+    }
+    if (analyticsLoaded) {
+        window['ga-disable-' + GA_ID] = true;
+        gtag('consent', 'update', { analytics_storage: 'denied' });
+        analyticsLoaded = false;
+    }
+    clearAnalyticsCookies();
+}
+
+function initConsent() {
+    const banner = document.getElementById('consent-banner');
+    if (!banner) return;
+
+    document.getElementById('consent-accept').addEventListener('click', () => setConsent('granted'));
+    document.getElementById('consent-reject').addEventListener('click', () => setConsent('denied'));
+    const settingsBtn = document.getElementById('cookie-settings-btn');
+    if (settingsBtn) settingsBtn.addEventListener('click', () => { banner.hidden = false; });
+
+    const saved = readConsent();
+    if (saved === 'granted') loadAnalytics();
+    else if (saved !== 'denied') banner.hidden = false;
+}
+
+// The Google Maps iframe is created only after a click, so Google gets nothing before that.
+function initMapPlaceholder() {
+    const btn = document.getElementById('map-load-btn');
+    const box = document.getElementById('map-box');
+    if (!btn || !box) return;
+    btn.addEventListener('click', () => {
+        const frame = document.createElement('iframe');
+        frame.title = 'Google Maps Kazimierzowska 69 Warszawa';
+        frame.src = 'https://maps.google.com/maps?q=Kazimierzowska+69,+Warszawa&hl=pl&z=15&output=embed';
+        frame.className = 'w-full h-full border-0';
+        frame.allowFullscreen = true;
+        box.replaceChildren(frame);
+    });
+}
+
 function trackEvent(eventName, params = {}) {
-    if (typeof window.gtag === 'function') {
+    if (analyticsLoaded && typeof window.gtag === 'function') {
         window.gtag('event', eventName, params);
     }
 }
@@ -22,8 +109,10 @@ function setLanguage(lang) {
         }
     });
 
-    if (i18n[lang] && i18n[lang].page_title) {
-        document.title = i18n[lang].page_title;
+    // Pages other than the home page set data-title-key on <html> (e.g. privacy.html)
+    const titleKey = document.documentElement.dataset.titleKey || 'page_title';
+    if (i18n[lang] && i18n[lang][titleKey]) {
+        document.title = i18n[lang][titleKey];
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
@@ -112,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     setLanguage(detectDefaultLanguage());
-    if (window.lucide) {
-        lucide.createIcons();
-    }
+    initConsent();
+    initMapPlaceholder();
 });

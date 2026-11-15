@@ -1,6 +1,6 @@
 # Site review: issues and required changes
 
-Re-checked on `main` (merge commit `fd4181f`) on 2026-11-16. The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
+Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
 
 Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish.
 
@@ -17,6 +17,7 @@ Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = 
 - [x] Manual-only Pages deploy workflow, README, `.gitignore` updated
 - [x] P0 #1 domain mismatch: canonical, `robots.txt` sitemap URL, `sitemap.xml` `<loc>`, `og:image` and JSON-LD `image` now use `https://sportmassage.pl/…` (absolute); added `og:url`, `og:locale`, Twitter card and JSON-LD `url`. Still to do by hand: confirm "Enforce HTTPS" is on in Settings → Pages.
 - [x] P0 #3 missing `proc_title`: added to `pl`, `ua`, `ru` and `en` in `translations.js`
+- [x] P0 #4 consent and third-party requests: cookie banner with Consent Mode v2 (GA4 loads only after "Akceptuję"), Manrope self-hosted in `assets/fonts/`, Google Maps loads only after a click, `privacy.html` added (4 languages), footer "Ustawienia cookies" button to change or withdraw consent. Also removed `unpkg.com/lucide@latest` by inlining the icons as SVG, which fixes P1 #12.
 
 ---
 
@@ -33,14 +34,12 @@ Fixed in code, see "Done since the first review". Remaining manual step: check t
 ### 3. ~~Missing translation key `proc_title`~~ (fixed)
 Fixed in `assets/js/translations.js`, see "Done since the first review". The `#process` heading now translates for all four locales (EN: "What to expect", UA: "Чого очікувати", RU: "Чего ожидать").
 
-### 4. Analytics and third-party requests without consent (Poland/EU)
-GA4 (`G-BDQZKYTE33`) loads immediately. Google Fonts, the Google Maps iframe and `unpkg.com` also send visitor IPs to third parties on load. There is no consent banner and no privacy policy.
+### 4. ~~Analytics and third-party requests without consent (Poland/EU)~~ (fixed)
+Fixed in code, see "Done since the first review". On first load the page now makes no request to Google or any other third party (checked in headless Edge: 0 external requests, banner shown). Remaining manual steps:
 
-**Change:**
-- add a consent banner with Consent Mode v2, or switch to cookieless analytics
-- self-host Manrope
-- load the map only after a click
-- add a short privacy page
+- Have the privacy policy checked, and add the full business name, NIP and an email address to `priv_1_p` if you want them there. It currently names only "Dmitry", the address and the phone number.
+- Optional, in GA4: turn off Google signals and set event data retention to the shortest value (Admin → Data collection and modification).
+- Visitors who accept are counted; those who reject or ignore the banner are not, so expect lower GA4 numbers.
 
 ### 5. Contradictory durations and text
 - Kinesiotaping: HTML says **15–20 minut**, but all translations say **30–45** (the JS overrides the HTML, so visitors see 30–45).
@@ -90,10 +89,8 @@ The other languages are swapped in with JS on one URL, so Google never sees them
 
 **Change:** generate `/en/`, `/ua/` and `/ru/` pages at build time (the Actions workflow is already there) with `hreflang` links, or accept Polish-only SEO.
 
-### 12. `unpkg.com/lucide@latest`
-Unpinned, no SRI, not `defer`red, and large for the 10 icons actually used (message-circle, send, menu, flame, layers, activity, sparkles, smile, door-open, message-square). Icons also appear late.
-
-**Change:** replace with inline SVGs (best), or pin a version with SRI and `defer`.
+### 12. ~~`unpkg.com/lucide@latest`~~ (fixed)
+Replaced with inline SVGs for the 10 icons used (copied from Lucide, ISC licence); the script and `lucide.createIcons()` are gone. Fixed together with P0 #4.
 
 ### 13. Fixed header covers anchor targets
 Jumping to `#services` etc. hides the top of the section heading under the 64px header (confirmed in a screenshot).
@@ -132,6 +129,6 @@ WhatsApp links have no prefilled text, so you can't tell which service was wante
 
 1. P0 #1, #3, #5 (small edits, no decisions needed except the real durations and name)
 2. P0 #2 and P1 #6, #7 (needs your photos and facts)
-3. P0 #4 (consent and self-hosted fonts)
-4. P1 #8–#10, #12, #13, #15 (code cleanups, one commit each)
+3. ~~P0 #4 (consent and self-hosted fonts)~~ done
+4. P1 #8–#10, #13, #15 (code cleanups, one commit each)
 5. P1 #11, #14 (SEO structure) and the P2 list

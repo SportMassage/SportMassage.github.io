@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth" data-title-key="privacy_page_title">
+
+<head>
+    <script>
+        // Consent Mode v2: everything denied by default (GA4 is loaded from app.js only after consent)
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied'
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://sportmassage.pl/privacy.html">
+    <title>Polityka prywatności | Dmitry Masaż Warszawa</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💆‍♂️</text></svg>">
+    <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/tailwind.min.css?v=1.1">
+</head>
+
+<body class="bg-theme-base text-theme-ink font-sans antialiased selection:bg-theme-teal selection:text-theme-base">
+
+    <header class="border-b border-theme-border">
+        <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="./" class="text-sm font-semibold text-theme-muted hover:text-white transition inline-flex items-center min-h-11"
+                data-i18n="privacy_back">← Strona główna</a>
+
+            <div class="flex items-center bg-theme-surface border border-theme-border rounded-xl p-0.5 text-sm">
+                <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski"
+                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">PL</button>
+                <button onclick="changeLanguageManually('ua')" id="btn-ua" aria-label="Українська мова"
+                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">UA</button>
+                <button onclick="changeLanguageManually('ru')" id="btn-ru" aria-label="Русский язык"
+                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">RU</button>
+                <button onclick="changeLanguageManually('en')" id="btn-en" aria-label="English language"
+                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-12 space-y-8">
+        <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white" data-i18n="priv_title">Polityka prywatności</h1>
+            <p class="text-sm text-theme-muted mt-2" data-i18n="priv_updated">Ostatnia aktualizacja: 16.11.2026</p>
+        </div>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_1_h">Kto jest administratorem danych</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_1_p">Administratorem danych jest Dmitry, prowadzący gabinet masażu przy ul. Kazimierzowskiej 69 w Warszawie. Kontakt: tel. +48 731 532 331 lub Telegram @Dmitry_waw.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_2_h">Kontakt z gabinetem</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_2_p">Strona nie ma formularzy. Gdy piszesz przez WhatsApp lub Telegram albo dzwonisz, przetwarzam Twoje dane (numer telefonu, nazwę użytkownika, treść wiadomości) wyłącznie po to, aby odpowiedzieć i umówić wizytę (art. 6 ust. 1 lit. b i f RODO). Komunikatory mają własne polityki prywatności.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_3_h">Google Analytics</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_3_p">Google Analytics 4 włączam tylko za Twoją zgodą (art. 6 ust. 1 lit. a RODO). Ustawia pliki cookie _ga i _ga_*, zbiera m.in. adres IP, dane o urządzeniu i odwiedzone podstrony, a dane mogą trafić do USA (Google). Zgodę możesz zmienić lub wycofać w każdej chwili przyciskiem „Ustawienia cookies” w stopce. Bez zgody nic nie jest wysyłane do Google.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_4_h">Mapa Google</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_4_p">Mapa ładuje się dopiero po kliknięciu „Pokaż mapę”. Wtedy Google otrzymuje Twój adres IP i może zapisać własne pliki cookie.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_5_h">Czcionki, ikony i hosting</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_5_p">Czcionki i ikony są hostowane na tej stronie i nie wysyłają Twoich danych do osób trzecich. Stronę udostępnia GitHub Pages (GitHub, Inc.), który może zapisywać adres IP w logach serwera.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_6_h">Pamięć przeglądarki</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_6_p">W pamięci przeglądarki (localStorage) zapisuję tylko wybrany język oraz Twoją decyzję w sprawie cookies. Te dane nie trafiają na żaden serwer.</p>
+        </section>
+
+        <section>
+            <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_7_h">Twoje prawa</h2>
+            <p class="text-sm text-theme-muted" data-i18n="priv_7_p">Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu oraz wycofania zgody. Masz też prawo wnieść skargę do Prezesa Urzędu Ochrony Danych Osobowych (uodo.gov.pl).</p>
+        </section>
+    </main>
+
+    <footer class="border-t border-theme-border py-6 text-center text-sm text-theme-muted">
+        <button type="button" id="cookie-settings-btn"
+            class="hover:text-white transition inline-flex items-center min-h-11"
+            data-i18n="cookie_settings">Ustawienia cookies</button>
+    </footer>
+
+    <div id="consent-banner" role="dialog" aria-labelledby="consent-title" hidden
+        class="fixed inset-x-0 bottom-0 z-[60] p-4">
+        <div
+            class="max-w-3xl mx-auto p-5 rounded-2xl border border-theme-border bg-theme-surface soft-shadow flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="flex-1 text-sm text-theme-muted">
+                <p id="consent-title" class="font-bold text-white mb-1" data-i18n="consent_title">Pliki cookies i statystyki</p>
+                <p data-i18n="consent_text">Za Twoją zgodą używam Google Analytics do statystyk odwiedzin. Bez zgody nic nie jest wysyłane do Google.</p>
+            </div>
+            <div class="flex gap-2 shrink-0">
+                <button type="button" id="consent-reject"
+                    class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl border border-theme-border bg-theme-card hover:border-theme-teal text-white font-semibold text-sm transition"
+                    data-i18n="consent_reject">Odrzucam</button>
+                <button type="button" id="consent-accept"
+                    class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"
+                    data-i18n="consent_accept">Akceptuję</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
