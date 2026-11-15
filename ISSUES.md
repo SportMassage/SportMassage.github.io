@@ -1,6 +1,6 @@
 # Site review: issues and required changes
 
-Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
+Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
 
 Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish.
 
@@ -18,6 +18,7 @@ Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = 
 - [x] P0 #1 domain mismatch: canonical, `robots.txt` sitemap URL, `sitemap.xml` `<loc>`, `og:image` and JSON-LD `image` now use `https://sportmassage.pl/…` (absolute); added `og:url`, `og:locale`, Twitter card and JSON-LD `url`. Still to do by hand: confirm "Enforce HTTPS" is on in Settings → Pages.
 - [x] P0 #3 missing `proc_title`: added to `pl`, `ua`, `ru` and `en` in `translations.js`
 - [x] P0 #4 consent and third-party requests: cookie banner with Consent Mode v2 (GA4 loads only after "Akceptuję"), Manrope self-hosted in `assets/fonts/`, Google Maps loads only after a click, `privacy.html` added (4 languages), footer "Ustawienia cookies" button to change or withdraw consent. Also removed `unpkg.com/lucide@latest` by inlining the icons as SVG, which fixes P1 #12.
+- [x] P1 #8–#10 translations: the HTML fallback text now equals `pl` for every `data-i18n` element (checked with a script, 0 differences). The hero label, the four "time • price" lines, the address note and the footer line got keys (`hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note`, `footer_text`) in all four locales. Removed the unused keys `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag`; `price_note` ("cash or BLIK") is now shown under the price cards. `translations.js` cache-buster bumped to `?v=3`.
 
 ---
 
@@ -42,7 +43,7 @@ Fixed in code, see "Done since the first review". On first load the page now mak
 - Visitors who accept are counted; those who reject or ignore the banner are not, so expect lower GA4 numbers.
 
 ### 5. Contradictory durations and text
-- Kinesiotaping: HTML says **15–20 minut**, but all translations say **30–45** (the JS overrides the HTML, so visitors see 30–45).
+- Kinesiotaping: the HTML fallback used to say 15–20 minut; it now matches the translations (**30–45**), but that is still the unconfirmed value: check the real duration.
 - Children's massage: the card says **45 min**, but the pricing card says "Masaż do wyboru, 60 minut".
 - Name: "Dmitry" (brand) vs "Dzmitry" (About text) vs "Дмитро" (UA).
 
@@ -56,33 +57,21 @@ Fixed in code, see "Done since the first review". On first load the page now mak
 - No photo of the masseur.
 - "Certyfikaty" is claimed, but no certificate or qualification is shown.
 - No reviews or testimonials, no opening hours, no FAQ, no cancellation policy, no contraindications note.
-- "Setki zadowolonych osób" appears in the HTML fallback but not in `pl`. Don't publish claims you can't back up.
+- Don't publish claims you can't back up. ("Setki zadowolonych osób" was removed from the HTML fallback in #8; the "5+ lat" and "certyfikowany" claims still need evidence.)
 
 ### 7. Photos
 - `workplace.jpg`: portrait phone shot with harsh ceiling lights, a visible bin and a bare couch, then cropped to landscape (`object-cover`). Retake it in natural light, tidy, ideally with a landscape crop.
 - Both `<img>` tags lack `width`/`height` (layout shift). Neither uses WebP/AVIF. `entrance.jpg` is not `loading="lazy"`.
 - Alt text is Polish-only and not translated.
 
-### 8. Translations: fallback HTML and `pl` disagree
-Because the JS overwrites the HTML, no-JS visitors and crawlers that don't run JS see the fallback text. Differences:
+### 8. ~~Translations: fallback HTML and `pl` disagree~~ (fixed)
+The HTML fallback is now identical to `pl` for every `data-i18n` element (the Russian "Записаться" on the final button, `final_title`, `adv_2_d`, `nav_process`, `p3_time`, `s3_desc`, `s5_desc`, and the "→" in `btn_book_sm`; the arrow was never visible at runtime). If a differing fallback is ever added again, the i18n drift check in P2 would catch it.
 
-| key | HTML fallback | `pl` |
-|---|---|---|
-| `final_btn` | "Записаться" (Russian!) | "Zapisz się" |
-| `final_title` | "Chcesz zadbać o swoje ciało?" | "Gotowy, aby zadbać…" |
-| `adv_2_d` | "Setki zadowolonych osób" | "Doświadczenie w zawodzie" |
-| `nav_process` | "Jak wygląda wizyta" | "Przebieg wizyty" |
-| `p3_time` | "15–20 minut" | "30–45 minut" |
-| `s3_desc`, `s5_desc` | longer text | shorter text |
-| `btn_book_sm` | "Zapisz się →" | "Zapisz się" |
+### 9. ~~Hardcoded, untranslated strings~~ (fixed)
+Added keys `hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note` and `footer_text` in `pl`, `ua`, `ru` and `en`. Each price line has its own key so durations can change independently (see #5, children's massage 45 vs 60 min).
 
-**Change:** make the HTML fallback identical to `pl`.
-
-### 9. Hardcoded, untranslated strings
-`60 min • 200 zł` (×3), `45 min • 200 zł`, `Centrum Masażu • Mokotów` (hero label), `Centrum Masażu (Mokotów) • Metro Racławicka`, and the footer line. Add `data-i18n` keys for them.
-
-### 10. Dead translation keys (all four locales)
-`about_quote`, `btn_book`, `btn_services`, `trust_1`, `trust_2`, `trust_3`, `price_tag`, `price_note`. Note that `price_note` ("cash or BLIK") is never shown on the page, even though it's useful. Either show it or delete the keys.
+### 10. ~~Dead translation keys~~ (fixed)
+Deleted `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag` from all four locales. `price_note` is now displayed under the price cards. Remove that `<p>` and the key if you don't want to promise "cash or BLIK".
 
 ### 11. Only Polish is indexable
 The other languages are swapped in with JS on one URL, so Google never sees them, there is no `hreflang`, and non-Polish visitors get a flash of Polish text.
@@ -130,5 +119,5 @@ WhatsApp links have no prefilled text, so you can't tell which service was wante
 1. P0 #1, #3, #5 (small edits, no decisions needed except the real durations and name)
 2. P0 #2 and P1 #6, #7 (needs your photos and facts)
 3. ~~P0 #4 (consent and self-hosted fonts)~~ done
-4. P1 #8–#10, #13, #15 (code cleanups, one commit each)
+4. ~~P1 #8–#10~~ done; P1 #13, #15 (code cleanups, one commit each)
 5. P1 #11, #14 (SEO structure) and the P2 list
