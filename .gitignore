@@ -57,3 +57,17 @@ x86/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+### Node
+node_modules/
+npm-debug.log*
+
+### Claude Code
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+
+### Generated
+# Built by `npm run build` (locally and in CI), not committed
+assets/css/tailwind.min.css
+_site/

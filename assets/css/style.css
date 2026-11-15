@@ -2,19 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --bg-main: #08111F;
-    --bg-secondary: #0D1929;
-    --bg-card: #111F31;
-    --border-color: #203047;
-    --teal: #22C7B8;
-    --sand: #D6B98C;
-}
-
 body {
     font-family: 'Manrope', sans-serif;
-    background-color: var(--bg-main);
-    color: #F4F7FA;
+    background-color: theme('colors.theme.base');
+    color: theme('colors.theme.ink');
 }
 
 .soft-shadow {
@@ -26,12 +17,12 @@ body {
 }
 
 .card-hover:hover {
-    border-color: rgba(34, 199, 184, 0.4);
+    border-color: rgb(34 199 184 / 0.4);
     transform: translateY(-2px);
 }
 
 .lang-btn.active {
-    background-color: #22C7B8;
-    color: #08111F;
+    background-color: theme('colors.theme.teal');
+    color: theme('colors.theme.base');
     font-weight: 700;
 }
