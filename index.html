@@ -2,15 +2,18 @@
 <html lang="pl" class="scroll-smooth">
 
 <head>
-    <!-- Google tag (gtag.js) -->
     <meta property="og:site_name" content="Dmitry Masaż">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDQZKYTE33"></script>
+    <!-- Consent Mode v2: everything denied by default. gtag.js (GA4) is only loaded
+         from assets/js/app.js after the visitor accepts analytics. -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-BDQZKYTE33');
+        gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied'
+        });
     </script>
 
     <link rel="canonical" href="https://sportmassage.pl/">
@@ -69,14 +72,8 @@
     }
     </script>
 
+    <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/tailwind.min.css?v=1.1">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
 </head>
 
 <body class="bg-theme-base text-theme-ink font-sans antialiased selection:bg-theme-teal selection:text-theme-base">
@@ -112,21 +109,21 @@
                     <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                         title="Napisz na WhatsApp"
                         class="inline-flex items-center gap-1.5 bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold px-3 min-h-11 rounded-xl text-sm transition">
-                        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                        <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                         <span>WhatsApp</span>
                     </a>
 
                     <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                         title="Napisz w Telegram (@Dmitry_waw)"
                         class="inline-flex items-center gap-1.5 bg-theme-card border border-theme-border hover:border-theme-sky text-theme-sky hover:text-white font-semibold px-3 min-h-11 rounded-xl text-sm transition">
-                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
                         <span>Telegram</span>
                     </a>
                 </div>
 
                 <button id="mobile-menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"
                     class="xl:hidden w-11 h-11 flex items-center justify-center text-theme-muted hover:text-white rounded-lg bg-theme-surface border border-theme-border">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16" /><path d="M4 12h16" /><path d="M4 19h16" /></svg>
                 </button>
             </div>
         </div>
@@ -146,12 +143,12 @@
             <div class="pt-3 border-t border-theme-border grid grid-cols-2 gap-2">
                 <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                     class="flex items-center justify-center gap-1.5 bg-theme-teal text-theme-base font-bold min-h-11 rounded-xl text-sm">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                     <span>WhatsApp</span>
                 </a>
                 <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                     class="flex items-center justify-center gap-1.5 bg-theme-card border border-theme-border text-white font-bold min-h-11 rounded-xl text-sm">
-                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
                     <span>Telegram</span>
                 </a>
             </div>
@@ -185,13 +182,13 @@
                     <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                         <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                             class="px-6 py-3.5 rounded-xl bg-theme-teal text-theme-base font-bold hover:bg-theme-teal-dark transition soft-shadow flex items-center justify-center gap-2 text-sm">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                             <span data-i18n="btn_hero_primary">Zapisz się na masaż</span>
                         </a>
 
                         <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                             class="px-5 py-3.5 rounded-xl border border-theme-border bg-theme-card hover:bg-theme-card-hover text-white font-semibold transition flex items-center justify-center gap-2 text-sm">
-                            <i data-lucide="send" class="w-4 h-4 text-theme-sky"></i>
+                            <svg class="w-4 h-4 text-theme-sky" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
                             <span data-i18n="btn_hero_tg">Napisz w Telegram</span>
                         </a>
                     </div>
@@ -271,7 +268,7 @@
                     <div class="space-y-3 max-w-2xl text-left">
                         <div
                             class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-theme-teal/10 text-theme-teal text-sm font-semibold">
-                            <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                            <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg>
                             <span data-i18n="s1_badge">Główna specjalizacja</span>
                         </div>
                         <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="s1_title">Masaż Sportowy</h3>
@@ -301,7 +298,7 @@
                     <div>
                         <div
                             class="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-teal flex items-center justify-center mb-4">
-                            <i data-lucide="layers" class="w-5 h-5"></i>
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" /><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" /><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></svg>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2" data-i18n="s2_title">Kinesiotaping</h3>
                         <p class="text-sm text-theme-muted leading-relaxed mb-4" data-i18n="s2_desc">
@@ -322,7 +319,7 @@
                     <div>
                         <div
                             class="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-sky flex items-center justify-center mb-4">
-                            <i data-lucide="activity" class="w-5 h-5"></i>
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2" /></svg>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2" data-i18n="s3_title">Masaż Klasyczny</h3>
                         <p class="text-sm text-theme-muted leading-relaxed mb-4" data-i18n="s3_desc">
@@ -343,7 +340,7 @@
                     <div>
                         <div
                             class="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-sand flex items-center justify-center mb-4">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2" data-i18n="s4_title">Masaż Estetyczny</h3>
                         <p class="text-sm text-theme-muted leading-relaxed mb-4" data-i18n="s4_desc">
@@ -364,7 +361,7 @@
                     <div>
                         <div
                             class="w-10 h-10 rounded-xl bg-theme-surface border border-theme-border text-theme-muted flex items-center justify-center mb-4">
-                            <i data-lucide="smile" class="w-5 h-5"></i>
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10V9" /><path d="M16.472 15a6 6 0 01-8.943 0" /><path d="M9 10V9" /><circle cx="12" cy="12" r="10" /></svg>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2" data-i18n="s5_title">Masaż dla Dzieci</h3>
                         <p class="text-sm text-theme-muted leading-relaxed mb-4" data-i18n="s5_desc">
@@ -522,13 +519,13 @@
 
                         <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                             class="w-full py-3.5 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm flex items-center justify-center gap-2 transition soft-shadow">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                             <span data-i18n="btn_wa">Napisz na WhatsApp (Szybki zapis)</span>
                         </a>
 
                         <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                             class="w-full py-3 rounded-xl border border-theme-border hover:border-theme-sky bg-theme-surface text-white font-semibold text-sm flex items-center justify-center gap-2 transition">
-                            <i data-lucide="send" class="w-4 h-4 text-theme-sky"></i>
+                            <svg class="w-4 h-4 text-theme-sky" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
                             <span data-i18n="btn_tg_dm">Napisz w Telegram (@Dmitry_waw)</span>
                         </a>
 
@@ -551,11 +548,20 @@
 
                 <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
                     <!-- Google Maps -->
-                    <div class="relative h-[290px] rounded-2xl overflow-hidden border border-theme-border bg-theme-card">
-                        <iframe title="Google Maps Kazimierzowska 69 Warszawa"
-                            src="https://maps.google.com/maps?q=Kazimierzowska+69,+Warszawa&hl=pl&z=15&output=embed"
-                            class="w-full h-full border-0" allowfullscreen="" loading="lazy">
-                        </iframe>
+                    <!-- The iframe is only created after a click (see initMapPlaceholder in app.js),
+                         so Google receives no data until the visitor asks for the map. -->
+                    <div id="map-box"
+                        class="relative h-[290px] rounded-2xl overflow-hidden border border-theme-border bg-theme-card">
+                        <div id="map-placeholder"
+                            class="w-full h-full p-5 flex flex-col items-center justify-center gap-3 text-center">
+                            <p class="text-sm text-theme-muted" data-i18n="map_note">Mapa Google zostanie załadowana po
+                                kliknięciu. Google otrzyma wtedy Twój adres IP.</p>
+                            <button type="button" id="map-load-btn"
+                                class="inline-flex items-center justify-center px-5 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"
+                                data-i18n="map_btn">Pokaż mapę</button>
+                            <a href="privacy.html" class="text-sm text-theme-sky hover:underline inline-flex items-center min-h-11"
+                                data-i18n="privacy_link">Polityka prywatności</a>
+                        </div>
                     </div>
 
                     <div
@@ -564,7 +570,7 @@
                             class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105">
                         <div
                             class="absolute bottom-3 left-3 bg-theme-base/90 backdrop-blur border border-theme-border px-2.5 py-1 rounded-lg text-sm text-white flex items-center gap-1.5">
-                            <i data-lucide="door-open" class="w-3.5 h-3.5 text-theme-teal"></i>
+                            <svg class="w-3.5 h-3.5 text-theme-teal" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21H2" /><path d="M10 3H7a2 2 0 00-2 2v16" /><path d="M14 12h.01" /><path d="M19 21V5a2 2 0 00-1.675-1.974l-6.163-1.013A1 1 0 0010 3v18a1 1 0 001.124.992z" /><path d="M22 21h-3" /></svg>
                             <span data-i18n="badge_entrance">Wejście bezpośrednio od ulicy</span>
                         </div>
                     </div>
@@ -586,7 +592,7 @@
             <div>
                 <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 px-8 py-3.5 rounded-2xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition shadow-[0_10px_25px_-5px_rgba(34,199,184,0.35)] transform hover:-translate-y-0.5">
-                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" /></svg>
                     <span data-i18n="final_btn">Записаться</span>
                 </a>
             </div>
@@ -598,7 +604,12 @@
     <footer class="border-t border-theme-border bg-theme-base py-8 text-center text-sm text-theme-muted">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>© 2026 Dmitry Masaż • Warszawa Mokotów, ul. Kazimierzowska 69</p>
-            <div class="flex items-center gap-4">
+            <div class="flex flex-wrap items-center justify-center gap-x-4">
+                <a href="privacy.html" class="hover:text-white transition inline-flex items-center min-h-11"
+                    data-i18n="privacy_link">Polityka prywatności</a>
+                <button type="button" id="cookie-settings-btn"
+                    class="hover:text-white transition inline-flex items-center min-h-11"
+                    data-i18n="cookie_settings">Ustawienia cookies</button>
                 <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
                     class="hover:text-white transition inline-flex items-center min-h-11">
                     Telegram: @Dmitry_waw
@@ -609,6 +620,26 @@
             </div>
         </div>
     </footer>
+
+    <div id="consent-banner" role="dialog" aria-labelledby="consent-title" hidden
+        class="fixed inset-x-0 bottom-0 z-[60] p-4">
+        <div
+            class="max-w-3xl mx-auto p-5 rounded-2xl border border-theme-border bg-theme-surface soft-shadow flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="flex-1 text-sm text-theme-muted">
+                <p id="consent-title" class="font-bold text-white mb-1" data-i18n="consent_title">Pliki cookies i statystyki</p>
+                <p><span data-i18n="consent_text">Za Twoją zgodą używam Google Analytics do statystyk odwiedzin. Bez zgody nic nie jest wysyłane do Google.</span>
+                    <a href="privacy.html" class="text-theme-sky hover:underline" data-i18n="privacy_link">Polityka prywatności</a></p>
+            </div>
+            <div class="flex gap-2 shrink-0">
+                <button type="button" id="consent-reject"
+                    class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl border border-theme-border bg-theme-card hover:border-theme-teal text-white font-semibold text-sm transition"
+                    data-i18n="consent_reject">Odrzucam</button>
+                <button type="button" id="consent-accept"
+                    class="flex-1 sm:flex-none px-5 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"
+                    data-i18n="consent_accept">Akceptuję</button>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/app.js"></script>
