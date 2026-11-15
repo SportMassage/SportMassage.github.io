@@ -1,0 +1,13 @@
+{
+  "name": "sportmassage-github-io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static landing page for a massage practice in Warsaw (GitHub Pages).",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --minify",
+    "watch": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

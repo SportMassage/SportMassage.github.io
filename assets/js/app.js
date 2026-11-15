@@ -1,7 +1,6 @@
 function trackEvent(eventName, params = {}) {
     if (typeof window.gtag === 'function') {
         window.gtag('event', eventName, params);
-        console.log(`[GA4 Event]: ${eventName}`, params);
     }
 }
 
@@ -68,12 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                menuBtn.setAttribute('aria-expanded', 'false');
             });
         });
     }

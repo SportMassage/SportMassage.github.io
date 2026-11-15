@@ -57,3 +57,12 @@ x86/
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+### Node
+node_modules/
+npm-debug.log*
+
+### Claude Code
+.claude/
+CLAUDE.md
+CLAUDE.local.md
