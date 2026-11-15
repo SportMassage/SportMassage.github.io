@@ -43,7 +43,8 @@ function clearAnalyticsCookies() {
 
 function setConsent(value) {
     storeConsent(value);
-    document.getElementById('consent-banner').hidden = true;
+    const banner = document.getElementById('analytics-notice');
+    if (banner) banner.hidden = true;
     if (value === 'granted') {
         loadAnalytics();
         return;
@@ -57,17 +58,21 @@ function setConsent(value) {
 }
 
 function initConsent() {
-    const banner = document.getElementById('consent-banner');
-    if (!banner) return;
-
-    document.getElementById('consent-accept').addEventListener('click', () => setConsent('granted'));
-    document.getElementById('consent-reject').addEventListener('click', () => setConsent('denied'));
-    const settingsBtn = document.getElementById('cookie-settings-btn');
-    if (settingsBtn) settingsBtn.addEventListener('click', () => { banner.hidden = false; });
+    // Browser extensions and built-in cookie-dialog blockers (e.g. Opera) can hide or remove
+    // these elements, so every lookup is optional. Without a banner no choice can be made,
+    // and analytics simply stays off.
+    const banner = document.getElementById('analytics-notice');
+    const bind = (id, handler) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('click', handler);
+    };
+    bind('analytics-accept', () => setConsent('granted'));
+    bind('analytics-reject', () => setConsent('denied'));
+    bind('analytics-settings-btn', () => { if (banner) banner.hidden = false; });
 
     const saved = readConsent();
     if (saved === 'granted') loadAnalytics();
-    else if (saved !== 'denied') banner.hidden = false;
+    else if (saved !== 'denied' && banner) banner.hidden = false;
 }
 
 // The Google Maps iframe is created only after a click, so Google gets nothing before that.
@@ -123,7 +128,7 @@ function setLanguage(lang) {
 }
 
 function changeLanguageManually(lang) {
-    localStorage.setItem('preferred_lang', lang);
+    try { localStorage.setItem('preferred_lang', lang); } catch (e) { /* storage blocked */ }
     setLanguage(lang);
     
     trackEvent('change_language', {
@@ -132,7 +137,8 @@ function changeLanguageManually(lang) {
 }
 
 function detectDefaultLanguage() {
-    const savedLang = localStorage.getItem('preferred_lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('preferred_lang'); } catch (e) { /* storage blocked */ }
     if (savedLang && ['pl', 'ua', 'ru', 'en'].includes(savedLang)) {
         return savedLang;
     }
@@ -201,6 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     setLanguage(detectDefaultLanguage());
-    initConsent();
     initMapPlaceholder();
+    initConsent();
 });
