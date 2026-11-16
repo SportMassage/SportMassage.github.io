@@ -225,6 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 location: location
             });
         }
+
+        else if (href.includes('maps.app.goo.gl')) {
+            trackEvent('click_maps', {
+                location: location
+            });
+        }
     });
 
     initLangSuggest();

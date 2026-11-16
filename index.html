@@ -22,8 +22,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" data-i18n-content="meta_description"
         content="Masaż sportowy, klasyczny, kinesiotaping w Warszawie (Mokotów, ul. Kazimierzowska 69). Certyfikowany masażysta Dzmitry.">
-    <meta name="keywords" data-i18n-content="meta_keywords"
-        content="masaż warszawa mokotów, masaż sportowy warszawa, kinesiotaping warszawa, teypowanie warszawa, masaż estetyczny, masaż dla dzieci">
 
     <!-- Open Graph -->
     <meta property="og:title" data-i18n-content="og_title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
@@ -52,11 +50,23 @@
     {
       "@context": "https://schema.org",
       "@type": "HealthAndBeautyBusiness",
-      "name": "Dmitry — Masaż & Kinesiotaping Warszawa Mokotów",
+      "@id": "https://sportmassage.pl/#business",
+      "name": "Dmitry — Masaż Sportowy",
       "image": "https://sportmassage.pl/assets/img/workplace.jpg",
       "url": "https://sportmassage.pl/",
       "telephone": "+48731532331",
       "priceRange": "100 - 250 zł",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "20:30"
+      },
+      "hasMap": "https://maps.app.goo.gl/bNfxeJAtHb4pLqcP8",
+      "sameAs": [
+        "https://maps.app.goo.gl/bNfxeJAtHb4pLqcP8",
+        "https://t.me/Massage_ww"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ul. Kazimierzowska 69",
@@ -66,8 +76,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 52.2008,
-        "longitude": 21.0084
+        "latitude": 52.206381,
+        "longitude": 21.013183
       }
     }
     </script>
@@ -187,7 +197,7 @@
 
                     <h1 class="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] text-white"
                         data-i18n="hero_title">
-                        Masaż sportowy & regeneracja Twojego ciała.
+                        Masaż sportowy w Warszawie (Mokotów) & regeneracja Twojego ciała.
                     </h1>
 
                     <p class="text-base sm:text-lg text-theme-muted max-w-xl leading-relaxed" data-i18n="hero_desc">
@@ -529,6 +539,15 @@
                                 gabinetu:</span>
                             <p class="text-white font-bold text-base">ul. Kazimierzowska 69, Warszawa</p>
                             <p class="text-sm text-theme-muted mt-0.5" data-i18n="loc_address_note">Centrum Masażu (Mokotów) • Metro Racławicka</p>
+                            <a href="https://maps.app.goo.gl/bNfxeJAtHb4pLqcP8" target="_blank" rel="noopener noreferrer"
+                                class="text-sm text-theme-sky hover:underline inline-flex items-center min-h-11"
+                                data-i18n="loc_maps_link">Otwórz w Google Maps &rarr;</a>
+                        </div>
+
+                        <div class="pt-2 border-t border-theme-border text-sm">
+                            <span class="text-theme-muted block mb-1" data-i18n="loc_hours_h">Godziny pracy:</span>
+                            <p class="text-white font-bold text-base" data-i18n="loc_hours">Codziennie 10:00–20:30</p>
+                            <p class="text-sm text-theme-muted mt-0.5" data-i18n="loc_hours_note">Po wcześniejszym umówieniu</p>
                         </div>
 
                         <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
