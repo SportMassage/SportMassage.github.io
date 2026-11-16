@@ -4,6 +4,7 @@
 // Each page is a copy of the Polish template (index.html / privacy.html in the repo root) with
 // the text taken from i18n/translations.js. Run `npm run build:css` first (npm run build does both).
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -30,6 +31,10 @@ const PAGES = [
 
 // Keys used by the build or by app.js (the language suggestion), not by a data-i18n attribute.
 const EXTRA_KEYS = ['lang_suggest_text', 'lang_suggest_go', 'lang_suggest_close'];
+
+// Files linked from the pages that get a ?v=<content hash> cache-buster at build time, so the
+// browser refetches them exactly when their content changes (the templates link them without ?v).
+const VERSIONED_ASSETS = ['assets/css/tailwind.min.css', 'assets/js/app.js'];
 
 const pageUrl = (locale, page) => locale.prefix + page.urlPath;
 const absUrl = (locale, page) => SITE + pageUrl(locale, page);
@@ -95,7 +100,7 @@ function validate(i18n, templates) {
     }
 }
 
-function render(template, locale, page, i18n) {
+function render(template, locale, page, i18n, versions) {
     const t = i18n[locale.key];
     const $ = cheerio.load(template);
 
@@ -146,13 +151,14 @@ function render(template, locale, page, i18n) {
         $(el).text('\n' + JSON.stringify(next, null, 2).replace(/^/gm, '    ') + '\n    ');
     });
 
-    // 5. Links: pages live in subfolders now, so asset paths must be root-relative, and
-    //    the privacy / home links must stay inside the current language.
+    // 5. Links: pages live in subfolders now, so asset paths must be root-relative (and the
+    //    stylesheet and script carry a content-hash ?v=), and the privacy / home links must
+    //    stay inside the current language.
     $('[src],[href]').each((_, el) => {
         for (const attr of ['src', 'href']) {
             const v = el.attribs[attr];
             if (v === undefined) continue;
-            if (v.startsWith('assets/')) $(el).attr(attr, '/' + v);
+            if (v.startsWith('assets/')) $(el).attr(attr, '/' + v + (versions[v] ? '?v=' + versions[v] : ''));
             else if (v === 'privacy.html') $(el).attr(attr, locale.prefix + '/privacy.html');
             else if (v === './') $(el).attr(attr, locale.prefix + '/');
         }
@@ -229,12 +235,15 @@ function main() {
     fs.rmSync(OUT, { recursive: true, force: true });
     fs.mkdirSync(OUT, { recursive: true });
 
+    const versions = Object.fromEntries(VERSIONED_ASSETS.map(file =>
+        [file, crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, file))).digest('hex').slice(0, 8)]));
+
     for (const { page, html } of templates) {
         for (const locale of LOCALES) {
             const rel = path.join(locale.prefix.replace(/^\//, ''), page.file);
             const dest = path.join(OUT, rel);
             fs.mkdirSync(path.dirname(dest), { recursive: true });
-            fs.writeFileSync(dest, render(html, locale, page, i18n));
+            fs.writeFileSync(dest, render(html, locale, page, i18n, versions));
         }
     }
 
