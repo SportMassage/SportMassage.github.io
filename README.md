@@ -4,7 +4,7 @@ Static landing page for a massage and kinesiotaping practice in Warsaw (Mokotów
 
 ## Run locally
 
-The stylesheet `assets/css/tailwind.min.css` and the whole `_site/` folder are **generated and not committed** (requires Node.js):
+The stylesheet `assets/css/tailwind.min.css` and the whole `_site/` folder are **generated and not committed** (requires Node.js 22, see `.nvmrc`; CI uses the same version):
 
 ```
 npm install

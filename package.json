@@ -2,6 +2,9 @@
   "name": "sportmassage-github-io",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "description": "Static landing page for a massage practice in Warsaw (GitHub Pages).",
   "scripts": {
     "build": "npm run build:css && npm run build:pages",
