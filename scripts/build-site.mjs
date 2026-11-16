@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
 
@@ -23,9 +24,10 @@ const LOCALES = [
 ];
 const DEFAULT_LOCALE = LOCALES[0];
 
+// `sources` are the files whose last git commit date becomes the page's <lastmod> in sitemap.xml.
 const PAGES = [
-    { file: 'index.html', urlPath: '/', changefreq: 'weekly', priority: '1.0' },
-    { file: 'privacy.html', urlPath: '/privacy.html', changefreq: 'yearly', priority: '0.2' }
+    { file: 'index.html', urlPath: '/', changefreq: 'weekly', priority: '1.0', sources: ['index.html', 'i18n/translations.js'] },
+    { file: 'privacy.html', urlPath: '/privacy.html', changefreq: 'yearly', priority: '0.2', sources: ['privacy.html', 'i18n/translations.js'] }
 ];
 
 // Keys used by the build or by app.js (the language suggestion), not by a data-i18n attribute.
@@ -182,9 +184,20 @@ function render(template, locale, page, i18n) {
     return $.html();
 }
 
+// Date (YYYY-MM-DD) of the last commit that touched any of the files. Needs the full git history
+// (the deploy workflow checks out with fetch-depth: 0); without git or history it falls back to today.
+function lastModified(files) {
+    try {
+        const date = execFileSync('git', ['log', '-1', '--format=%cs', '--', ...files], { cwd: ROOT, encoding: 'utf8' }).trim();
+        if (date) return date;
+    } catch (e) { /* not a git checkout */ }
+    return new Date().toISOString().slice(0, 10);
+}
+
 function buildSitemap() {
     const urls = [];
     for (const page of PAGES) {
+        const lastmod = lastModified(page.sources);
         for (const locale of LOCALES) {
             const links = [
                 ...LOCALES.map(l => `    <xhtml:link rel="alternate" hreflang="${l.htmlLang}" href="${absUrl(l, page)}"/>`),
@@ -193,6 +206,7 @@ function buildSitemap() {
             urls.push([
                 '  <url>',
                 `    <loc>${absUrl(locale, page)}</loc>`,
+                `    <lastmod>${lastmod}</lastmod>`,
                 ...links,
                 `    <changefreq>${page.changefreq}</changefreq>`,
                 `    <priority>${page.priority}</priority>`,
