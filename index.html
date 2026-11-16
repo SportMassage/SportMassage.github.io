@@ -2,6 +2,7 @@
 <html lang="pl" class="scroll-smooth">
 
 <head>
+    <meta charset="UTF-8">
     <meta property="og:site_name" content="Dmitry Masaż">
     <!-- Consent Mode v2: everything denied by default. gtag.js (GA4) is only loaded
          from assets/js/app.js after the visitor accepts analytics. -->
@@ -18,16 +19,15 @@
 
     <link rel="canonical" href="https://sportmassage.pl/">
 
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
+    <meta name="description" data-i18n-content="meta_description"
         content="Masaż sportowy, klasyczny, kinesiotaping w Warszawie (Mokotów, ul. Kazimierzowska 69). Certyfikowany masażysta Dzmitry.">
-    <meta name="keywords"
+    <meta name="keywords" data-i18n-content="meta_keywords"
         content="masaż warszawa mokotów, masaż sportowy warszawa, kinesiotaping warszawa, teypowanie warszawa, masaż estetyczny, masaż dla dzieci">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
-    <meta property="og:description"
+    <meta property="og:title" data-i18n-content="og_title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
+    <meta property="og:description" data-i18n-content="og_description"
         content="Regeneracja sportowa, likwidacja bólu pleców, kinesiotaping. Mokotów, Kazimierzowska 69.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sportmassage.pl/">
@@ -36,8 +36,8 @@
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
-    <meta name="twitter:description"
+    <meta name="twitter:title" data-i18n-content="og_title" content="Dmitry — Masaż & Kinesiotaping Warszawa Mokotów">
+    <meta name="twitter:description" data-i18n-content="og_description"
         content="Regeneracja sportowa, likwidacja bólu pleców, kinesiotaping. Mokotów, Kazimierzowska 69.">
     <meta name="twitter:image" content="https://sportmassage.pl/assets/img/workplace.jpg">
 
@@ -45,7 +45,7 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💆‍♂️</text></svg>">
 
-    <title>Dmitry | Masaż & Kinesiotaping Warszawa Mokotów</title>
+    <title data-i18n="page_title">Dmitry | Masaż & Kinesiotaping Warszawa Mokotów</title>
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -78,6 +78,19 @@
 
 <body class="bg-theme-base text-theme-ink font-sans antialiased selection:bg-theme-teal selection:text-theme-base">
 
+    <div id="lang-suggest" hidden class="fixed inset-x-0 top-16 z-40 px-4 pt-2">
+        <div
+            class="max-w-3xl mx-auto px-4 py-2 rounded-2xl border border-theme-border bg-theme-surface soft-shadow flex items-center gap-3">
+            <p id="lang-suggest-text" class="flex-1 text-sm text-theme-muted"></p>
+            <a id="lang-suggest-go" href="/"
+                class="shrink-0 inline-flex items-center px-4 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"></a>
+            <button type="button" id="lang-suggest-close"
+                class="shrink-0 w-11 min-h-11 inline-flex items-center justify-center rounded-xl text-theme-muted hover:text-white transition">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+        </div>
+    </div>
+
     <header class="fixed top-0 left-0 right-0 z-50 bg-theme-base/90 backdrop-blur-md border-b border-theme-border">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="#" class="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-2">
@@ -95,26 +108,26 @@
 
             <div class="flex items-center gap-2 sm:gap-3">
                 <div class="flex items-center bg-theme-surface border border-theme-border rounded-xl p-0.5 text-sm">
-                    <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski"
-                        class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">PL</button>
-                    <button onclick="changeLanguageManually('ua')" id="btn-ua" aria-label="Українська мова"
-                        class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">UA</button>
-                    <button onclick="changeLanguageManually('ru')" id="btn-ru" aria-label="Русский язык"
-                        class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">RU</button>
-                    <button onclick="changeLanguageManually('en')" id="btn-en" aria-label="English language"
-                        class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">EN</button>
+                    <a href="/" id="btn-pl" data-lang="pl" lang="pl" hreflang="pl" aria-label="Język polski"
+                        class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">PL</a>
+                    <a href="/" id="btn-ua" data-lang="ua" lang="uk" hreflang="uk" aria-label="Українська мова"
+                        class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">UA</a>
+                    <a href="/" id="btn-ru" data-lang="ru" lang="ru" hreflang="ru" aria-label="Русский язык"
+                        class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">RU</a>
+                    <a href="/" id="btn-en" data-lang="en" lang="en" hreflang="en" aria-label="English language"
+                        class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">EN</a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-2">
                     <a href="https://wa.me/48731532331" target="_blank" rel="noopener noreferrer"
-                        title="Napisz na WhatsApp"
+                        title="Napisz na WhatsApp" data-i18n-title="title_wa"
                         class="inline-flex items-center gap-1.5 bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold px-3 min-h-11 rounded-xl text-sm transition">
                         <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg>
                         <span>WhatsApp</span>
                     </a>
 
                     <a href="https://t.me/Dmitry_waw" target="_blank" rel="noopener noreferrer"
-                        title="Napisz w Telegram (@Dmitry_waw)"
+                        title="Napisz w Telegram (@Dmitry_waw)" data-i18n-title="title_tg"
                         class="inline-flex items-center gap-1.5 bg-theme-card border border-theme-border hover:border-theme-sky text-theme-sky hover:text-white font-semibold px-3 min-h-11 rounded-xl text-sm transition">
                         <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" /><path d="m21.854 2.147-10.94 10.939" /></svg>
                         <span>Telegram</span>
@@ -196,7 +209,7 @@
 
                 <div class="lg:col-span-5 relative">
                     <div class="relative rounded-2xl overflow-hidden border border-theme-border bg-theme-card soft-shadow">
-                        <img src="assets/img/workplace.jpg" alt="Gabinet masażu Warszawa Kazimierzowska 69"
+                        <img src="assets/img/workplace.jpg" alt="Gabinet masażu Warszawa Kazimierzowska 69" data-i18n-alt="alt_workplace"
                             class="w-full h-80 sm:h-96 object-cover object-center">
                         <div class="absolute inset-0 bg-gradient-to-t from-theme-base/90 via-transparent to-transparent">
                         </div>
@@ -564,7 +577,7 @@
 
                     <div
                         class="relative h-[290px] rounded-2xl overflow-hidden border border-theme-border bg-theme-card group">
-                        <img src="assets/img/entrance.jpg" alt="Wejście od ulicy Kazimierzowskiej"
+                        <img src="assets/img/entrance.jpg" alt="Wejście od ulicy Kazimierzowskiej" data-i18n-alt="alt_entrance"
                             class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105">
                         <div
                             class="absolute bottom-3 left-3 bg-theme-base/90 backdrop-blur border border-theme-border px-2.5 py-1 rounded-lg text-sm text-white flex items-center gap-1.5">
@@ -639,8 +652,7 @@
         </div>
     </div>
 
-    <script src="assets/js/translations.js?v=3"></script>
-    <script src="assets/js/app.js?v=2"></script>
+    <script src="assets/js/app.js?v=3"></script>
 </body>
 
 </html>

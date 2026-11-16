@@ -4,10 +4,13 @@
   "private": true,
   "description": "Static landing page for a massage practice in Warsaw (GitHub Pages).",
   "scripts": {
-    "build": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --minify",
+    "build": "npm run build:css && npm run build:pages",
+    "build:css": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --minify",
+    "build:pages": "node scripts/build-site.mjs",
     "watch": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --watch"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "tailwindcss": "^3.4.17"
   }
 }

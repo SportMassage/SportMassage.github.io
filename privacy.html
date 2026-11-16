@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="pl" class="scroll-smooth" data-title-key="privacy_page_title">
+<html lang="pl" class="scroll-smooth">
 
 <head>
+    <meta charset="UTF-8">
     <script>
         // Consent Mode v2: everything denied by default (GA4 is loaded from app.js only after consent)
         window.dataLayer = window.dataLayer || [];
@@ -13,10 +14,9 @@
             analytics_storage: 'denied'
         });
     </script>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://sportmassage.pl/privacy.html">
-    <title>Polityka prywatności | Dmitry Masaż Warszawa</title>
+    <title data-i18n="privacy_page_title">Polityka prywatności | Dmitry Masaż Warszawa</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💆‍♂️</text></svg>">
     <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -25,20 +25,33 @@
 
 <body class="bg-theme-base text-theme-ink font-sans antialiased selection:bg-theme-teal selection:text-theme-base">
 
+    <div id="lang-suggest" hidden class="fixed inset-x-0 top-16 z-40 px-4 pt-2">
+        <div
+            class="max-w-3xl mx-auto px-4 py-2 rounded-2xl border border-theme-border bg-theme-surface soft-shadow flex items-center gap-3">
+            <p id="lang-suggest-text" class="flex-1 text-sm text-theme-muted"></p>
+            <a id="lang-suggest-go" href="/"
+                class="shrink-0 inline-flex items-center px-4 min-h-11 rounded-xl bg-theme-teal hover:bg-theme-teal-dark text-theme-base font-bold text-sm transition"></a>
+            <button type="button" id="lang-suggest-close"
+                class="shrink-0 w-11 min-h-11 inline-flex items-center justify-center rounded-xl text-theme-muted hover:text-white transition">
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
+        </div>
+    </div>
+
     <header class="border-b border-theme-border">
         <div class="max-w-3xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="./" class="text-sm font-semibold text-theme-muted hover:text-white transition inline-flex items-center min-h-11"
                 data-i18n="privacy_back">← Strona główna</a>
 
             <div class="flex items-center bg-theme-surface border border-theme-border rounded-xl p-0.5 text-sm">
-                <button onclick="changeLanguageManually('pl')" id="btn-pl" aria-label="Język polski"
-                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">PL</button>
-                <button onclick="changeLanguageManually('ua')" id="btn-ua" aria-label="Українська мова"
-                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">UA</button>
-                <button onclick="changeLanguageManually('ru')" id="btn-ru" aria-label="Русский язык"
-                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">RU</button>
-                <button onclick="changeLanguageManually('en')" id="btn-en" aria-label="English language"
-                    class="lang-btn px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">EN</button>
+                <a href="/" id="btn-pl" data-lang="pl" lang="pl" hreflang="pl" aria-label="Język polski"
+                    class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">PL</a>
+                <a href="/" id="btn-ua" data-lang="ua" lang="uk" hreflang="uk" aria-label="Українська мова"
+                    class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">UA</a>
+                <a href="/" id="btn-ru" data-lang="ru" lang="ru" hreflang="ru" aria-label="Русский язык"
+                    class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">RU</a>
+                <a href="/" id="btn-en" data-lang="en" lang="en" hreflang="en" aria-label="English language"
+                    class="lang-btn inline-flex items-center px-2.5 min-h-11 rounded-lg text-theme-muted hover:text-white transition">EN</a>
             </div>
         </div>
     </header>
@@ -76,7 +89,7 @@
 
         <section>
             <h2 class="text-lg font-bold text-white mb-2" data-i18n="priv_6_h">Pamięć przeglądarki</h2>
-            <p class="text-sm text-theme-muted" data-i18n="priv_6_p">W pamięci przeglądarki (localStorage) zapisuję tylko wybrany język oraz Twoją decyzję w sprawie cookies. Te dane nie trafiają na żaden serwer.</p>
+            <p class="text-sm text-theme-muted" data-i18n="priv_6_p">W pamięci przeglądarki (localStorage) zapisuję tylko wybrany język, Twoją decyzję w sprawie cookies oraz informację, że zamknąłeś(-aś) podpowiedź zmiany języka. Te dane nie trafiają na żaden serwer.</p>
         </section>
 
         <section>
@@ -110,8 +123,7 @@
         </div>
     </div>
 
-    <script src="assets/js/translations.js?v=3"></script>
-    <script src="assets/js/app.js?v=2"></script>
+    <script src="assets/js/app.js?v=3"></script>
 </body>
 
 </html>
