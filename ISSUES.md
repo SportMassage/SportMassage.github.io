@@ -1,6 +1,6 @@
 # Site review: issues and required changes
 
-Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
+Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`, P1 #13 on `fix/anchor-scroll-offset`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
 
 Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish.
 
@@ -81,10 +81,10 @@ Still to do by hand: have the `ru` / `uk` meta descriptions read by a native spe
 ### 12. ~~`unpkg.com/lucide@latest`~~ (fixed)
 Replaced with inline SVGs for the 10 icons used (copied from Lucide, ISC licence); the script and `lucide.createIcons()` are gone. Fixed together with P0 #4.
 
-### 13. Fixed header covers anchor targets
-Jumping to `#services` etc. hides the top of the section heading under the 64px header (confirmed in a screenshot).
+### 13. ~~Fixed header covers anchor targets~~ (fixed)
+The original claim was overstated. Measured in headless Edge at 1280px (after an anchor jump, with smooth scroll off): the 65px header never hid a heading, because the sections have 80px of top padding (`py-20`). Headings landed at 80–81px (about, services, pricing, contacts). Only `#process` (`py-16`) sat flush against the header (65px, no clearance).
 
-**Change:** add `scroll-mt-20` to each `<section id="…">`.
+Fixed by adding `scroll-mt-4` to `#process`, so it now lands at 81px like the others. `scroll-mt-20` on every section, as first suggested, would have pushed the headings to about 160px, so it was not used. If a section is added later, give it enough `scroll-mt-*` + padding to clear the 65px header.
 
 ### 14. Local SEO and structured data
 - JSON-LD lacks `url`, `openingHours`, `sameAs` (Telegram) and `hasMap`.
@@ -119,5 +119,5 @@ WhatsApp links have no prefilled text, so you can't tell which service was wante
 1. P0 #1, #3, #5 (small edits, no decisions needed except the real durations and name)
 2. P0 #2 and P1 #6, #7 (needs your photos and facts)
 3. ~~P0 #4 (consent and self-hosted fonts)~~ done
-4. ~~P1 #8–#10~~ done; P1 #13, #15 (code cleanups, one commit each)
+4. ~~P1 #8–#10~~ done; ~~P1 #13~~ done; P1 #15 (code cleanup)
 5. P1 #11, #14 (SEO structure) and the P2 list
