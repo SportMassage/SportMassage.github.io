@@ -55,13 +55,9 @@ Result in one line: nothing is broken for most visitors; 0 `npm audit` vulnerabi
 
 **Change:** new landscape photos (about 1200–1600px wide), export WebP with a JPEG fallback, add `width`/`height`, `loading="lazy"` on the entrance photo, a separate `assets/img/og-image.jpg` (1200x630) for the social tags and JSON-LD.
 
-### 14. Local SEO and structured data (partly stale, still open)
-- JSON-LD already has `url` now (the old note said it did not). Still missing: `openingHours`, `sameAs` (Telegram channel), `hasMap`, `@id`.
-- JSON-LD `name` is "Dmitry — Masaż & Kinesiotaping Warszawa Mokotów" in every language: it is a keyword string, not a business name, and it is Polish on `/uk/`, `/ru/`, `/en/`. Use the real name ("Dmitry Masaż") and keep the keywords in `description`.
-- `geo` is 52.2008, 21.0084: not verified, check it against the pin on Google Maps for Kazimierzowska 69.
-- The H1 does not contain "Warszawa / Mokotów" (only the badge above it does).
-- Create a **Google Business Profile** and link it from the page: for a local one-room business this has the largest effect on traffic.
-- `<meta name="keywords">` is ignored by Google; delete it (and the `meta_keywords` keys). The template fallback still has the typo "teypowanie" while `pl` has "tejpowanie" (the build ships the `pl` value, see #28).
+### 14. Local SEO and structured data (mostly fixed; Google Business Profile work remains)
+Fixed: JSON-LD `name` is the GBP title "Dmitry — Masaż Sportowy" in every language (keywords stay in the localized `description`); added `@id` (`/#business`), `openingHoursSpecification` (daily 10:00–20:30), `hasMap` and `sameAs` (GBP + Telegram channel); `geo` is now 52.206381, 21.013183 (from the GBP pin); the H1 contains "Warszawa / Mokotów" in all four locales; `<meta name="keywords">` and the `meta_keywords` keys are gone; the contacts card shows the opening hours and links to the Google Maps / GBP listing, and that link is tracked as the GA4 event `click_maps` (matcher on `maps.app.goo.gl` in `app.js`, listed in CLAUDE.md).
+Still open: keep the GBP listing complete (photos, services, hours, reviews) and keep the hours in `index.html` JSON-LD, `loc_hours*` and the GBP in sync when they change.
 
 ### 15. Booking is messenger-only (still open, re-verified)
 All 13 `wa.me` links are the bare `https://wa.me/48731532331`, with no prefilled text, so you can't tell which service was wanted. Nine of them say only "Zapisz się" / "Book Now" (screen-reader users hear "Zapisz się" nine times, WCAG 2.4.4).
