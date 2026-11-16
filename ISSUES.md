@@ -1,126 +1,195 @@
 # Site review: issues and required changes
 
-Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`, P1 #13 on `fix/anchor-scroll-offset`; the P2 items on the branches listed under "P2" below, each one branch per item, not yet merged). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Colour contrast was measured with a script (WCAG formula, see P2). Not checked: real-device behaviour, Lighthouse scores, and the GitHub Actions deploy (it hasn't been run yet).
+Full re-audit on `main` (commit `1428a45`), 2026-11-16. Every file was read (templates, `app.js`, `style.css`, `tailwind.config.js`, `translations.js`, `build-site.mjs`, workflow, Dependabot config, `package.json`, `robots.txt`, `README.md`, this file). `npm run build` and `npm run check:i18n` were run (0 errors, 0 warnings), and all 8 generated pages and `sitemap.xml` were inspected with scripts: duplicate ids, dead anchors, missing local files, leftover `data-i18n` attributes, heading order, JSON-LD parse, hreflang and canonical per page, CSS class coverage, external requests. Behaviour was tested in headless Edge against `npx serve _site` (iframes at 320–1280px, scripted clicks) and the live site `https://sportmassage.pl/` was fetched and compared with the local build. Not checked: real devices, Lighthouse scores, screen readers, Search Console.
 
-Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish.
+Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish and maintenance (low risk each).
+
+Result in one line: nothing is broken for most visitors; 0 `npm audit` vulnerabilities; the live site is byte-identical to the local build. Two P0 content items and the P1 items still need your decisions or material; the code-level findings are all P2, plus one legal P1 (privacy policy).
 
 ---
 
-## Done since the first review
+## Verified OK in this audit
 
-- [x] Reproducible Tailwind build (`package.json`, `npm run build` / `watch`); the CSS is built in CI and no longer committed
-- [x] Colour tokens (`theme.*`) used instead of repeated hex values
-- [x] No text below 14px (0 `text-xs` / `text-[10px]` left)
-- [x] 44px touch targets on buttons and links; burger menu has `aria-expanded`
-- [x] `<main>` landmark added
-- [x] `console.log` removed from `trackEvent`
-- [x] Manual-only Pages deploy workflow, README, `.gitignore` updated
-- [x] P0 #1 domain mismatch: canonical, `robots.txt` sitemap URL, `sitemap.xml` `<loc>`, `og:image` and JSON-LD `image` now use `https://sportmassage.pl/…` (absolute); added `og:url`, `og:locale`, Twitter card and JSON-LD `url`. Still to do by hand: confirm "Enforce HTTPS" is on in Settings → Pages.
-- [x] P0 #3 missing `proc_title`: added to `pl`, `ua`, `ru` and `en` in `translations.js`
-- [x] P0 #4 consent and third-party requests: cookie banner with Consent Mode v2 (GA4 loads only after "Akceptuję"), Manrope self-hosted in `assets/fonts/`, Google Maps loads only after a click, `privacy.html` added (4 languages), footer "Ustawienia cookies" button to change or withdraw consent. Also removed `unpkg.com/lucide@latest` by inlining the icons as SVG, which fixes P1 #12.
-- [x] P1 #8–#10 translations: the HTML fallback text now equals `pl` for every `data-i18n` element (checked with a script, 0 differences). The hero label, the four "time • price" lines, the address note and the footer line got keys (`hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note`, `footer_text`) in all four locales. Removed the unused keys `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag`; `price_note` ("cash or BLIK") is now shown under the price cards. `translations.js` cache-buster bumped to `?v=3`.
-- [x] P2 items (heading order, language buttons, skip link and focus styles, colour contrast, `.gitignore`, `.gitattributes`, i18n check, `sitemap.xml` `lastmod`, cache-buster, Node pin and Dependabot): see the P2 section. Only the first workflow run is still open (the Pages source is already set to GitHub Actions).
+- Build: 4 locales x 2 templates = 8 pages, no missing keys, no unused keys, no template/`pl` drift. Generated pages have no duplicate ids, no dead `#anchors`, no missing local files, no leftover `data-i18n*` attributes, valid JSON-LD, 5 `hreflang` links, a self-referencing `canonical` and a translated title on every page. Headings are h1 > h2 > h3 with no gaps.
+- No request to a third party on page load: the only external URLs in the HTML are the `wa.me` and `t.me` links; GA4 and the map load only after consent / click (tested: consent banner shown first, no `googletagmanager` script before "Akceptuję", map iframe created only on click).
+- Consent flow: accept loads GA4, reject sets `denied` and clears `_ga*` cookies, the footer button reopens the banner (tested).
+- GA4 click events fire with the documented names for `wa.me`, `t.me/Dmitry_waw`, `t.me/Massage_ww` and `tel:` links.
+- No text below 14px at 320, 360, 390, 768, 1024 and 1280px, on all 8 pages.
+- No horizontal page overflow at 320px (only the language banner issue in #18).
+- Colour contrast numbers from the old review were recomputed and match (muted text 7.38 / 6.89 / 6.48 / 5.88:1, dark text on teal 8.94:1, on teal-dark 7.25:1, on sand 10.07:1).
+- Live site: `https://` and `/uk/`, `/ru/`, `/en/`, both privacy pages, `sitemap.xml`, `robots.txt` return 200; `http://` redirects (301) to `https://`; the HTML of `/`, `/uk/`, `/privacy.html`, `/en/privacy.html` and `sitemap.xml` is identical to a fresh local build (same CSS hash `ce82d4fa`, same `app.js` hash `9aed967e`). So the first deploy has run, and "Enforce HTTPS" is working.
 
 ---
 
 ## P0: fix first
 
-### 1. ~~Domain mismatch: `sportmassage.pl` vs `sportmassage.github.io`~~ (fixed)
-Fixed in code, see "Done since the first review". Remaining manual step: check that Pages has "Enforce HTTPS" enabled for the custom domain.
+### 2. Phone number and brand on the entrance photo contradict the site (still open, re-verified)
+`assets/img/entrance.jpg` (shown in the contacts section) still shows the sign "Centrum Masażu i Refleksologii" with phone **506 008 206** on the door and the wall sign, plus "fizjoterapia, bańki lekarskie" and "Leczymy i relaksujemy". The site says **+48 731 532 331** and the brand "Dmitry"; physiotherapy and cupping are not offered here.
 
-### 2. Phone number and brand on the entrance photo contradict the site
-`assets/img/entrance.jpg` shows the sign "Centrum Masażu i Refleksologii" with phone **506 008 206**. The site says **+48 731 532 331** and uses the brand "Dmitry". The sign also advertises "fizjoterapia, bańki lekarskie", which aren't offered here.
+**Change:** explain it on the page (e.g. a caption "Gabinet w Centrum Masażu i Refleksologii, szyld po lewej") or retake or crop the photo so no foreign phone number is visible. Make sure the number customers should use is the one on the site.
 
-**Change:** explain it on the page ("Gabinet w Centrum Masażu i Refleksologii, szyld: …") or retake or crop the photo. Make sure the number you want customers to use is the one on the site.
+### 5. Contradictory durations and name (still open, re-verified in the output)
+- Children's massage: card says **45 min** (`s5_time`), the pricing card "Masaż do wyboru" (which lists "dziecięcy") says **60 minut** (`time_60`).
+- Kinesiotaping: **30–45 minut** is now the same in the HTML and all locales, but it is still an unconfirmed value. The service card (`s2_time`) shows only "Aplikacja • 100 zł".
+- Name: "Dmitry" (brand, title, header), "Dzmitry" (Polish About text and `meta_description`), "Дмитро" / "Дмитрий" (UA / RU).
 
-### 3. ~~Missing translation key `proc_title`~~ (fixed)
-Fixed in `assets/js/translations.js`, see "Done since the first review". The `#process` heading now translates for all four locales (EN: "What to expect", UA: "Чого очікувати", RU: "Чего ожидать").
-
-### 4. ~~Analytics and third-party requests without consent (Poland/EU)~~ (fixed)
-Fixed in code, see "Done since the first review". On first load the page now makes no request to Google or any other third party (checked in headless Edge: 0 external requests, banner shown). Remaining manual steps:
-
-- Have the privacy policy checked, and add the full business name, NIP and an email address to `priv_1_p` if you want them there. It currently names only "Dmitry", the address and the phone number.
-- Optional, in GA4: turn off Google signals and set event data retention to the shortest value (Admin → Data collection and modification).
-- Visitors who accept are counted; those who reject or ignore the banner are not, so expect lower GA4 numbers.
-
-### 5. Contradictory durations and text
-- Kinesiotaping: the HTML fallback used to say 15–20 minut; it now matches the translations (**30–45**), but that is still the unconfirmed value: check the real duration.
-- Children's massage: the card says **45 min**, but the pricing card says "Masaż do wyboru, 60 minut".
-- Name: "Dmitry" (brand) vs "Dzmitry" (About text) vs "Дмитро" (UA).
-
-**Change:** decide the real values and use one source of truth (`translations.js`).
+**Change:** decide the real values and edit them once in `translations.js` (all four locales). Use one spelling in the PL About text and meta description.
 
 ---
 
 ## P1: important
 
-### 6. Trust content is missing
-- No photo of the masseur.
-- "Certyfikaty" is claimed, but no certificate or qualification is shown.
-- No reviews or testimonials, no opening hours, no FAQ, no cancellation policy, no contraindications note.
-- Don't publish claims you can't back up. ("Setki zadowolonych osób" was removed from the HTML fallback in #8; the "5+ lat" and "certyfikowany" claims still need evidence.)
+### 6. Trust content and claims (still open)
+- No photo of the masseur. "Certyfikaty" / "Certyfikowany masażysta" / "5+ lat praktyki" are claimed but no certificate, school or year is shown.
+- No reviews, no opening hours (not on the page and not in JSON-LD), no FAQ, no cancellation policy, no contraindications note.
+- Health-claim wording to review: "likwidacja bólu pleców" (hero), "pomoc przy skoliozie", "redukuje obrzęki", "Wsparcie stawów i drenaż 24/7" (and its translations). Prefer "łagodzi / pomaga przy" and remove "24/7".
 
-### 7. Photos
-- `workplace.jpg`: portrait phone shot with harsh ceiling lights, a visible bin and a bare couch, then cropped to landscape (`object-cover`). Retake it in natural light, tidy, ideally with a landscape crop.
-- Both `<img>` tags lack `width`/`height` (layout shift). Neither uses WebP/AVIF. `entrance.jpg` is not `loading="lazy"`.
-- Alt text is Polish-only and not translated.
+**Change:** add what you can prove (certificate names and years, link or photo), a short "godziny pracy" line, and soften the claims above. Don't publish claims you can't back up.
 
-### 8. ~~Translations: fallback HTML and `pl` disagree~~ (fixed)
-The HTML fallback is now identical to `pl` for every `data-i18n` element (the Russian "Записаться" on the final button, `final_title`, `adv_2_d`, `nav_process`, `p3_time`, `s3_desc`, `s5_desc`, and the "→" in `btn_book_sm`; the arrow was never visible at runtime). If a differing fallback is ever added again, the i18n drift check in P2 would catch it.
+### 7. Photos (still open, details added)
+- Both photos are small portrait phone shots: `workplace.jpg` is 498x1080, `entrance.jpg` is 508x998. The hero image is shown at about 470x384 CSS px as a landscape crop (`object-cover`), so it is upscaled and soft on 2x/3x screens.
+- `og:image` / `twitter:image` / JSON-LD `image` all use the portrait `workplace.jpg`: social cards will be cropped badly. Recommended: a landscape image of at least 1200x630.
+- `workplace.jpg`: harsh ceiling lights, visible bin, bare couch. Retake in natural light and tidy, landscape.
+- Neither `<img>` has `width` / `height` (layout shift); no WebP/AVIF; `entrance.jpg` has no `loading="lazy"`.
+- Alt text is now translated (`alt_workplace`, `alt_entrance` exist in all four locales). The old note that it was Polish-only is obsolete.
 
-### 9. ~~Hardcoded, untranslated strings~~ (fixed)
-Added keys `hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note` and `footer_text` in `pl`, `ua`, `ru` and `en`. Each price line has its own key so durations can change independently (see #5, children's massage 45 vs 60 min).
+**Change:** new landscape photos (about 1200–1600px wide), export WebP with a JPEG fallback, add `width`/`height`, `loading="lazy"` on the entrance photo, a separate `assets/img/og-image.jpg` (1200x630) for the social tags and JSON-LD.
 
-### 10. ~~Dead translation keys~~ (fixed)
-Deleted `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag` from all four locales. `price_note` is now displayed under the price cards. Remove that `<p>` and the key if you don't want to promise "cash or BLIK".
+### 14. Local SEO and structured data (partly stale, still open)
+- JSON-LD already has `url` now (the old note said it did not). Still missing: `openingHours`, `sameAs` (Telegram channel), `hasMap`, `@id`.
+- JSON-LD `name` is "Dmitry — Masaż & Kinesiotaping Warszawa Mokotów" in every language: it is a keyword string, not a business name, and it is Polish on `/uk/`, `/ru/`, `/en/`. Use the real name ("Dmitry Masaż") and keep the keywords in `description`.
+- `geo` is 52.2008, 21.0084: not verified, check it against the pin on Google Maps for Kazimierzowska 69.
+- The H1 does not contain "Warszawa / Mokotów" (only the badge above it does).
+- Create a **Google Business Profile** and link it from the page: for a local one-room business this has the largest effect on traffic.
+- `<meta name="keywords">` is ignored by Google; delete it (and the `meta_keywords` keys). The template fallback still has the typo "teypowanie" while `pl` has "tejpowanie" (the build ships the `pl` value, see #28).
 
-### 11. ~~Only Polish is indexable~~ (fixed)
-`npm run build` now generates `/` (pl), `/uk/`, `/ru/` and `/en/` from the Polish templates (`scripts/build-site.mjs`), each with its own `privacy.html`. Every page has a translated title, description, Open Graph/Twitter tags and JSON-LD, a self-referencing `canonical`, and `hreflang` links for all four languages plus `x-default` (Polish). `sitemap.xml` is generated with the alternates. The language buttons are real links, there is no flash of Polish, and the old auto-detect was replaced by a dismissible suggestion banner (no redirects).
+### 15. Booking is messenger-only (still open, re-verified)
+All 13 `wa.me` links are the bare `https://wa.me/48731532331`, with no prefilled text, so you can't tell which service was wanted. Nine of them say only "Zapisz się" / "Book Now" (screen-reader users hear "Zapisz się" nine times, WCAG 2.4.4).
 
-Still to do by hand: have the `ru` / `uk` meta descriptions read by a native speaker, add the new URLs in Google Search Console, and resubmit the sitemap.
+**Change:** `https://wa.me/48731532331?text=<urlencoded text>` per service (e.g. "Dzień dobry, chcę się umówić na masaż sportowy"), per-language text from `translations.js`, plus `aria-label="Zapisz się: Masaż Sportowy"` on the service buttons. Consider an online-booking link (Booksy or a calendar) next to the messengers. See #21 for tracking by service.
 
-### 12. ~~`unpkg.com/lucide@latest`~~ (fixed)
-Replaced with inline SVGs for the 10 icons used (copied from Lucide, ISC licence); the script and `lucide.createIcons()` are gone. Fixed together with P0 #4.
-
-### 13. ~~Fixed header covers anchor targets~~ (fixed)
-The original claim was overstated. Measured in headless Edge at 1280px (after an anchor jump, with smooth scroll off): the 65px header never hid a heading, because the sections have 80px of top padding (`py-20`). Headings landed at 80–81px (about, services, pricing, contacts). Only `#process` (`py-16`) sat flush against the header (65px, no clearance).
-
-Fixed by adding `scroll-mt-4` to `#process`, so it now lands at 81px like the others. `scroll-mt-20` on every section, as first suggested, would have pushed the headings to about 160px, so it was not used. If a section is added later, give it enough `scroll-mt-*` + padding to clear the 65px header.
-
-### 14. Local SEO and structured data
-- JSON-LD lacks `url`, `openingHours`, `sameAs` (Telegram) and `hasMap`.
-- The H1 doesn't contain "Warszawa / Mokotów" (only the badge does).
-- Create a **Google Business Profile** and link it. For a local one-room business this has the largest effect on traffic.
-- `<meta keywords>` has a typo ("teypowanie"). Google ignores that tag anyway, so you can delete it.
-
-### 15. Booking is messenger-only
-WhatsApp links have no prefilled text, so you can't tell which service was wanted.
-
-**Change:** `https://wa.me/48731532331?text=…` per service (and track by service in GA4). Consider an online-booking link (Booksy or a calendar) next to the messengers.
+### 16. Privacy policy is not complete under RODO Art. 13 (new; extends the manual step in the old #4)
+`priv_1_p` names only "Dmitry", the address and the phone number. Missing: the full business name and NIP (or confirmation that a natural person is the controller), an email, retention periods (how long messages and phone numbers are kept, how long GA4 data is kept), recipients (Google, Meta/WhatsApp, Telegram, GitHub), the legal basis for the transfer to the USA (e.g. EU-US Data Privacy Framework), and whether giving the data is voluntary.
+**Change:** have the policy checked by someone qualified and add the items above to `priv_1_p` … `priv_7_p` in all four locales. Optional, in GA4: turn off Google signals and set event data retention to the shortest value.
 
 ---
 
 ## P2: polish and maintenance
 
-Each item below was done on its own branch from `main` (not merged yet; the branches don't conflict with each other).
+### 17. Language banner covers the section headings after an anchor jump (new, measured)
+`#lang-suggest` is `fixed top-16` and occupies y = 72–134px at 1280px and 72–190px at 375px (measured with `preferred_lang=ru`). After clicking a nav link the section headings land at y = 80–109px (about 109, services 80, process 81, pricing 80, contacts 109), i.e. **under** the banner until it is dismissed. Same on mobile, where the banner is 118px tall.
 
-- [x] ~~**Heading order**~~ (fixed, branch `fix/process-heading-order`): the four process steps are `h3` now, so the outline is h1 → h2 → h3 everywhere.
-- [x] ~~**Language buttons**~~ (already fixed by the multilingual pages, no extra branch): the buttons are real `<a href>` links without inline `onclick`; the click listener in `app.js` is delegated (`a[data-lang]`), and the build marks the current language with `aria-current="true"` and `.active`. `aria-pressed` would be wrong for links, `aria-current` is the right one.
-- [x] ~~**Skip link and focus**~~ (fixed, branch `feature/skip-link-focus-styles`): a "Skip to content" link (key `skip_link`, 4 locales) is the first focusable element on both pages and targets `<main id="main">`; a global `:focus-visible` outline in teal; the ✓ marks in the service and price lists are `aria-hidden`.
-- [x] ~~**Colour contrast**~~ (measured, no change needed): WCAG contrast ratios of the theme tokens. `text-theme-muted` (#94A3B8) on `bg-theme-base` 7.38:1, `surface` 6.89:1, `card` 6.48:1, `card-hover` 5.88:1, all at least AA (4.5:1). The other text colours (white, ink, teal, sky, sand) are 7:1 or more on every background, and the dark text on the teal and sand buttons and badges is 7.25–10.07:1. The lowest pair is 5.77:1 (teal-dark on card-hover, only a hover colour). Not measured: text over the hero photos or gradients, and anything on a real device.
-- [x] ~~**`.gitignore`**~~ (fixed, branch `chore/trim-gitignore`): the Visual Studio / .NET / NuGet entries are gone; it keeps Node, the generated CSS and `_site/`, editor and OS files, and the Claude Code files.
-- [x] ~~**Line endings**~~ (fixed, branch `chore/gitattributes`): `.gitattributes` with `* text=auto`. No file changes (the index already stores LF). If the "LF will be replaced by CRLF" warning still shows for files an editor saved with LF, use `* text=auto eol=lf` instead, which keeps LF in the working tree too.
-- [ ] **CI not yet exercised** (partly done, branch `chore/ci-pin-node-dependabot`): Node is pinned in `.nvmrc` (22, read by the workflow via `node-version-file`; `engines` in `package.json`), and `.github/dependabot.yml` updates npm and the GitHub Actions monthly (Tailwind major bumps are ignored, v4 would need a config migration). **Settings → Pages → Source** is already set to GitHub Actions. Still to do by hand: run the workflow once (Actions → Deploy to GitHub Pages → Run workflow) and confirm that `https://sportmassage.pl/` loads with styles.
-- [x] ~~**i18n drift check**~~ (fixed, branch `feature/check-i18n-script`): `npm run check:i18n` (= `node scripts/build-site.mjs --check`) runs the build's validation without building anything. It fails when a `data-i18n` key is missing or empty in any locale and when a template's inline Polish text differs from `pl`; the normal build still only warns about the latter. Checked by breaking a key and a fallback on purpose.
-- [x] ~~**`sitemap.xml` `lastmod`**~~ (fixed, branch `feature/sitemap-lastmod`): every URL has `<lastmod>` = date of the last git commit that touched its template or `translations.js`. The deploy workflow checks out with `fetch-depth: 0` so that the dates are real (a shallow clone would give every page the latest commit's date).
-- [x] ~~**Cache-buster**~~ (fixed, branch `chore/stamp-asset-versions`): the manual `?v=1.1` / `?v=3` are removed from the templates; the build adds `?v=<8-char content hash>` to the `tailwind.min.css` and `app.js` links of every generated page.
+**Change (pick one):** show it at the bottom instead (stacked with the consent banner, and show only one banner at a time: consent first, language after the choice); or make the banner part of the fixed `<header>` so the header grows and use `scroll-padding-top` / larger `scroll-mt-*` to match; or hide it on the first anchor click or scroll.
+
+### 18. Language banner: close button is off-screen on very narrow phones (new, measured)
+At a 320px viewport the close button's right edge is at 335px (15px beyond the screen) when the suggested language is Russian, Ukrainian or English from the Polish page (long label, `shrink-0` on the link and the button, `px-4` x 2). The banner can't be dismissed there. At 360px it fits (right edge 335 of 360).
+
+**Change:** in `index.html` / `privacy.html` (`#lang-suggest`) add `flex-wrap`, `min-w-0` on the text, remove `shrink-0` from `#lang-suggest-go`, or put the close button in the top right corner with `absolute`.
+
+### 19. Touch targets below 44px (new; the "Done" claim was too broad)
+Measured heights: header logo link 24–28px, `tel:` links 20px (contacts block and footer), desktop nav links 20px (xl only). They break the project rule (`min-h-11`) and, for the phone links and nav, the WCAG 2.5.8 minimum of 24px.
+
+**Change:** add `inline-flex items-center min-h-11` to the logo link, both `tel:` links and the five desktop nav links. Inline links inside sentences (e.g. "Polityka prywatności" in the consent text) can stay.
+
+### 20. Re-accepting analytics loads gtag.js twice (new, tested)
+Accept, then "Ustawienia cookies" > Odrzucam, then accept again in the same page view: `app.js` (`setConsent`, `loadAnalytics`) resets `analyticsLoaded` to `false` on reject, so the second accept appends a **second** `<script src=…googletagmanager…>` (2 scripts in the DOM, measured) and runs `gtag('js')` + `gtag('config')` again, which can send a second `page_view`.
+
+**Change:** keep the script element (or a `gtagScriptAdded` flag) and add it only once; on re-grant send only `gtag('consent','update',…)`, and call `config` only the first time.
+
+### 21. GA4 `location` is too coarse (new, tested)
+`getElementLocation()` uses the closest `section` **id**. The hero and the final CTA sections have no id, so both report `location: "page"`; the 5 service buttons all report `services`, the 3 price buttons `pricing`. You can't tell hero from final CTA or which service was clicked.
+
+**Change:** give those two sections ids (`hero`, `final-cta`), add `data-service="sport|kinesio|classic|aesthetic|kids|combo"` on the booking links and pass it as an event parameter. Also: `const location` inside the click handler shadows `window.location` (harmless, rename to `where`).
+
+### 22. Mobile menu: Escape and outside click do nothing (new, tested)
+`Escape` leaves the menu open (`aria-expanded` stays `true`); a click outside does not close it either. The menu is 370px tall at 375px wide.
+
+**Change:** in `app.js` add `keydown` (Escape) and outside-click handlers that close the menu and return focus to `#mobile-menu-btn`.
+
+### 23. Keyboard users reach the consent banner last (new)
+`#analytics-notice` is the last element in the DOM, so Tab goes through the whole page first. (The language banner is early in the DOM and is fine.)
+
+**Change:** move the banner markup right after the skip link in both templates (it is `fixed`, the visual position does not change), or move focus to its first button when it is shown. Add `aria-live` / `role="region"` if you want screen readers to hear it.
+
+### 24. No `prefers-reduced-motion` handling (new, verified: 0 matches in the compiled CSS)
+`<html class="scroll-smooth">`, `.card-hover` (lift), `group-hover:scale-105 duration-500` on the entrance photo and `hover:-translate-y-0.5` on the final button all animate regardless of the OS setting.
+
+**Change:** add to `assets/css/style.css`: `@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } *, ::before, ::after { transition: none !important; } }` (or use Tailwind's `motion-safe:` / `motion-reduce:` variants).
+
+### 25. Strings still hardcoded in the templates (new, verified in the output)
+- Header logo suffix "• MASAŻ" is Polish on `/uk/`, `/ru/`, `/en/` (the only leftover Polish word in the Cyrillic pages, apart from "Racławicka" and "zł", which are fine).
+- `aria-label="Menu"` on the burger button, the map iframe title `'Google Maps Kazimierzowska 69 Warszawa'` in `app.js`, the footer "Telegram: @Dmitry_waw".
+
+**Change:** keys `logo_suffix`, `menu_label` (and e.g. `data-i18n-aria-label`; the build already handles any `data-i18n-<attr>`), and `map_title` (embed it in `#lang-data`-style JSON or a `data-title` attribute on `#map-box`).
+
+### 26. No custom 404 page (new, verified on the live site)
+`https://sportmassage.pl/nonexistent` returns the generic GitHub 404 (9379 bytes) with no navigation and no link back.
+
+**Change:** add `404.html` to the page list in `scripts/build-site.mjs` (Polish, with links to `/`, `/uk/`, `/ru/`, `/en/`, `<meta name="robots" content="noindex">`); GitHub Pages serves it automatically from the site root.
+
+### 27. Favicon, theme colour and icons (new)
+The only favicon is an emoji inside a `data:` SVG. Google Search does not use `data:` icons, so the site shows no favicon in search results; there is also no `apple-touch-icon` and no `<meta name="theme-color">`.
+
+**Change:** add `/favicon.ico` (and an SVG or PNG at least 48x48), `apple-touch-icon.png` (180x180) and `<meta name="theme-color" content="#08111F">` to both templates.
+
+### 28. `check:i18n` does not compare attribute fallbacks (new)
+`validate()` in `scripts/build-site.mjs` compares only the text of `data-i18n` elements. The fallbacks in `data-i18n-content` / `-alt` / `-title` are not compared, which is why the stale `teypowanie` in the `meta keywords` fallback (vs. `tejpowanie` in `pl`) went unnoticed. Impact is low because the build always ships the `pl` value.
+
+**Change:** in `validate()`, also loop over `data-i18n-<attr>` and compare `$(el).attr(attr)` with `pl[key]` (same normalisation).
+
+### 29. Workflow hardening (new; replaces the old "CI not yet exercised" item)
+- The first deploy has run: the live pages match the local build, HTTPS redirect works. That item is **closed**.
+- `.github/workflows/deploy.yml` is `workflow_dispatch` only: nothing builds or checks pull requests or pushes. A broken translation would only be caught when you click "Run workflow".
+- `concurrency: cancel-in-progress: true` can cancel a deploy that is already running. GitHub's own Pages template uses `false`.
+- The remote branch `origin/dependabot/github_actions/actions-1c46b08abf` (commit `9c66e33`, 2026-11-16) bumps `checkout` v4 > v7, `setup-node` v4 > v7, `upload-pages-artifact` v3 > v5 and `deploy-pages` v4 > v5. Not merged yet.
+
+**Change:** add a small `ci.yml` (`on: pull_request` and push to non-main branches: `npm ci && npm run check:i18n && npm run build`); set `cancel-in-progress: false`; review the Dependabot bump (look at the release notes of the four actions) and merge it, then run the workflow once and check the log for Node deprecation warnings.
+
+### 30. Translation meaning drifts and awkward words (new; extends #11, needs a native speaker)
+- `hero_title`: UA "перезавантаження вашого тіла" and RU "перезагрузка вашего тела" read as "reboot", PL/EN say "regeneracja / recovery".
+- RU `loc_title` "Запись на сеанс" (booking) vs PL "Zapraszam do gabinetu" (a contact/location heading).
+- `p2_f2`: PL "odciążenie powięzi" (fascia), UA "підтримка м'язів і зв'язок", RU "разгрузка связок и суставов", EN "tendon & muscle offloading": four different claims.
+- Prices stay as Latin "zł" in UA/RU (fine for Polish prices, consider "злотих / PLN" once).
+
+**Change:** have a native reader check the `ua` and `ru` blocks, and align the meaning with `pl`.
+
+### 31. Footer year is hardcoded (new, low)
+`footer_text` says "© 2026" in all four locales; it will be wrong from 1 January 2027.
+
+**Change:** drop the year or let the build replace a `{{year}}` token with `new Date().getFullYear()`.
+
+### 32. Font preload is Latin-only on Cyrillic pages (new, low)
+Both templates preload `manrope-latin-wght-normal.woff2`; on `/uk/` and `/ru/` the text is Cyrillic, so the font that is actually needed (`manrope-cyrillic-…`) is not preloaded and the text may flash in the fallback font first.
+
+**Change:** in `scripts/build-site.mjs` add a second preload for the Cyrillic subset on the `ua` / `ru` locales.
+
+### 33. Repo housekeeping (new, low)
+- All 18 local and remote feature branches are merged into `main`; delete them (`git branch -d`, `git push origin --delete …`).
+- `CLAUDE.md` is listed in `.gitignore`, so it is not in the repository or in clones. If you want it shared, remove it from `.gitignore` and commit it.
+- `npm run build:css` prints "caniuse-lite is outdated": run `npx update-browserslist-db@latest` once.
+- `sitemap.xml`: `<changefreq>` and `<priority>` are ignored by Google (harmless). The privacy pages take their `<lastmod>` from `translations.js`, so any copy change also bumps them.
+
+---
+
+## Done (verified again in this audit)
+
+- [x] Reproducible Tailwind build, colour tokens (`theme.*`), no text below 14px, `<main>` landmark, burger menu `aria-expanded`, no `console.log` in `trackEvent`, manual-only Pages deploy, README, `.gitignore`.
+- [x] P0 #1 domain: `https://sportmassage.pl/…` in canonical, `og:url`, `og:image`, JSON-LD, `robots.txt`, `sitemap.xml`; HTTPS redirect confirmed on the live site.
+- [x] P0 #3 `proc_title` exists in all four locales (`i18n/translations.js`; the old note named `assets/js/translations.js`, which no longer exists).
+- [x] P0 #4 consent and third parties: Consent Mode v2 defaults, GA4 only after "Akceptuję", self-hosted Manrope, click-to-load map, `privacy.html` in 4 languages, "Ustawienia cookies" button. 0 third-party requests on load. Open parts are in #16.
+- [x] P1 #8 / #9 / #10 translations: fallback text equals `pl` (`npm run check:i18n` passes); `hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note`, `footer_text` have keys; no unused keys (the build prints no warnings). Small leftovers are in #25.
+- [x] P1 #11 four indexable language versions (`/`, `/uk/`, `/ru/`, `/en/`) with translated meta, JSON-LD, `canonical`, `hreflang` + `x-default`, a generated sitemap, real language links, a suggestion banner instead of auto-redirect. Still to do by hand: native-speaker check of `ru` / `uk` meta descriptions, add the new URLs in Search Console and resubmit the sitemap (not checked here).
+- [x] P1 #12 `unpkg.com/lucide@latest` removed; inline SVG icons.
+- [x] P1 #13 anchor offset: `#process` has `scroll-mt-4`; measured heading positions after an anchor jump: 80–81px (about and contacts 109px because of the small tag above the heading). Still affected by the language banner, see #17.
+- [x] P2 heading order (h1 > h2 > h3), language buttons are real links with `aria-current`, skip link and `:focus-visible` outline, colour contrast (numbers re-computed), `.gitignore`, `.gitattributes`, `check:i18n`, `sitemap.xml` `<lastmod>` (live sitemap shows 2026-11-16), content-hash `?v=` cache-buster (live pages carry `?v=ce82d4fa` / `?v=9aed967e`), Node pinned in `.nvmrc`, Dependabot config. All of these branches are merged into `main`; the older note "not merged yet" is obsolete.
+- [x] 44px touch targets: done for buttons and for the links in sections, **not** for the logo link, the `tel:` links and the desktop nav (see #19).
 
 ---
 
 ## Suggested order
 
-1. P0 #1, #3, #5 (small edits, no decisions needed except the real durations and name)
-2. P0 #2 and P1 #6, #7 (needs your photos and facts)
-3. ~~P0 #4 (consent and self-hosted fonts)~~ done
-4. ~~P1 #8–#10~~ done; ~~P1 #13~~ done; P1 #15 (code cleanup)
-5. P1 #14 (SEO structure); ~~P1 #11~~ done; the P2 list is done except the first CI run (manual)
+1. P0 #2 and #5 (need your decisions: real durations, name spelling, how to handle the entrance photo).
+2. P1 #16 (privacy policy), #6 and #7 (need your facts, certificates and new photos), #14 (SEO structure, Google Business Profile), #15 (prefilled WhatsApp text).
+3. P2 quick code fixes, one small branch each: #17 + #18 (language banner), #19 (touch targets), #20 (double gtag), #22 + #23 (menu and banner keyboard), #24 (reduced motion), #25 (hardcoded strings), #28 (check:i18n for attributes).
+4. P2 build and infra: #26 (404.html), #27 (favicons), #29 (CI check and Dependabot merge), #31, #32.
+5. Content review by a native speaker: #30. Housekeeping: #33.
