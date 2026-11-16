@@ -42,7 +42,7 @@ All copy lives in two places that must stay in sync:
 1. `index.html` and `privacy.html`: each translatable element has `data-i18n="<key>"`, and its inline text is the Polish fallback. `data-i18n-<attr>="<key>"` translates an attribute instead (`alt`, `title`, `content` of meta tags).
 2. `i18n/translations.js`: the `i18n` object with `pl`, `ua`, `ru` and `en` blocks. Add or change the key in **all four**.
 
-`scripts/build-site.mjs` (run by `npm run build`) fills a copy of each template per language and fails the build if a key is missing in any locale. It also sets `<html lang>`, the title, meta/Open Graph tags, JSON-LD, `canonical` and `hreflang` links, and writes `sitemap.xml`. Ukrainian is `ua` in the code and in `localStorage`, but its URL and `hreflang` are `uk`.
+`scripts/build-site.mjs` (run by `npm run build`) fills a copy of each template per language and fails the build if a key is missing in any locale. It also sets `<html lang>`, the title, meta/Open Graph tags, JSON-LD, `canonical` and `hreflang` links, adds a content-hash `?v=` cache-buster to the stylesheet and script links (the templates link them without it, so there is nothing to bump by hand), and writes `sitemap.xml`. Ukrainian is `ua` in the code and in `localStorage`, but its URL and `hreflang` are `uk`.
 
 `npm run check:i18n` runs only that validation (no build, no CSS needed) and is stricter: it also fails when the inline Polish text in a template differs from `pl`. Run it after editing copy.
 
