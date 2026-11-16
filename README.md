@@ -24,7 +24,7 @@ Fonts (Manrope) and icons (inline SVG) are self-hosted. The only third-party req
 
 ## Deploy
 
-Deploys are **manual**; pushing to `main` does not publish anything. To publish: open the repository on GitHub, go to **Actions → Deploy to GitHub Pages → Run workflow**, and pick `main`. The workflow (`.github/workflows/deploy.yml`) runs `npm ci` and `npm run build`, then publishes the generated `_site/` folder to GitHub Pages.
+Deploys are **manual**; pushing to `main` does not publish anything. To publish: open the repository on GitHub, go to **Actions → Deploy to GitHub Pages → Run workflow**, and pick `main`. The workflow (`.github/workflows/deploy.yml`) runs `npm ci` and `npm run build`, then publishes the generated `_site/` folder to GitHub Pages. It checks out the full git history because `sitemap.xml` takes each page's `<lastmod>` from the last commit that touched its template or `translations.js`.
 
 One-time setup: in the repository go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**. Do this *before* merging the workflow into `main`. The old "Deploy from a branch" mode would serve the site without CSS, because the CSS is no longer in git.
 
