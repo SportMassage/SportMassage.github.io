@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # tailwindcss, cheerio
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    ignore:
+      # Tailwind v4 drops tailwind.config.js and the CLI used by `npm run build:css`; migrate by hand.
+      - dependency-name: tailwindcss
+        update-types: ["version-update:semver-major"]
+    groups:
+      npm:
+        patterns: ["*"]
+
+  # actions/checkout, setup-node, upload-pages-artifact, deploy-pages
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
