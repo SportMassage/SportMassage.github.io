@@ -3,6 +3,10 @@
 //   {uk,ru,en}/index.html, privacy.html                 ->  /uk/, /ru/, /en/ (+ /privacy.html in each)
 // Each page is a copy of the Polish template (index.html / privacy.html in the repo root) with
 // the text taken from i18n/translations.js. Run `npm run build:css` first (npm run build does both).
+//
+// `node scripts/build-site.mjs --check` (npm run check:i18n) only validates the translations and
+// writes nothing: it fails when a data-i18n key is missing in a locale, and also when the inline
+// Polish fallback in a template differs from `pl` (the normal build only warns about that).
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -34,6 +38,8 @@ const EXTRA_KEYS = ['lang_suggest_text', 'lang_suggest_go', 'lang_suggest_close'
 const pageUrl = (locale, page) => locale.prefix + page.urlPath;
 const absUrl = (locale, page) => SITE + pageUrl(locale, page);
 const normalize = (s) => s.replace(/\s+/g, ' ').trim();
+
+const CHECK_ONLY = process.argv.includes('--check');
 
 const errors = [];
 const warnings = [];
@@ -83,14 +89,16 @@ function validate(i18n, templates) {
         if (!used.has(k)) warnings.push(`unused key "${k}" (no template or build step uses it)`);
     }
 
-    // The template's inline text is the Polish fallback; warn when it drifts from pl.
+    // The template's inline text is the Polish fallback; it must not drift from pl
+    // (a warning in the build, an error with --check).
+    const drift = CHECK_ONLY ? errors : warnings;
     const pl = i18n[DEFAULT_LOCALE.key];
     for (const { file, $ } of templates) {
         $('[data-i18n]').each((_, el) => {
             const key = $(el).attr('data-i18n');
             if (typeof pl[key] !== 'string') return;
             const expected = normalize(cheerio.load(`<div>${pl[key]}</div>`)('div').text());
-            if (normalize($(el).text()) !== expected) warnings.push(`${file}: inline text of "${key}" differs from pl`);
+            if (normalize($(el).text()) !== expected) drift.push(`${file}: inline text of "${key}" differs from pl`);
         });
     }
 }
@@ -208,7 +216,7 @@ ${urls.join('\n')}
 }
 
 function main() {
-    if (!fs.existsSync(path.join(ROOT, 'assets/css/tailwind.min.css'))) {
+    if (!CHECK_ONLY && !fs.existsSync(path.join(ROOT, 'assets/css/tailwind.min.css'))) {
         console.error('assets/css/tailwind.min.css is missing: run `npm run build:css` (or `npm run build`).');
         process.exit(1);
     }
@@ -224,6 +232,11 @@ function main() {
     if (errors.length) {
         errors.forEach(e => console.error('error: ' + e));
         process.exit(1);
+    }
+
+    if (CHECK_ONLY) {
+        console.log(`i18n OK: ${LOCALES.length} locales, ${templates.length} templates${warnings.length ? `, ${warnings.length} warning(s)` : ''}`);
+        return;
     }
 
     fs.rmSync(OUT, { recursive: true, force: true });

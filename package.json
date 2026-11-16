@@ -10,6 +10,7 @@
     "build": "npm run build:css && npm run build:pages",
     "build:css": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --minify",
     "build:pages": "node scripts/build-site.mjs",
+    "check:i18n": "node scripts/build-site.mjs --check",
     "watch": "tailwindcss -c tailwind.config.js -i assets/css/style.css -o assets/css/tailwind.min.css --watch"
   },
   "devDependencies": {
