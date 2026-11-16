@@ -44,6 +44,8 @@ All copy lives in two places that must stay in sync:
 
 `scripts/build-site.mjs` (run by `npm run build`) fills a copy of each template per language and fails the build if a key is missing in any locale. It also sets `<html lang>`, the title, meta/Open Graph tags, JSON-LD, `canonical` and `hreflang` links, and writes `sitemap.xml`. Ukrainian is `ua` in the code and in `localStorage`, but its URL and `hreflang` are `uk`.
 
+`npm run check:i18n` runs only that validation (no build, no CSS needed) and is stricter: it also fails when the inline Polish text in a template differs from `pl`. Run it after editing copy.
+
 There is no runtime translation. `assets/js/app.js` shows a dismissible banner that suggests the page in the visitor's saved or browser language (it never redirects), and stores an explicit language choice in `localStorage`. It also handles the cookie-consent banner (GA4 loads only after the visitor accepts), the click-to-load map, and GA4 click events (WhatsApp, Telegram, phone) by matching link URLs, so update the matchers there if you change those links.
 
 ## Structure
