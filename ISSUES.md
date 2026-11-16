@@ -1,6 +1,6 @@
 # Site review: issues and required changes
 
-Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`, P1 #13 on `fix/anchor-scroll-offset`). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Not checked: real-device behaviour, Lighthouse scores, colour contrast ratios, and the GitHub Actions deploy (it hasn't been run yet).
+Re-checked on `main` on 2026-11-16 (P0 #4 and P1 #12 fixed on branch `fix/privacy-consent`, P1 #8–#10 on `fix/translation-fallbacks`, P1 #13 on `fix/anchor-scroll-offset`; the P2 items on the branches listed under "P2" below, each one branch per item, not yet merged). The page text and both photos were reviewed, and the i18n keys were compared against `index.html` with a script. The layout was checked in headless Edge at 320–1440px. Colour contrast was measured with a script (WCAG formula, see P2). Not checked: real-device behaviour, Lighthouse scores, and the GitHub Actions deploy (it hasn't been run yet).
 
 Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = polish.
 
@@ -19,6 +19,7 @@ Priority: **P0** = fix now (trust, legal, broken), **P1** = important, **P2** = 
 - [x] P0 #3 missing `proc_title`: added to `pl`, `ua`, `ru` and `en` in `translations.js`
 - [x] P0 #4 consent and third-party requests: cookie banner with Consent Mode v2 (GA4 loads only after "Akceptuję"), Manrope self-hosted in `assets/fonts/`, Google Maps loads only after a click, `privacy.html` added (4 languages), footer "Ustawienia cookies" button to change or withdraw consent. Also removed `unpkg.com/lucide@latest` by inlining the icons as SVG, which fixes P1 #12.
 - [x] P1 #8–#10 translations: the HTML fallback text now equals `pl` for every `data-i18n` element (checked with a script, 0 differences). The hero label, the four "time • price" lines, the address note and the footer line got keys (`hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_address_note`, `footer_text`) in all four locales. Removed the unused keys `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag`; `price_note` ("cash or BLIK") is now shown under the price cards. `translations.js` cache-buster bumped to `?v=3`.
+- [x] P2 items (heading order, language buttons, skip link and focus styles, colour contrast, `.gitignore`, `.gitattributes`, i18n check, `sitemap.xml` `lastmod`, cache-buster, Node pin and Dependabot): see the P2 section. Only the first workflow run is still open (the Pages source is already set to GitHub Actions).
 
 ---
 
@@ -101,16 +102,18 @@ WhatsApp links have no prefilled text, so you can't tell which service was wante
 
 ## P2: polish and maintenance
 
-- **Heading order:** the process section jumps from `h2` straight to `h4`; use `h3`.
-- **Language buttons** use inline `onclick`; move to `addEventListener` in `app.js`. Add `aria-pressed` or `aria-current` to the active language.
-- **Skip link** and visible `:focus-visible` styles. The ✓ marks are plain text characters; mark them `aria-hidden` or use list semantics.
-- **Check colour contrast** of `text-theme-muted` (#94A3B8) on `bg-theme-card` / `bg-theme-surface` with a tool. I haven't measured it.
-- **`.gitignore`** is a Visual Studio / .NET template; trim it to what this repo uses.
-- **Line endings:** Git warns about LF→CRLF on every commit. Add a `.gitattributes` (`* text=auto`) to settle it.
-- **CI not yet exercised:** run the workflow once after switching **Settings → Pages → Source** to **GitHub Actions**, and confirm that `https://sportmassage.pl/` loads with styles. Also consider pinning Node and using Dependabot for `tailwindcss` and the actions.
-- **i18n drift check:** add a tiny script (`npm run check:i18n`) that fails if a `data-i18n` key is missing in any locale or the fallback differs from `pl`. The script I used for this review can be the starting point.
-- **`sitemap.xml`** has no `lastmod`; add it once the real domain is set.
-- **Cache-buster:** `?v=1.1` on the stylesheet is now unnecessary under CI. Either drop it or have the build stamp it.
+Each item below was done on its own branch from `main` (not merged yet; the branches don't conflict with each other).
+
+- [x] ~~**Heading order**~~ (fixed, branch `fix/process-heading-order`): the four process steps are `h3` now, so the outline is h1 → h2 → h3 everywhere.
+- [x] ~~**Language buttons**~~ (already fixed by the multilingual pages, no extra branch): the buttons are real `<a href>` links without inline `onclick`; the click listener in `app.js` is delegated (`a[data-lang]`), and the build marks the current language with `aria-current="true"` and `.active`. `aria-pressed` would be wrong for links, `aria-current` is the right one.
+- [x] ~~**Skip link and focus**~~ (fixed, branch `feature/skip-link-focus-styles`): a "Skip to content" link (key `skip_link`, 4 locales) is the first focusable element on both pages and targets `<main id="main">`; a global `:focus-visible` outline in teal; the ✓ marks in the service and price lists are `aria-hidden`.
+- [x] ~~**Colour contrast**~~ (measured, no change needed): WCAG contrast ratios of the theme tokens. `text-theme-muted` (#94A3B8) on `bg-theme-base` 7.38:1, `surface` 6.89:1, `card` 6.48:1, `card-hover` 5.88:1, all at least AA (4.5:1). The other text colours (white, ink, teal, sky, sand) are 7:1 or more on every background, and the dark text on the teal and sand buttons and badges is 7.25–10.07:1. The lowest pair is 5.77:1 (teal-dark on card-hover, only a hover colour). Not measured: text over the hero photos or gradients, and anything on a real device.
+- [x] ~~**`.gitignore`**~~ (fixed, branch `chore/trim-gitignore`): the Visual Studio / .NET / NuGet entries are gone; it keeps Node, the generated CSS and `_site/`, editor and OS files, and the Claude Code files.
+- [x] ~~**Line endings**~~ (fixed, branch `chore/gitattributes`): `.gitattributes` with `* text=auto`. No file changes (the index already stores LF). If the "LF will be replaced by CRLF" warning still shows for files an editor saved with LF, use `* text=auto eol=lf` instead, which keeps LF in the working tree too.
+- [ ] **CI not yet exercised** (partly done, branch `chore/ci-pin-node-dependabot`): Node is pinned in `.nvmrc` (22, read by the workflow via `node-version-file`; `engines` in `package.json`), and `.github/dependabot.yml` updates npm and the GitHub Actions monthly (Tailwind major bumps are ignored, v4 would need a config migration). **Settings → Pages → Source** is already set to GitHub Actions. Still to do by hand: run the workflow once (Actions → Deploy to GitHub Pages → Run workflow) and confirm that `https://sportmassage.pl/` loads with styles.
+- [x] ~~**i18n drift check**~~ (fixed, branch `feature/check-i18n-script`): `npm run check:i18n` (= `node scripts/build-site.mjs --check`) runs the build's validation without building anything. It fails when a `data-i18n` key is missing or empty in any locale and when a template's inline Polish text differs from `pl`; the normal build still only warns about the latter. Checked by breaking a key and a fallback on purpose.
+- [x] ~~**`sitemap.xml` `lastmod`**~~ (fixed, branch `feature/sitemap-lastmod`): every URL has `<lastmod>` = date of the last git commit that touched its template or `translations.js`. The deploy workflow checks out with `fetch-depth: 0` so that the dates are real (a shallow clone would give every page the latest commit's date).
+- [x] ~~**Cache-buster**~~ (fixed, branch `chore/stamp-asset-versions`): the manual `?v=1.1` / `?v=3` are removed from the templates; the build adds `?v=<8-char content hash>` to the `tailwind.min.css` and `app.js` links of every generated page.
 
 ---
 
@@ -120,4 +123,4 @@ WhatsApp links have no prefilled text, so you can't tell which service was wante
 2. P0 #2 and P1 #6, #7 (needs your photos and facts)
 3. ~~P0 #4 (consent and self-hosted fonts)~~ done
 4. ~~P1 #8–#10~~ done; ~~P1 #13~~ done; P1 #15 (code cleanup)
-5. P1 #11, #14 (SEO structure) and the P2 list
+5. P1 #14 (SEO structure); ~~P1 #11~~ done; the P2 list is done except the first CI run (manual)
