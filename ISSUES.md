@@ -73,10 +73,10 @@ Added keys `hero_label`, `s1_time`, `s3_time`, `s4_time`, `s5_time`, `loc_addres
 ### 10. ~~Dead translation keys~~ (fixed)
 Deleted `about_quote`, `btn_book`, `btn_services`, `trust_1`–`trust_3` and `price_tag` from all four locales. `price_note` is now displayed under the price cards. Remove that `<p>` and the key if you don't want to promise "cash or BLIK".
 
-### 11. Only Polish is indexable
-The other languages are swapped in with JS on one URL, so Google never sees them, there is no `hreflang`, and non-Polish visitors get a flash of Polish text.
+### 11. ~~Only Polish is indexable~~ (fixed)
+`npm run build` now generates `/` (pl), `/uk/`, `/ru/` and `/en/` from the Polish templates (`scripts/build-site.mjs`), each with its own `privacy.html`. Every page has a translated title, description, Open Graph/Twitter tags and JSON-LD, a self-referencing `canonical`, and `hreflang` links for all four languages plus `x-default` (Polish). `sitemap.xml` is generated with the alternates. The language buttons are real links, there is no flash of Polish, and the old auto-detect was replaced by a dismissible suggestion banner (no redirects).
 
-**Change:** generate `/en/`, `/ua/` and `/ru/` pages at build time (the Actions workflow is already there) with `hreflang` links, or accept Polish-only SEO.
+Still to do by hand: have the `ru` / `uk` meta descriptions read by a native speaker, add the new URLs in Google Search Console, and resubmit the sitemap.
 
 ### 12. ~~`unpkg.com/lucide@latest`~~ (fixed)
 Replaced with inline SVGs for the 10 icons used (copied from Lucide, ISC licence); the script and `lucide.createIcons()` are gone. Fixed together with P0 #4.

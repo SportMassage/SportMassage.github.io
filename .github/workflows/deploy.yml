@@ -25,14 +25,8 @@ jobs:
           cache: npm
 
       - run: npm ci
+      # Builds the CSS, then generates _site/ (pl, uk, ru and en pages, sitemap.xml, assets, robots.txt, CNAME)
       - run: npm run build
-
-      # Publish only the site files (not node_modules, package.json, etc.)
-      - name: Stage site
-        run: |
-          mkdir _site
-          cp -r index.html privacy.html assets robots.txt sitemap.xml CNAME _site/
-          rm _site/assets/css/style.css
 
       - uses: actions/upload-pages-artifact@v3
         with:
