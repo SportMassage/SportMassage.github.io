@@ -46,14 +46,16 @@ Result in one line: nothing is broken for most visitors; 0 `npm audit` vulnerabi
 
 **Change:** add what you can prove (certificate names and years, link or photo), a short "godziny pracy" line, and soften the claims above. Don't publish claims you can't back up.
 
-### 7. Photos (still open, details added)
-- Both photos are small portrait phone shots: `workplace.jpg` is 498x1080, `entrance.jpg` is 508x998. The hero image is shown at about 470x384 CSS px as a landscape crop (`object-cover`), so it is upscaled and soft on 2x/3x screens.
-- `og:image` / `twitter:image` / JSON-LD `image` all use the portrait `workplace.jpg`: social cards will be cropped badly. Recommended: a landscape image of at least 1200x630.
-- `workplace.jpg`: harsh ceiling lights, visible bin, bare couch. Retake in natural light and tidy, landscape.
-- Neither `<img>` has `width` / `height` (layout shift); no WebP/AVIF; `entrance.jpg` has no `loading="lazy"`.
-- Alt text is now translated (`alt_workplace`, `alt_entrance` exist in all four locales). The old note that it was Polish-only is obsolete.
+### 7. Photos (workplace photo fixed; entrance photo and image markup still open)
+Fixed (workplace photo): a new landscape photo in natural light, tidy room, replaces the old portrait shot. The full-resolution originals (4608x3456) are kept in `source-photos/` (outside `assets/`, so the build does not publish them). Generated from `workplace_new_2.jpg`: `assets/img/workplace-hero.jpg` (1600x1200, 158 KB) is the hero image, and `assets/img/workplace-og.jpg` (1200x630, 85 KB) is used for `og:image`, `twitter:image` and the JSON-LD `image`, with `og:image:width` / `og:image:height` added. The old `workplace.jpg` is no longer referenced (still in `assets/img/` and still published; delete it when you no longer need it).
 
-**Change:** new landscape photos (about 1200–1600px wide), export WebP with a JPEG fallback, add `width`/`height`, `loading="lazy"` on the entrance photo, a separate `assets/img/og-image.jpg` (1200x630) for the social tags and JSON-LD.
+Still open:
+- `entrance.jpg` is a small portrait phone shot (508x998), shown as a landscape crop, so it is upscaled and soft on 2x/3x screens. See #2 for its content.
+- The hero `<img>` has no `width` / `height` (layout shift) and neither image has WebP/AVIF; `entrance.jpg` has no `loading="lazy"`.
+- Optional: `srcset` for the hero (e.g. 800 / 1600 / full-resolution) so phones don't download more than they need; the full-resolution file is not on the page now.
+- Alt text is translated (`alt_workplace`, `alt_entrance` exist in all four locales).
+
+**Change:** retake `entrance.jpg` in landscape (about 1200–1600px wide), export WebP with a JPEG fallback, add `width`/`height`, `loading="lazy"` on the entrance photo.
 
 ### 14. Local SEO and structured data (mostly fixed; Google Business Profile work remains)
 Fixed: JSON-LD `name` is the GBP title "Dmitry — Masaż Sportowy" in every language (keywords stay in the localized `description`); added `@id` (`/#business`), `openingHoursSpecification` (daily 10:00–20:30), `hasMap` and `sameAs` (GBP + Telegram channel); `geo` is now 52.206381, 21.013183 (from the GBP pin); the H1 contains "Warszawa / Mokotów" in all four locales; `<meta name="keywords">` and the `meta_keywords` keys are gone; the contacts card shows the opening hours and links to the Google Maps / GBP listing, and that link is tracked as the GA4 event `click_maps` (matcher on `maps.app.goo.gl` in `app.js`, listed in CLAUDE.md).
@@ -178,6 +180,7 @@ Both templates preload `manrope-latin-wght-normal.woff2`; on `/uk/` and `/ru/` t
 - [x] P1 #12 `unpkg.com/lucide@latest` removed; inline SVG icons.
 - [x] P1 #13 anchor offset: `#process` has `scroll-mt-4`; measured heading positions after an anchor jump: 80–81px (about and contacts 109px because of the small tag above the heading). Still affected by the language banner, see #17.
 - [x] P2 heading order (h1 > h2 > h3), language buttons are real links with `aria-current`, skip link and `:focus-visible` outline, colour contrast (numbers re-computed), `.gitignore`, `.gitattributes`, `check:i18n`, `sitemap.xml` `<lastmod>` (live sitemap shows 2026-11-16), content-hash `?v=` cache-buster (live pages carry `?v=ce82d4fa` / `?v=9aed967e`), Node pinned in `.nvmrc`, Dependabot config. All of these branches are merged into `main`; the older note "not merged yet" is obsolete.
+- [x] P1 #7 (workplace photo only): new landscape hero photo, 1200x630 social image with width/height meta, originals kept in `source-photos/`. The rest of #7 is open.
 - [x] 44px touch targets: done for buttons and for the links in sections, **not** for the logo link, the `tel:` links and the desktop nav (see #19).
 
 ---
